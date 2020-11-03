@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/googleapis/java-analytics-data/compare/v0.3.0...v0.3.1) (2020-11-03)
+
+
+### Documentation
+
+* App+Web properties renamed to GA4 ([#78](https://www.github.com/googleapis/java-analytics-data/issues/78)) ([6a49d40](https://www.github.com/googleapis/java-analytics-data/commit/6a49d40411b4b51ba74e2632e736f239d933c6e5))
+
 ## [0.3.0](https://www.github.com/googleapis/java-analytics-data/compare/v0.2.1...v0.3.0) (2020-10-31)
 
 
