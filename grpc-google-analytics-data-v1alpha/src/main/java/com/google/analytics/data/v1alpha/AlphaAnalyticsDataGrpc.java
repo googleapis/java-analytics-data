@@ -22,13 +22,7 @@ import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
-/**
- *
- *
- * <pre>
- * Google Analytics reporting data service.
- * </pre>
- */
+/** */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler",
     comments = "Source: google/analytics/data/v1alpha/analytics_data_api.proto")
@@ -365,28 +359,10 @@ public final class AlphaAnalyticsDataGrpc {
     return AlphaAnalyticsDataFutureStub.newStub(factory, channel);
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Google Analytics reporting data service.
-   * </pre>
-   */
+  /** */
   public abstract static class AlphaAnalyticsDataImplBase implements io.grpc.BindableService {
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized report of your Google Analytics event data. Reports
-     * contain statistics derived from data collected by the Google Analytics
-     * tracking code. The data returned from the API is as a table with columns
-     * for the requested dimensions and metrics. Metrics are individual
-     * measurements of user activity on your property, such as active users or
-     * event count. Dimensions break down metrics across some common criteria,
-     * such as country or event name.
-     * </pre>
-     */
+    /** */
     public void runReport(
         com.google.analytics.data.v1alpha.RunReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunReportResponse>
@@ -394,17 +370,7 @@ public final class AlphaAnalyticsDataGrpc {
       asyncUnimplementedUnaryCall(getRunReportMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized pivot report of your Google Analytics event data.
-     * Pivot reports are more advanced and expressive formats than regular
-     * reports. In a pivot report, dimensions are only visible if they are
-     * included in a pivot. Multiple pivots can be specified to further dissect
-     * your data.
-     * </pre>
-     */
+    /** */
     public void runPivotReport(
         com.google.analytics.data.v1alpha.RunPivotReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunPivotReportResponse>
@@ -412,14 +378,7 @@ public final class AlphaAnalyticsDataGrpc {
       asyncUnimplementedUnaryCall(getRunPivotReportMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public void batchRunReports(
         com.google.analytics.data.v1alpha.BatchRunReportsRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.BatchRunReportsResponse>
@@ -427,14 +386,7 @@ public final class AlphaAnalyticsDataGrpc {
       asyncUnimplementedUnaryCall(getBatchRunReportsMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple pivot reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public void batchRunPivotReports(
         com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse>
@@ -442,36 +394,14 @@ public final class AlphaAnalyticsDataGrpc {
       asyncUnimplementedUnaryCall(getBatchRunPivotReportsMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns metadata for dimensions and metrics available in reporting methods.
-     * Used to explore the dimensions and metrics. In this method, a Google
-     * Analytics GA4 Property Identifier is specified in the request, and
-     * the metadata response includes Custom dimensions and metrics as well as
-     * Universal metadata.
-     * For example if a custom metric with parameter name `levels_unlocked` is
-     * registered to a property, the Metadata response will contain
-     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
-     * metrics applicable to any property such as `country` and `totalUsers`.
-     * </pre>
-     */
+    /** */
     public void getMetadata(
         com.google.analytics.data.v1alpha.GetMetadataRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.Metadata> responseObserver) {
       asyncUnimplementedUnaryCall(getGetMetadataMethod(), responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * The Google Analytics Realtime API returns a customized report of realtime
-     * event data for your property. These reports show events and usage from the
-     * last 30 minutes.
-     * </pre>
-     */
+    /** */
     public void runRealtimeReport(
         com.google.analytics.data.v1alpha.RunRealtimeReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
@@ -527,13 +457,7 @@ public final class AlphaAnalyticsDataGrpc {
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Google Analytics reporting data service.
-   * </pre>
-   */
+  /** */
   public static final class AlphaAnalyticsDataStub
       extends io.grpc.stub.AbstractAsyncStub<AlphaAnalyticsDataStub> {
     private AlphaAnalyticsDataStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -546,19 +470,7 @@ public final class AlphaAnalyticsDataGrpc {
       return new AlphaAnalyticsDataStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized report of your Google Analytics event data. Reports
-     * contain statistics derived from data collected by the Google Analytics
-     * tracking code. The data returned from the API is as a table with columns
-     * for the requested dimensions and metrics. Metrics are individual
-     * measurements of user activity on your property, such as active users or
-     * event count. Dimensions break down metrics across some common criteria,
-     * such as country or event name.
-     * </pre>
-     */
+    /** */
     public void runReport(
         com.google.analytics.data.v1alpha.RunReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunReportResponse>
@@ -567,17 +479,7 @@ public final class AlphaAnalyticsDataGrpc {
           getChannel().newCall(getRunReportMethod(), getCallOptions()), request, responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized pivot report of your Google Analytics event data.
-     * Pivot reports are more advanced and expressive formats than regular
-     * reports. In a pivot report, dimensions are only visible if they are
-     * included in a pivot. Multiple pivots can be specified to further dissect
-     * your data.
-     * </pre>
-     */
+    /** */
     public void runPivotReport(
         com.google.analytics.data.v1alpha.RunPivotReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunPivotReportResponse>
@@ -588,14 +490,7 @@ public final class AlphaAnalyticsDataGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public void batchRunReports(
         com.google.analytics.data.v1alpha.BatchRunReportsRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.BatchRunReportsResponse>
@@ -606,14 +501,7 @@ public final class AlphaAnalyticsDataGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple pivot reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public void batchRunPivotReports(
         com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse>
@@ -624,21 +512,7 @@ public final class AlphaAnalyticsDataGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns metadata for dimensions and metrics available in reporting methods.
-     * Used to explore the dimensions and metrics. In this method, a Google
-     * Analytics GA4 Property Identifier is specified in the request, and
-     * the metadata response includes Custom dimensions and metrics as well as
-     * Universal metadata.
-     * For example if a custom metric with parameter name `levels_unlocked` is
-     * registered to a property, the Metadata response will contain
-     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
-     * metrics applicable to any property such as `country` and `totalUsers`.
-     * </pre>
-     */
+    /** */
     public void getMetadata(
         com.google.analytics.data.v1alpha.GetMetadataRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.Metadata> responseObserver) {
@@ -648,15 +522,7 @@ public final class AlphaAnalyticsDataGrpc {
           responseObserver);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * The Google Analytics Realtime API returns a customized report of realtime
-     * event data for your property. These reports show events and usage from the
-     * last 30 minutes.
-     * </pre>
-     */
+    /** */
     public void runRealtimeReport(
         com.google.analytics.data.v1alpha.RunRealtimeReportRequest request,
         io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
@@ -668,13 +534,7 @@ public final class AlphaAnalyticsDataGrpc {
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Google Analytics reporting data service.
-   * </pre>
-   */
+  /** */
   public static final class AlphaAnalyticsDataBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<AlphaAnalyticsDataBlockingStub> {
     private AlphaAnalyticsDataBlockingStub(
@@ -688,96 +548,38 @@ public final class AlphaAnalyticsDataGrpc {
       return new AlphaAnalyticsDataBlockingStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized report of your Google Analytics event data. Reports
-     * contain statistics derived from data collected by the Google Analytics
-     * tracking code. The data returned from the API is as a table with columns
-     * for the requested dimensions and metrics. Metrics are individual
-     * measurements of user activity on your property, such as active users or
-     * event count. Dimensions break down metrics across some common criteria,
-     * such as country or event name.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.RunReportResponse runReport(
         com.google.analytics.data.v1alpha.RunReportRequest request) {
       return blockingUnaryCall(getChannel(), getRunReportMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized pivot report of your Google Analytics event data.
-     * Pivot reports are more advanced and expressive formats than regular
-     * reports. In a pivot report, dimensions are only visible if they are
-     * included in a pivot. Multiple pivots can be specified to further dissect
-     * your data.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.RunPivotReportResponse runPivotReport(
         com.google.analytics.data.v1alpha.RunPivotReportRequest request) {
       return blockingUnaryCall(getChannel(), getRunPivotReportMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.BatchRunReportsResponse batchRunReports(
         com.google.analytics.data.v1alpha.BatchRunReportsRequest request) {
       return blockingUnaryCall(getChannel(), getBatchRunReportsMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple pivot reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse batchRunPivotReports(
         com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest request) {
       return blockingUnaryCall(
           getChannel(), getBatchRunPivotReportsMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns metadata for dimensions and metrics available in reporting methods.
-     * Used to explore the dimensions and metrics. In this method, a Google
-     * Analytics GA4 Property Identifier is specified in the request, and
-     * the metadata response includes Custom dimensions and metrics as well as
-     * Universal metadata.
-     * For example if a custom metric with parameter name `levels_unlocked` is
-     * registered to a property, the Metadata response will contain
-     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
-     * metrics applicable to any property such as `country` and `totalUsers`.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.Metadata getMetadata(
         com.google.analytics.data.v1alpha.GetMetadataRequest request) {
       return blockingUnaryCall(getChannel(), getGetMetadataMethod(), getCallOptions(), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * The Google Analytics Realtime API returns a customized report of realtime
-     * event data for your property. These reports show events and usage from the
-     * last 30 minutes.
-     * </pre>
-     */
+    /** */
     public com.google.analytics.data.v1alpha.RunRealtimeReportResponse runRealtimeReport(
         com.google.analytics.data.v1alpha.RunRealtimeReportRequest request) {
       return blockingUnaryCall(
@@ -785,13 +587,7 @@ public final class AlphaAnalyticsDataGrpc {
     }
   }
 
-  /**
-   *
-   *
-   * <pre>
-   * Google Analytics reporting data service.
-   * </pre>
-   */
+  /** */
   public static final class AlphaAnalyticsDataFutureStub
       extends io.grpc.stub.AbstractFutureStub<AlphaAnalyticsDataFutureStub> {
     private AlphaAnalyticsDataFutureStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -804,36 +600,14 @@ public final class AlphaAnalyticsDataGrpc {
       return new AlphaAnalyticsDataFutureStub(channel, callOptions);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized report of your Google Analytics event data. Reports
-     * contain statistics derived from data collected by the Google Analytics
-     * tracking code. The data returned from the API is as a table with columns
-     * for the requested dimensions and metrics. Metrics are individual
-     * measurements of user activity on your property, such as active users or
-     * event count. Dimensions break down metrics across some common criteria,
-     * such as country or event name.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.RunReportResponse>
         runReport(com.google.analytics.data.v1alpha.RunReportRequest request) {
       return futureUnaryCall(getChannel().newCall(getRunReportMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns a customized pivot report of your Google Analytics event data.
-     * Pivot reports are more advanced and expressive formats than regular
-     * reports. In a pivot report, dimensions are only visible if they are
-     * included in a pivot. Multiple pivots can be specified to further dissect
-     * your data.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.RunPivotReportResponse>
         runPivotReport(com.google.analytics.data.v1alpha.RunPivotReportRequest request) {
@@ -841,14 +615,7 @@ public final class AlphaAnalyticsDataGrpc {
           getChannel().newCall(getRunPivotReportMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.BatchRunReportsResponse>
         batchRunReports(com.google.analytics.data.v1alpha.BatchRunReportsRequest request) {
@@ -856,14 +623,7 @@ public final class AlphaAnalyticsDataGrpc {
           getChannel().newCall(getBatchRunReportsMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns multiple pivot reports in a batch. All reports must be for the same
-     * Entity.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse>
         batchRunPivotReports(
@@ -872,21 +632,7 @@ public final class AlphaAnalyticsDataGrpc {
           getChannel().newCall(getBatchRunPivotReportsMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * Returns metadata for dimensions and metrics available in reporting methods.
-     * Used to explore the dimensions and metrics. In this method, a Google
-     * Analytics GA4 Property Identifier is specified in the request, and
-     * the metadata response includes Custom dimensions and metrics as well as
-     * Universal metadata.
-     * For example if a custom metric with parameter name `levels_unlocked` is
-     * registered to a property, the Metadata response will contain
-     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
-     * metrics applicable to any property such as `country` and `totalUsers`.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.Metadata>
         getMetadata(com.google.analytics.data.v1alpha.GetMetadataRequest request) {
@@ -894,15 +640,7 @@ public final class AlphaAnalyticsDataGrpc {
           getChannel().newCall(getGetMetadataMethod(), getCallOptions()), request);
     }
 
-    /**
-     *
-     *
-     * <pre>
-     * The Google Analytics Realtime API returns a customized report of realtime
-     * event data for your property. These reports show events and usage from the
-     * last 30 minutes.
-     * </pre>
-     */
+    /** */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
         runRealtimeReport(com.google.analytics.data.v1alpha.RunRealtimeReportRequest request) {
