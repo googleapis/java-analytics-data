@@ -146,11 +146,21 @@ public class GrpcAlphaAnalyticsDataStub extends AlphaAnalyticsDataStub {
         AlphaAnalyticsDataStubSettings.newBuilder().build(), clientContext, callableFactory);
   }
 
+  /**
+   * Constructs an instance of GrpcAlphaAnalyticsDataStub, using the given settings. This is
+   * protected so that it is easy to make a subclass, but otherwise, the static factory methods
+   * should be preferred.
+   */
   protected GrpcAlphaAnalyticsDataStub(
       AlphaAnalyticsDataStubSettings settings, ClientContext clientContext) throws IOException {
     this(settings, clientContext, new GrpcAlphaAnalyticsDataCallableFactory());
   }
 
+  /**
+   * Constructs an instance of GrpcAlphaAnalyticsDataStub, using the given settings. This is
+   * protected so that it is easy to make a subclass, but otherwise, the static factory methods
+   * should be preferred.
+   */
   protected GrpcAlphaAnalyticsDataStub(
       AlphaAnalyticsDataStubSettings settings,
       ClientContext clientContext,
