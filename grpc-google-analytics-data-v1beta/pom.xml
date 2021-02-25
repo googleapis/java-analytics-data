@@ -31,7 +31,7 @@
     </dependency>
     <dependency>
       <groupId>com.google.api.grpc</groupId>
-      <artifactId>proto-google-analytics-data-v1alpha</artifactId>
+      <artifactId>proto-google-analytics-data-v1beta</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
