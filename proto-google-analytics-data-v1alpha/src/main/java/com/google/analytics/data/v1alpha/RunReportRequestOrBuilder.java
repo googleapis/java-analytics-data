@@ -172,7 +172,8 @@ public interface RunReportRequestOrBuilder
    * Date ranges of data to read. If multiple date ranges are requested, each
    * response row will contain a zero based date range index. If two date
    * ranges overlap, the event data for the overlapping days is included in the
-   * response rows for both date ranges.
+   * response rows for both date ranges. In a cohort request, this `dateRanges`
+   * must be unspecified.
    * </pre>
    *
    * <code>repeated .google.analytics.data.v1alpha.DateRange date_ranges = 4;</code>
@@ -185,7 +186,8 @@ public interface RunReportRequestOrBuilder
    * Date ranges of data to read. If multiple date ranges are requested, each
    * response row will contain a zero based date range index. If two date
    * ranges overlap, the event data for the overlapping days is included in the
-   * response rows for both date ranges.
+   * response rows for both date ranges. In a cohort request, this `dateRanges`
+   * must be unspecified.
    * </pre>
    *
    * <code>repeated .google.analytics.data.v1alpha.DateRange date_ranges = 4;</code>
@@ -198,7 +200,8 @@ public interface RunReportRequestOrBuilder
    * Date ranges of data to read. If multiple date ranges are requested, each
    * response row will contain a zero based date range index. If two date
    * ranges overlap, the event data for the overlapping days is included in the
-   * response rows for both date ranges.
+   * response rows for both date ranges. In a cohort request, this `dateRanges`
+   * must be unspecified.
    * </pre>
    *
    * <code>repeated .google.analytics.data.v1alpha.DateRange date_ranges = 4;</code>
@@ -211,7 +214,8 @@ public interface RunReportRequestOrBuilder
    * Date ranges of data to read. If multiple date ranges are requested, each
    * response row will contain a zero based date range index. If two date
    * ranges overlap, the event data for the overlapping days is included in the
-   * response rows for both date ranges.
+   * response rows for both date ranges. In a cohort request, this `dateRanges`
+   * must be unspecified.
    * </pre>
    *
    * <code>repeated .google.analytics.data.v1alpha.DateRange date_ranges = 4;</code>
@@ -225,7 +229,8 @@ public interface RunReportRequestOrBuilder
    * Date ranges of data to read. If multiple date ranges are requested, each
    * response row will contain a zero based date range index. If two date
    * ranges overlap, the event data for the overlapping days is included in the
-   * response rows for both date ranges.
+   * response rows for both date ranges. In a cohort request, this `dateRanges`
+   * must be unspecified.
    * </pre>
    *
    * <code>repeated .google.analytics.data.v1alpha.DateRange date_ranges = 4;</code>
@@ -237,6 +242,8 @@ public interface RunReportRequestOrBuilder
    *
    * <pre>
    * The row count of the start row. The first row is counted as row 0.
+   * To learn more about this pagination parameter, see
+   * [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
    * </pre>
    *
    * <code>int64 offset = 5;</code>
@@ -249,8 +256,10 @@ public interface RunReportRequestOrBuilder
    *
    *
    * <pre>
-   * The number of rows to return.
-   * If zero or unspecified, all rows are returned.
+   * The number of rows to return. If unspecified, 10 rows are returned. If
+   * -1, all rows are returned.
+   * To learn more about this pagination parameter, see
+   * [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
    * </pre>
    *
    * <code>int64 limit = 6;</code>
@@ -331,7 +340,8 @@ public interface RunReportRequestOrBuilder
    *
    *
    * <pre>
-   * The filter clause of dimensions.
+   * The filter clause of dimensions. Dimensions must be requested to be used in
+   * this filter. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression dimension_filter = 8;</code>
@@ -343,7 +353,8 @@ public interface RunReportRequestOrBuilder
    *
    *
    * <pre>
-   * The filter clause of dimensions.
+   * The filter clause of dimensions. Dimensions must be requested to be used in
+   * this filter. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression dimension_filter = 8;</code>
@@ -355,7 +366,8 @@ public interface RunReportRequestOrBuilder
    *
    *
    * <pre>
-   * The filter clause of dimensions.
+   * The filter clause of dimensions. Dimensions must be requested to be used in
+   * this filter. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression dimension_filter = 8;</code>
@@ -367,7 +379,8 @@ public interface RunReportRequestOrBuilder
    *
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause.
+   * SQL having-clause. Metrics must be requested to be used in this filter.
+   * Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression metric_filter = 9;</code>
@@ -380,7 +393,8 @@ public interface RunReportRequestOrBuilder
    *
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause.
+   * SQL having-clause. Metrics must be requested to be used in this filter.
+   * Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression metric_filter = 9;</code>
@@ -393,7 +407,8 @@ public interface RunReportRequestOrBuilder
    *
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause.
+   * SQL having-clause. Metrics must be requested to be used in this filter.
+   * Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1alpha.FilterExpression metric_filter = 9;</code>
@@ -521,7 +536,9 @@ public interface RunReportRequestOrBuilder
    *
    *
    * <pre>
-   * If false, rows with metrics being 0 will not be returned.
+   * If false or unspecified, each row with all metrics equal to 0 will not be
+   * returned. If true, these rows will be returned if they are not separately
+   * removed by a filter.
    * </pre>
    *
    * <code>bool keep_empty_rows = 13;</code>

@@ -20,21 +20,19 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.analytics</groupId>
   <artifactId>google-analytics-data</artifactId>
-  <version>0.1.0</version>
+  <version>0.5.5</version>
 </dependency>
 ```
 
-[//]: # ({x-version-update-start:google-analytics-data:released})
-
-If you are using Gradle, add this to your dependencies
+If you are using Gradle without BOM, add this to your dependencies
 ```Groovy
-compile 'com.google.analytics:google-analytics-data:0.1.0'
+compile 'com.google.analytics:google-analytics-data:0.5.5'
 ```
+
 If you are using SBT, add this to your dependencies
 ```Scala
-libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.1.0"
+libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.5.5"
 ```
-[//]: # ({x-version-update-end})
 
 ## Authentication
 
@@ -65,6 +63,16 @@ use this Analytics Data Client Library.
 
 
 
+
+
+## Samples
+
+Samples are in the [`samples/`](https://github.com/googleapis/java-analytics-data/tree/master/samples) directory. The samples' `README.md`
+has instructions for running the samples.
+
+| Sample                      | Source Code                       | Try it |
+| --------------------------- | --------------------------------- | ------ |
+| Quickstart Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/master/samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) |
 
 
 
@@ -113,6 +121,8 @@ Java 8 | [![Kokoro CI][kokoro-badge-image-2]][kokoro-badge-link-2]
 Java 8 OSX | [![Kokoro CI][kokoro-badge-image-3]][kokoro-badge-link-3]
 Java 8 Windows | [![Kokoro CI][kokoro-badge-image-4]][kokoro-badge-link-4]
 Java 11 | [![Kokoro CI][kokoro-badge-image-5]][kokoro-badge-link-5]
+
+Java is a registered trademark of Oracle and/or its affiliates.
 
 [product-docs]: https://developers.google.com/analytics/trusted-testing/analytics-data
 [javadocs]: https://googleapis.dev/java/google-analytics-data/latest/index.html

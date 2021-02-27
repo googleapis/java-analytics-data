@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.analytics.data.v1alpha;
 
 import com.google.analytics.data.v1alpha.stub.AlphaAnalyticsDataStub;
@@ -24,23 +25,37 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Generated;
 
-// AUTO-GENERATED DOCUMENTATION AND SERVICE
+// AUTO-GENERATED DOCUMENTATION AND CLASS.
 /**
  * Service Description: Google Analytics reporting data service.
  *
  * <p>This class provides the ability to make remote calls to the backing service through method
  * calls that map to API methods. Sample code to get started:
  *
- * <pre>
- * <code>
+ * <pre>{@code
  * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
- *   RunReportRequest request = RunReportRequest.newBuilder().build();
+ *   RunReportRequest request =
+ *       RunReportRequest.newBuilder()
+ *           .setEntity(Entity.newBuilder().build())
+ *           .addAllDimensions(new ArrayList<Dimension>())
+ *           .addAllMetrics(new ArrayList<Metric>())
+ *           .addAllDateRanges(new ArrayList<DateRange>())
+ *           .setOffset(-1019779949)
+ *           .setLimit(102976443)
+ *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+ *           .setDimensionFilter(FilterExpression.newBuilder().build())
+ *           .setMetricFilter(FilterExpression.newBuilder().build())
+ *           .addAllOrderBys(new ArrayList<OrderBy>())
+ *           .setCurrencyCode("currencyCode1004773790")
+ *           .setCohortSpec(CohortSpec.newBuilder().build())
+ *           .setKeepEmptyRows(true)
+ *           .setReturnPropertyQuota(true)
+ *           .build();
  *   RunReportResponse response = alphaAnalyticsDataClient.runReport(request);
  * }
- * </code>
- * </pre>
+ * }</pre>
  *
- * <p>Note: close() needs to be called on the alphaAnalyticsDataClient object to clean up resources
+ * <p>Note: close() needs to be called on the AlphaAnalyticsDataClient object to clean up resources
  * such as threads. In the example above, try-with-resources is used, which automatically calls
  * close().
  *
@@ -69,30 +84,28 @@ import javax.annotation.Generated;
  *
  * <p>To customize credentials:
  *
- * <pre>
- * <code>
+ * <pre>{@code
  * AlphaAnalyticsDataSettings alphaAnalyticsDataSettings =
  *     AlphaAnalyticsDataSettings.newBuilder()
  *         .setCredentialsProvider(FixedCredentialsProvider.create(myCredentials))
  *         .build();
  * AlphaAnalyticsDataClient alphaAnalyticsDataClient =
  *     AlphaAnalyticsDataClient.create(alphaAnalyticsDataSettings);
- * </code>
- * </pre>
+ * }</pre>
  *
- * To customize the endpoint:
+ * <p>To customize the endpoint:
  *
- * <pre>
- * <code>
+ * <pre>{@code
  * AlphaAnalyticsDataSettings alphaAnalyticsDataSettings =
  *     AlphaAnalyticsDataSettings.newBuilder().setEndpoint(myEndpoint).build();
  * AlphaAnalyticsDataClient alphaAnalyticsDataClient =
  *     AlphaAnalyticsDataClient.create(alphaAnalyticsDataSettings);
- * </code>
- * </pre>
+ * }</pre>
+ *
+ * <p>Please refer to the GitHub repository's samples for more quickstart code snippets.
  */
-@Generated("by gapic-generator")
 @BetaApi
+@Generated("by gapic-generator-java")
 public class AlphaAnalyticsDataClient implements BackgroundResource {
   private final AlphaAnalyticsDataSettings settings;
   private final AlphaAnalyticsDataStub stub;
@@ -113,7 +126,7 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
 
   /**
    * Constructs an instance of AlphaAnalyticsDataClient, using the given stub for making calls. This
-   * is for advanced usage - prefer to use AlphaAnalyticsDataSettings}.
+   * is for advanced usage - prefer using create(AlphaAnalyticsDataSettings).
    */
   @BetaApi("A restructuring of stub classes is planned, so this may break in the future")
   public static final AlphaAnalyticsDataClient create(AlphaAnalyticsDataStub stub) {
@@ -145,7 +158,7 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
     return stub;
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns a customized report of your Google Analytics event data. Reports contain statistics
    * derived from data collected by the Google Analytics tracking code. The data returned from the
@@ -155,12 +168,28 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   RunReportRequest request = RunReportRequest.newBuilder().build();
+   *   RunReportRequest request =
+   *       RunReportRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .addAllDateRanges(new ArrayList<DateRange>())
+   *           .setOffset(-1019779949)
+   *           .setLimit(102976443)
+   *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllOrderBys(new ArrayList<OrderBy>())
+   *           .setCurrencyCode("currencyCode1004773790")
+   *           .setCohortSpec(CohortSpec.newBuilder().build())
+   *           .setKeepEmptyRows(true)
+   *           .setReturnPropertyQuota(true)
+   *           .build();
    *   RunReportResponse response = alphaAnalyticsDataClient.runReport(request);
    * }
-   * </code></pre>
+   * }</pre>
    *
    * @param request The request object containing all of the parameters for the API call.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
@@ -169,7 +198,7 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
     return runReportCallable().call(request);
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns a customized report of your Google Analytics event data. Reports contain statistics
    * derived from data collected by the Google Analytics tracking code. The data returned from the
@@ -179,20 +208,37 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   RunReportRequest request = RunReportRequest.newBuilder().build();
-   *   ApiFuture&lt;RunReportResponse&gt; future = alphaAnalyticsDataClient.runReportCallable().futureCall(request);
-   *   // Do something
+   *   RunReportRequest request =
+   *       RunReportRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .addAllDateRanges(new ArrayList<DateRange>())
+   *           .setOffset(-1019779949)
+   *           .setLimit(102976443)
+   *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllOrderBys(new ArrayList<OrderBy>())
+   *           .setCurrencyCode("currencyCode1004773790")
+   *           .setCohortSpec(CohortSpec.newBuilder().build())
+   *           .setKeepEmptyRows(true)
+   *           .setReturnPropertyQuota(true)
+   *           .build();
+   *   ApiFuture<RunReportResponse> future =
+   *       alphaAnalyticsDataClient.runReportCallable().futureCall(request);
+   *   // Do something.
    *   RunReportResponse response = future.get();
    * }
-   * </code></pre>
+   * }</pre>
    */
   public final UnaryCallable<RunReportRequest, RunReportResponse> runReportCallable() {
     return stub.runReportCallable();
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns a customized pivot report of your Google Analytics event data. Pivot reports are more
    * advanced and expressive formats than regular reports. In a pivot report, dimensions are only
@@ -201,12 +247,25 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   RunPivotReportRequest request = RunPivotReportRequest.newBuilder().build();
+   *   RunPivotReportRequest request =
+   *       RunPivotReportRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllPivots(new ArrayList<Pivot>())
+   *           .addAllDateRanges(new ArrayList<DateRange>())
+   *           .setCurrencyCode("currencyCode1004773790")
+   *           .setCohortSpec(CohortSpec.newBuilder().build())
+   *           .setKeepEmptyRows(true)
+   *           .setReturnPropertyQuota(true)
+   *           .build();
    *   RunPivotReportResponse response = alphaAnalyticsDataClient.runPivotReport(request);
    * }
-   * </code></pre>
+   * }</pre>
    *
    * @param request The request object containing all of the parameters for the API call.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
@@ -215,7 +274,7 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
     return runPivotReportCallable().call(request);
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns a customized pivot report of your Google Analytics event data. Pivot reports are more
    * advanced and expressive formats than regular reports. In a pivot report, dimensions are only
@@ -224,32 +283,50 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   RunPivotReportRequest request = RunPivotReportRequest.newBuilder().build();
-   *   ApiFuture&lt;RunPivotReportResponse&gt; future = alphaAnalyticsDataClient.runPivotReportCallable().futureCall(request);
-   *   // Do something
+   *   RunPivotReportRequest request =
+   *       RunPivotReportRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllPivots(new ArrayList<Pivot>())
+   *           .addAllDateRanges(new ArrayList<DateRange>())
+   *           .setCurrencyCode("currencyCode1004773790")
+   *           .setCohortSpec(CohortSpec.newBuilder().build())
+   *           .setKeepEmptyRows(true)
+   *           .setReturnPropertyQuota(true)
+   *           .build();
+   *   ApiFuture<RunPivotReportResponse> future =
+   *       alphaAnalyticsDataClient.runPivotReportCallable().futureCall(request);
+   *   // Do something.
    *   RunPivotReportResponse response = future.get();
    * }
-   * </code></pre>
+   * }</pre>
    */
   public final UnaryCallable<RunPivotReportRequest, RunPivotReportResponse>
       runPivotReportCallable() {
     return stub.runPivotReportCallable();
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns multiple reports in a batch. All reports must be for the same Entity.
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   BatchRunReportsRequest request = BatchRunReportsRequest.newBuilder().build();
+   *   BatchRunReportsRequest request =
+   *       BatchRunReportsRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllRequests(new ArrayList<RunReportRequest>())
+   *           .build();
    *   BatchRunReportsResponse response = alphaAnalyticsDataClient.batchRunReports(request);
    * }
-   * </code></pre>
+   * }</pre>
    *
    * @param request The request object containing all of the parameters for the API call.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
@@ -258,38 +335,48 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
     return batchRunReportsCallable().call(request);
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns multiple reports in a batch. All reports must be for the same Entity.
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   BatchRunReportsRequest request = BatchRunReportsRequest.newBuilder().build();
-   *   ApiFuture&lt;BatchRunReportsResponse&gt; future = alphaAnalyticsDataClient.batchRunReportsCallable().futureCall(request);
-   *   // Do something
+   *   BatchRunReportsRequest request =
+   *       BatchRunReportsRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllRequests(new ArrayList<RunReportRequest>())
+   *           .build();
+   *   ApiFuture<BatchRunReportsResponse> future =
+   *       alphaAnalyticsDataClient.batchRunReportsCallable().futureCall(request);
+   *   // Do something.
    *   BatchRunReportsResponse response = future.get();
    * }
-   * </code></pre>
+   * }</pre>
    */
   public final UnaryCallable<BatchRunReportsRequest, BatchRunReportsResponse>
       batchRunReportsCallable() {
     return stub.batchRunReportsCallable();
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns multiple pivot reports in a batch. All reports must be for the same Entity.
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   BatchRunPivotReportsRequest request = BatchRunPivotReportsRequest.newBuilder().build();
-   *   BatchRunPivotReportsResponse response = alphaAnalyticsDataClient.batchRunPivotReports(request);
+   *   BatchRunPivotReportsRequest request =
+   *       BatchRunPivotReportsRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllRequests(new ArrayList<RunPivotReportRequest>())
+   *           .build();
+   *   BatchRunPivotReportsResponse response =
+   *       alphaAnalyticsDataClient.batchRunPivotReports(request);
    * }
-   * </code></pre>
+   * }</pre>
    *
    * @param request The request object containing all of the parameters for the API call.
    * @throws com.google.api.gax.rpc.ApiException if the remote call fails
@@ -299,24 +386,219 @@ public class AlphaAnalyticsDataClient implements BackgroundResource {
     return batchRunPivotReportsCallable().call(request);
   }
 
-  // AUTO-GENERATED DOCUMENTATION AND METHOD
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
   /**
    * Returns multiple pivot reports in a batch. All reports must be for the same Entity.
    *
    * <p>Sample code:
    *
-   * <pre><code>
+   * <pre>{@code
    * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
-   *   BatchRunPivotReportsRequest request = BatchRunPivotReportsRequest.newBuilder().build();
-   *   ApiFuture&lt;BatchRunPivotReportsResponse&gt; future = alphaAnalyticsDataClient.batchRunPivotReportsCallable().futureCall(request);
-   *   // Do something
+   *   BatchRunPivotReportsRequest request =
+   *       BatchRunPivotReportsRequest.newBuilder()
+   *           .setEntity(Entity.newBuilder().build())
+   *           .addAllRequests(new ArrayList<RunPivotReportRequest>())
+   *           .build();
+   *   ApiFuture<BatchRunPivotReportsResponse> future =
+   *       alphaAnalyticsDataClient.batchRunPivotReportsCallable().futureCall(request);
+   *   // Do something.
    *   BatchRunPivotReportsResponse response = future.get();
    * }
-   * </code></pre>
+   * }</pre>
    */
   public final UnaryCallable<BatchRunPivotReportsRequest, BatchRunPivotReportsResponse>
       batchRunPivotReportsCallable() {
     return stub.batchRunPivotReportsCallable();
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * Returns metadata for dimensions and metrics available in reporting methods. Used to explore the
+   * dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified
+   * in the request, and the metadata response includes Custom dimensions and metrics as well as
+   * Universal metadata.
+   *
+   * <p>For example if a custom metric with parameter name `levels_unlocked` is registered to a
+   * property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata
+   * are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   MetadataName name = MetadataName.of("[PROPERTY]");
+   *   Metadata response = alphaAnalyticsDataClient.getMetadata(name);
+   * }
+   * }</pre>
+   *
+   * @param name Required. The resource name of the metadata to retrieve. This name field is
+   *     specified in the URL path and not URL parameters. Property is a numeric Google Analytics
+   *     GA4 Property identifier. To learn more, see [where to find your Property
+   *     ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+   *     <p>Example: properties/1234/metadata
+   *     <p>Set the Property ID to 0 for dimensions and metrics common to all properties. In this
+   *     special mode, this method will not return custom dimensions and metrics.
+   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
+   */
+  public final Metadata getMetadata(MetadataName name) {
+    GetMetadataRequest request =
+        GetMetadataRequest.newBuilder().setName(name == null ? null : name.toString()).build();
+    return getMetadata(request);
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * Returns metadata for dimensions and metrics available in reporting methods. Used to explore the
+   * dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified
+   * in the request, and the metadata response includes Custom dimensions and metrics as well as
+   * Universal metadata.
+   *
+   * <p>For example if a custom metric with parameter name `levels_unlocked` is registered to a
+   * property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata
+   * are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   String name = MetadataName.of("[PROPERTY]").toString();
+   *   Metadata response = alphaAnalyticsDataClient.getMetadata(name);
+   * }
+   * }</pre>
+   *
+   * @param name Required. The resource name of the metadata to retrieve. This name field is
+   *     specified in the URL path and not URL parameters. Property is a numeric Google Analytics
+   *     GA4 Property identifier. To learn more, see [where to find your Property
+   *     ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+   *     <p>Example: properties/1234/metadata
+   *     <p>Set the Property ID to 0 for dimensions and metrics common to all properties. In this
+   *     special mode, this method will not return custom dimensions and metrics.
+   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
+   */
+  public final Metadata getMetadata(String name) {
+    GetMetadataRequest request = GetMetadataRequest.newBuilder().setName(name).build();
+    return getMetadata(request);
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * Returns metadata for dimensions and metrics available in reporting methods. Used to explore the
+   * dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified
+   * in the request, and the metadata response includes Custom dimensions and metrics as well as
+   * Universal metadata.
+   *
+   * <p>For example if a custom metric with parameter name `levels_unlocked` is registered to a
+   * property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata
+   * are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   GetMetadataRequest request =
+   *       GetMetadataRequest.newBuilder().setName(MetadataName.of("[PROPERTY]").toString()).build();
+   *   Metadata response = alphaAnalyticsDataClient.getMetadata(request);
+   * }
+   * }</pre>
+   *
+   * @param request The request object containing all of the parameters for the API call.
+   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
+   */
+  public final Metadata getMetadata(GetMetadataRequest request) {
+    return getMetadataCallable().call(request);
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * Returns metadata for dimensions and metrics available in reporting methods. Used to explore the
+   * dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified
+   * in the request, and the metadata response includes Custom dimensions and metrics as well as
+   * Universal metadata.
+   *
+   * <p>For example if a custom metric with parameter name `levels_unlocked` is registered to a
+   * property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata
+   * are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   GetMetadataRequest request =
+   *       GetMetadataRequest.newBuilder().setName(MetadataName.of("[PROPERTY]").toString()).build();
+   *   ApiFuture<Metadata> future =
+   *       alphaAnalyticsDataClient.getMetadataCallable().futureCall(request);
+   *   // Do something.
+   *   Metadata response = future.get();
+   * }
+   * }</pre>
+   */
+  public final UnaryCallable<GetMetadataRequest, Metadata> getMetadataCallable() {
+    return stub.getMetadataCallable();
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * The Google Analytics Realtime API returns a customized report of realtime event data for your
+   * property. These reports show events and usage from the last 30 minutes.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   RunRealtimeReportRequest request =
+   *       RunRealtimeReportRequest.newBuilder()
+   *           .setProperty("property-993141291")
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .setLimit(102976443)
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+   *           .addAllOrderBys(new ArrayList<OrderBy>())
+   *           .setReturnPropertyQuota(true)
+   *           .build();
+   *   RunRealtimeReportResponse response = alphaAnalyticsDataClient.runRealtimeReport(request);
+   * }
+   * }</pre>
+   *
+   * @param request The request object containing all of the parameters for the API call.
+   * @throws com.google.api.gax.rpc.ApiException if the remote call fails
+   */
+  public final RunRealtimeReportResponse runRealtimeReport(RunRealtimeReportRequest request) {
+    return runRealtimeReportCallable().call(request);
+  }
+
+  // AUTO-GENERATED DOCUMENTATION AND METHOD.
+  /**
+   * The Google Analytics Realtime API returns a customized report of realtime event data for your
+   * property. These reports show events and usage from the last 30 minutes.
+   *
+   * <p>Sample code:
+   *
+   * <pre>{@code
+   * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
+   *   RunRealtimeReportRequest request =
+   *       RunRealtimeReportRequest.newBuilder()
+   *           .setProperty("property-993141291")
+   *           .addAllDimensions(new ArrayList<Dimension>())
+   *           .addAllMetrics(new ArrayList<Metric>())
+   *           .setLimit(102976443)
+   *           .setDimensionFilter(FilterExpression.newBuilder().build())
+   *           .setMetricFilter(FilterExpression.newBuilder().build())
+   *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+   *           .addAllOrderBys(new ArrayList<OrderBy>())
+   *           .setReturnPropertyQuota(true)
+   *           .build();
+   *   ApiFuture<RunRealtimeReportResponse> future =
+   *       alphaAnalyticsDataClient.runRealtimeReportCallable().futureCall(request);
+   *   // Do something.
+   *   RunRealtimeReportResponse response = future.get();
+   * }
+   * }</pre>
+   */
+  public final UnaryCallable<RunRealtimeReportRequest, RunRealtimeReportResponse>
+      runRealtimeReportCallable() {
+    return stub.runRealtimeReportCallable();
   }
 
   @Override

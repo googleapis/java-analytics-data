@@ -31,9 +31,11 @@ public interface PivotHeaderOrBuilder
    * combinations.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionHeader dimension_headers = 1;</code>
+   * <code>repeated .google.analytics.data.v1alpha.PivotDimensionHeader pivot_dimension_headers = 1;
+   * </code>
    */
-  java.util.List<com.google.analytics.data.v1alpha.DimensionHeader> getDimensionHeadersList();
+  java.util.List<com.google.analytics.data.v1alpha.PivotDimensionHeader>
+      getPivotDimensionHeadersList();
   /**
    *
    *
@@ -42,9 +44,10 @@ public interface PivotHeaderOrBuilder
    * combinations.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionHeader dimension_headers = 1;</code>
+   * <code>repeated .google.analytics.data.v1alpha.PivotDimensionHeader pivot_dimension_headers = 1;
+   * </code>
    */
-  com.google.analytics.data.v1alpha.DimensionHeader getDimensionHeaders(int index);
+  com.google.analytics.data.v1alpha.PivotDimensionHeader getPivotDimensionHeaders(int index);
   /**
    *
    *
@@ -53,9 +56,10 @@ public interface PivotHeaderOrBuilder
    * combinations.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionHeader dimension_headers = 1;</code>
+   * <code>repeated .google.analytics.data.v1alpha.PivotDimensionHeader pivot_dimension_headers = 1;
+   * </code>
    */
-  int getDimensionHeadersCount();
+  int getPivotDimensionHeadersCount();
   /**
    *
    *
@@ -64,10 +68,11 @@ public interface PivotHeaderOrBuilder
    * combinations.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionHeader dimension_headers = 1;</code>
+   * <code>repeated .google.analytics.data.v1alpha.PivotDimensionHeader pivot_dimension_headers = 1;
+   * </code>
    */
-  java.util.List<? extends com.google.analytics.data.v1alpha.DimensionHeaderOrBuilder>
-      getDimensionHeadersOrBuilderList();
+  java.util.List<? extends com.google.analytics.data.v1alpha.PivotDimensionHeaderOrBuilder>
+      getPivotDimensionHeadersOrBuilderList();
   /**
    *
    *
@@ -76,16 +81,19 @@ public interface PivotHeaderOrBuilder
    * combinations.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionHeader dimension_headers = 1;</code>
+   * <code>repeated .google.analytics.data.v1alpha.PivotDimensionHeader pivot_dimension_headers = 1;
+   * </code>
    */
-  com.google.analytics.data.v1alpha.DimensionHeaderOrBuilder getDimensionHeadersOrBuilder(
+  com.google.analytics.data.v1alpha.PivotDimensionHeaderOrBuilder getPivotDimensionHeadersOrBuilder(
       int index);
 
   /**
    *
    *
    * <pre>
-   * The cardinality of the pivot as if offset = 0 and limit = -1.
+   * The cardinality of the pivot as if offset = 0 and limit = -1. The total
+   * number of rows for this pivot's fields regardless of how the parameters
+   * offset and limit are specified in the request.
    * </pre>
    *
    * <code>int32 row_count = 2;</code>

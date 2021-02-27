@@ -230,6 +230,100 @@ public final class AlphaAnalyticsDataGrpc {
     return getBatchRunPivotReportsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<
+          com.google.analytics.data.v1alpha.GetMetadataRequest,
+          com.google.analytics.data.v1alpha.Metadata>
+      getGetMetadataMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetMetadata",
+      requestType = com.google.analytics.data.v1alpha.GetMetadataRequest.class,
+      responseType = com.google.analytics.data.v1alpha.Metadata.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<
+          com.google.analytics.data.v1alpha.GetMetadataRequest,
+          com.google.analytics.data.v1alpha.Metadata>
+      getGetMetadataMethod() {
+    io.grpc.MethodDescriptor<
+            com.google.analytics.data.v1alpha.GetMetadataRequest,
+            com.google.analytics.data.v1alpha.Metadata>
+        getGetMetadataMethod;
+    if ((getGetMetadataMethod = AlphaAnalyticsDataGrpc.getGetMetadataMethod) == null) {
+      synchronized (AlphaAnalyticsDataGrpc.class) {
+        if ((getGetMetadataMethod = AlphaAnalyticsDataGrpc.getGetMetadataMethod) == null) {
+          AlphaAnalyticsDataGrpc.getGetMetadataMethod =
+              getGetMetadataMethod =
+                  io.grpc.MethodDescriptor
+                      .<com.google.analytics.data.v1alpha.GetMetadataRequest,
+                          com.google.analytics.data.v1alpha.Metadata>
+                          newBuilder()
+                      .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+                      .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetMetadata"))
+                      .setSampledToLocalTracing(true)
+                      .setRequestMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.analytics.data.v1alpha.GetMetadataRequest
+                                  .getDefaultInstance()))
+                      .setResponseMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.analytics.data.v1alpha.Metadata.getDefaultInstance()))
+                      .setSchemaDescriptor(
+                          new AlphaAnalyticsDataMethodDescriptorSupplier("GetMetadata"))
+                      .build();
+        }
+      }
+    }
+    return getGetMetadataMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<
+          com.google.analytics.data.v1alpha.RunRealtimeReportRequest,
+          com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+      getRunRealtimeReportMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RunRealtimeReport",
+      requestType = com.google.analytics.data.v1alpha.RunRealtimeReportRequest.class,
+      responseType = com.google.analytics.data.v1alpha.RunRealtimeReportResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<
+          com.google.analytics.data.v1alpha.RunRealtimeReportRequest,
+          com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+      getRunRealtimeReportMethod() {
+    io.grpc.MethodDescriptor<
+            com.google.analytics.data.v1alpha.RunRealtimeReportRequest,
+            com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+        getRunRealtimeReportMethod;
+    if ((getRunRealtimeReportMethod = AlphaAnalyticsDataGrpc.getRunRealtimeReportMethod) == null) {
+      synchronized (AlphaAnalyticsDataGrpc.class) {
+        if ((getRunRealtimeReportMethod = AlphaAnalyticsDataGrpc.getRunRealtimeReportMethod)
+            == null) {
+          AlphaAnalyticsDataGrpc.getRunRealtimeReportMethod =
+              getRunRealtimeReportMethod =
+                  io.grpc.MethodDescriptor
+                      .<com.google.analytics.data.v1alpha.RunRealtimeReportRequest,
+                          com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+                          newBuilder()
+                      .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+                      .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RunRealtimeReport"))
+                      .setSampledToLocalTracing(true)
+                      .setRequestMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.analytics.data.v1alpha.RunRealtimeReportRequest
+                                  .getDefaultInstance()))
+                      .setResponseMarshaller(
+                          io.grpc.protobuf.ProtoUtils.marshaller(
+                              com.google.analytics.data.v1alpha.RunRealtimeReportResponse
+                                  .getDefaultInstance()))
+                      .setSchemaDescriptor(
+                          new AlphaAnalyticsDataMethodDescriptorSupplier("RunRealtimeReport"))
+                      .build();
+        }
+      }
+    }
+    return getRunRealtimeReportMethod;
+  }
+
   /** Creates a new async stub that supports all call types for the service */
   public static AlphaAnalyticsDataStub newStub(io.grpc.Channel channel) {
     io.grpc.stub.AbstractStub.StubFactory<AlphaAnalyticsDataStub> factory =
@@ -348,6 +442,43 @@ public final class AlphaAnalyticsDataGrpc {
       asyncUnimplementedUnaryCall(getBatchRunPivotReportsMethod(), responseObserver);
     }
 
+    /**
+     *
+     *
+     * <pre>
+     * Returns metadata for dimensions and metrics available in reporting methods.
+     * Used to explore the dimensions and metrics. In this method, a Google
+     * Analytics GA4 Property Identifier is specified in the request, and
+     * the metadata response includes Custom dimensions and metrics as well as
+     * Universal metadata.
+     * For example if a custom metric with parameter name `levels_unlocked` is
+     * registered to a property, the Metadata response will contain
+     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
+     * metrics applicable to any property such as `country` and `totalUsers`.
+     * </pre>
+     */
+    public void getMetadata(
+        com.google.analytics.data.v1alpha.GetMetadataRequest request,
+        io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.Metadata> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetMetadataMethod(), responseObserver);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * The Google Analytics Realtime API returns a customized report of realtime
+     * event data for your property. These reports show events and usage from the
+     * last 30 minutes.
+     * </pre>
+     */
+    public void runRealtimeReport(
+        com.google.analytics.data.v1alpha.RunRealtimeReportRequest request,
+        io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+            responseObserver) {
+      asyncUnimplementedUnaryCall(getRunRealtimeReportMethod(), responseObserver);
+    }
+
     @java.lang.Override
     public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
@@ -379,6 +510,19 @@ public final class AlphaAnalyticsDataGrpc {
                       com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest,
                       com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse>(
                       this, METHODID_BATCH_RUN_PIVOT_REPORTS)))
+          .addMethod(
+              getGetMetadataMethod(),
+              asyncUnaryCall(
+                  new MethodHandlers<
+                      com.google.analytics.data.v1alpha.GetMetadataRequest,
+                      com.google.analytics.data.v1alpha.Metadata>(this, METHODID_GET_METADATA)))
+          .addMethod(
+              getRunRealtimeReportMethod(),
+              asyncUnaryCall(
+                  new MethodHandlers<
+                      com.google.analytics.data.v1alpha.RunRealtimeReportRequest,
+                      com.google.analytics.data.v1alpha.RunRealtimeReportResponse>(
+                      this, METHODID_RUN_REALTIME_REPORT)))
           .build();
     }
   }
@@ -479,6 +623,49 @@ public final class AlphaAnalyticsDataGrpc {
           request,
           responseObserver);
     }
+
+    /**
+     *
+     *
+     * <pre>
+     * Returns metadata for dimensions and metrics available in reporting methods.
+     * Used to explore the dimensions and metrics. In this method, a Google
+     * Analytics GA4 Property Identifier is specified in the request, and
+     * the metadata response includes Custom dimensions and metrics as well as
+     * Universal metadata.
+     * For example if a custom metric with parameter name `levels_unlocked` is
+     * registered to a property, the Metadata response will contain
+     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
+     * metrics applicable to any property such as `country` and `totalUsers`.
+     * </pre>
+     */
+    public void getMetadata(
+        com.google.analytics.data.v1alpha.GetMetadataRequest request,
+        io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.Metadata> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetMetadataMethod(), getCallOptions()),
+          request,
+          responseObserver);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * The Google Analytics Realtime API returns a customized report of realtime
+     * event data for your property. These reports show events and usage from the
+     * last 30 minutes.
+     * </pre>
+     */
+    public void runRealtimeReport(
+        com.google.analytics.data.v1alpha.RunRealtimeReportRequest request,
+        io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+            responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRunRealtimeReportMethod(), getCallOptions()),
+          request,
+          responseObserver);
+    }
   }
 
   /**
@@ -560,6 +747,41 @@ public final class AlphaAnalyticsDataGrpc {
         com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest request) {
       return blockingUnaryCall(
           getChannel(), getBatchRunPivotReportsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * Returns metadata for dimensions and metrics available in reporting methods.
+     * Used to explore the dimensions and metrics. In this method, a Google
+     * Analytics GA4 Property Identifier is specified in the request, and
+     * the metadata response includes Custom dimensions and metrics as well as
+     * Universal metadata.
+     * For example if a custom metric with parameter name `levels_unlocked` is
+     * registered to a property, the Metadata response will contain
+     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
+     * metrics applicable to any property such as `country` and `totalUsers`.
+     * </pre>
+     */
+    public com.google.analytics.data.v1alpha.Metadata getMetadata(
+        com.google.analytics.data.v1alpha.GetMetadataRequest request) {
+      return blockingUnaryCall(getChannel(), getGetMetadataMethod(), getCallOptions(), request);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * The Google Analytics Realtime API returns a customized report of realtime
+     * event data for your property. These reports show events and usage from the
+     * last 30 minutes.
+     * </pre>
+     */
+    public com.google.analytics.data.v1alpha.RunRealtimeReportResponse runRealtimeReport(
+        com.google.analytics.data.v1alpha.RunRealtimeReportRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRunRealtimeReportMethod(), getCallOptions(), request);
     }
   }
 
@@ -649,12 +871,52 @@ public final class AlphaAnalyticsDataGrpc {
       return futureUnaryCall(
           getChannel().newCall(getBatchRunPivotReportsMethod(), getCallOptions()), request);
     }
+
+    /**
+     *
+     *
+     * <pre>
+     * Returns metadata for dimensions and metrics available in reporting methods.
+     * Used to explore the dimensions and metrics. In this method, a Google
+     * Analytics GA4 Property Identifier is specified in the request, and
+     * the metadata response includes Custom dimensions and metrics as well as
+     * Universal metadata.
+     * For example if a custom metric with parameter name `levels_unlocked` is
+     * registered to a property, the Metadata response will contain
+     * `customEvent:levels_unlocked`. Universal metadata are dimensions and
+     * metrics applicable to any property such as `country` and `totalUsers`.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<
+            com.google.analytics.data.v1alpha.Metadata>
+        getMetadata(com.google.analytics.data.v1alpha.GetMetadataRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetMetadataMethod(), getCallOptions()), request);
+    }
+
+    /**
+     *
+     *
+     * <pre>
+     * The Google Analytics Realtime API returns a customized report of realtime
+     * event data for your property. These reports show events and usage from the
+     * last 30 minutes.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<
+            com.google.analytics.data.v1alpha.RunRealtimeReportResponse>
+        runRealtimeReport(com.google.analytics.data.v1alpha.RunRealtimeReportRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRunRealtimeReportMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_RUN_REPORT = 0;
   private static final int METHODID_RUN_PIVOT_REPORT = 1;
   private static final int METHODID_BATCH_RUN_REPORTS = 2;
   private static final int METHODID_BATCH_RUN_PIVOT_REPORTS = 3;
+  private static final int METHODID_GET_METADATA = 4;
+  private static final int METHODID_RUN_REALTIME_REPORT = 5;
 
   private static final class MethodHandlers<Req, Resp>
       implements io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -698,6 +960,19 @@ public final class AlphaAnalyticsDataGrpc {
               (com.google.analytics.data.v1alpha.BatchRunPivotReportsRequest) request,
               (io.grpc.stub.StreamObserver<
                       com.google.analytics.data.v1alpha.BatchRunPivotReportsResponse>)
+                  responseObserver);
+          break;
+        case METHODID_GET_METADATA:
+          serviceImpl.getMetadata(
+              (com.google.analytics.data.v1alpha.GetMetadataRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.analytics.data.v1alpha.Metadata>)
+                  responseObserver);
+          break;
+        case METHODID_RUN_REALTIME_REPORT:
+          serviceImpl.runRealtimeReport(
+              (com.google.analytics.data.v1alpha.RunRealtimeReportRequest) request,
+              (io.grpc.stub.StreamObserver<
+                      com.google.analytics.data.v1alpha.RunRealtimeReportResponse>)
                   responseObserver);
           break;
         default:
@@ -768,6 +1043,8 @@ public final class AlphaAnalyticsDataGrpc {
                       .addMethod(getRunPivotReportMethod())
                       .addMethod(getBatchRunReportsMethod())
                       .addMethod(getBatchRunPivotReportsMethod())
+                      .addMethod(getGetMetadataMethod())
+                      .addMethod(getRunRealtimeReportMethod())
                       .build();
         }
       }

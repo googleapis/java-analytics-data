@@ -22,7 +22,7 @@ package com.google.analytics.data.v1alpha;
  *
  *
  * <pre>
- * Type of a metric value.
+ * A metric's value type.
  * </pre>
  *
  * Protobuf enum {@code google.analytics.data.v1alpha.MetricType}
@@ -58,6 +58,106 @@ public enum MetricType implements com.google.protobuf.ProtocolMessageEnum {
    * <code>TYPE_FLOAT = 2;</code>
    */
   TYPE_FLOAT(2),
+  /**
+   *
+   *
+   * <pre>
+   * A duration of seconds; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_SECONDS = 4;</code>
+   */
+  TYPE_SECONDS(4),
+  /**
+   *
+   *
+   * <pre>
+   * A duration in milliseconds; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MILLISECONDS = 5;</code>
+   */
+  TYPE_MILLISECONDS(5),
+  /**
+   *
+   *
+   * <pre>
+   * A duration in minutes; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MINUTES = 6;</code>
+   */
+  TYPE_MINUTES(6),
+  /**
+   *
+   *
+   * <pre>
+   * A duration in hours; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_HOURS = 7;</code>
+   */
+  TYPE_HOURS(7),
+  /**
+   *
+   *
+   * <pre>
+   * A custom metric of standard type; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_STANDARD = 8;</code>
+   */
+  TYPE_STANDARD(8),
+  /**
+   *
+   *
+   * <pre>
+   * An amount of money; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_CURRENCY = 9;</code>
+   */
+  TYPE_CURRENCY(9),
+  /**
+   *
+   *
+   * <pre>
+   * A length in feet; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_FEET = 10;</code>
+   */
+  TYPE_FEET(10),
+  /**
+   *
+   *
+   * <pre>
+   * A length in miles; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MILES = 11;</code>
+   */
+  TYPE_MILES(11),
+  /**
+   *
+   *
+   * <pre>
+   * A length in meters; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_METERS = 12;</code>
+   */
+  TYPE_METERS(12),
+  /**
+   *
+   *
+   * <pre>
+   * A length in kilometers; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_KILOMETERS = 13;</code>
+   */
+  TYPE_KILOMETERS(13),
   UNRECOGNIZED(-1),
   ;
 
@@ -91,6 +191,106 @@ public enum MetricType implements com.google.protobuf.ProtocolMessageEnum {
    * <code>TYPE_FLOAT = 2;</code>
    */
   public static final int TYPE_FLOAT_VALUE = 2;
+  /**
+   *
+   *
+   * <pre>
+   * A duration of seconds; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_SECONDS = 4;</code>
+   */
+  public static final int TYPE_SECONDS_VALUE = 4;
+  /**
+   *
+   *
+   * <pre>
+   * A duration in milliseconds; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MILLISECONDS = 5;</code>
+   */
+  public static final int TYPE_MILLISECONDS_VALUE = 5;
+  /**
+   *
+   *
+   * <pre>
+   * A duration in minutes; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MINUTES = 6;</code>
+   */
+  public static final int TYPE_MINUTES_VALUE = 6;
+  /**
+   *
+   *
+   * <pre>
+   * A duration in hours; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_HOURS = 7;</code>
+   */
+  public static final int TYPE_HOURS_VALUE = 7;
+  /**
+   *
+   *
+   * <pre>
+   * A custom metric of standard type; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_STANDARD = 8;</code>
+   */
+  public static final int TYPE_STANDARD_VALUE = 8;
+  /**
+   *
+   *
+   * <pre>
+   * An amount of money; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_CURRENCY = 9;</code>
+   */
+  public static final int TYPE_CURRENCY_VALUE = 9;
+  /**
+   *
+   *
+   * <pre>
+   * A length in feet; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_FEET = 10;</code>
+   */
+  public static final int TYPE_FEET_VALUE = 10;
+  /**
+   *
+   *
+   * <pre>
+   * A length in miles; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_MILES = 11;</code>
+   */
+  public static final int TYPE_MILES_VALUE = 11;
+  /**
+   *
+   *
+   * <pre>
+   * A length in meters; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_METERS = 12;</code>
+   */
+  public static final int TYPE_METERS_VALUE = 12;
+  /**
+   *
+   *
+   * <pre>
+   * A length in kilometers; a special floating point type.
+   * </pre>
+   *
+   * <code>TYPE_KILOMETERS = 13;</code>
+   */
+  public static final int TYPE_KILOMETERS_VALUE = 13;
 
   public final int getNumber() {
     if (this == UNRECOGNIZED) {
@@ -122,6 +322,26 @@ public enum MetricType implements com.google.protobuf.ProtocolMessageEnum {
         return TYPE_INTEGER;
       case 2:
         return TYPE_FLOAT;
+      case 4:
+        return TYPE_SECONDS;
+      case 5:
+        return TYPE_MILLISECONDS;
+      case 6:
+        return TYPE_MINUTES;
+      case 7:
+        return TYPE_HOURS;
+      case 8:
+        return TYPE_STANDARD;
+      case 9:
+        return TYPE_CURRENCY;
+      case 10:
+        return TYPE_FEET;
+      case 11:
+        return TYPE_MILES;
+      case 12:
+        return TYPE_METERS;
+      case 13:
+        return TYPE_KILOMETERS;
       default:
         return null;
     }

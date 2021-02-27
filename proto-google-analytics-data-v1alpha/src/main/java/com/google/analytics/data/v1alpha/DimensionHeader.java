@@ -22,7 +22,10 @@ package com.google.analytics.data.v1alpha;
  *
  *
  * <pre>
- * The header for the dimensions.
+ * Describes a dimension column in the report. Dimensions requested in a report
+ * produce column entries within rows and DimensionHeaders. However, dimensions
+ * used exclusively within filters or expressions do not produce columns in a
+ * report; correspondingly, those dimensions do not produce headers.
  * </pre>
  *
  * Protobuf type {@code google.analytics.data.v1alpha.DimensionHeader}
@@ -38,7 +41,7 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
   }
 
   private DimensionHeader() {
-    dimensionValues_ = java.util.Collections.emptyList();
+    name_ = "";
   }
 
   @java.lang.Override
@@ -60,7 +63,6 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -73,15 +75,9 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
             break;
           case 10:
             {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dimensionValues_ =
-                    new java.util.ArrayList<com.google.analytics.data.v1alpha.DimensionValue>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dimensionValues_.add(
-                  input.readMessage(
-                      com.google.analytics.data.v1alpha.DimensionValue.parser(),
-                      extensionRegistry));
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
               break;
             }
           default:
@@ -98,9 +94,6 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     } catch (java.io.IOException e) {
       throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dimensionValues_ = java.util.Collections.unmodifiableList(dimensionValues_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -121,74 +114,53 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
             com.google.analytics.data.v1alpha.DimensionHeader.Builder.class);
   }
 
-  public static final int DIMENSION_VALUES_FIELD_NUMBER = 1;
-  private java.util.List<com.google.analytics.data.v1alpha.DimensionValue> dimensionValues_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
    *
    *
    * <pre>
-   * Values of multiple dimensions in a pivot.
+   * The dimension's name.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
+   * <code>string name = 1;</code>
+   *
+   * @return The name.
    */
   @java.lang.Override
-  public java.util.List<com.google.analytics.data.v1alpha.DimensionValue> getDimensionValuesList() {
-    return dimensionValues_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
   }
   /**
    *
    *
    * <pre>
-   * Values of multiple dimensions in a pivot.
+   * The dimension's name.
    * </pre>
    *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
+   * <code>string name = 1;</code>
+   *
+   * @return The bytes for name.
    */
   @java.lang.Override
-  public java.util.List<? extends com.google.analytics.data.v1alpha.DimensionValueOrBuilder>
-      getDimensionValuesOrBuilderList() {
-    return dimensionValues_;
-  }
-  /**
-   *
-   *
-   * <pre>
-   * Values of multiple dimensions in a pivot.
-   * </pre>
-   *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-   */
-  @java.lang.Override
-  public int getDimensionValuesCount() {
-    return dimensionValues_.size();
-  }
-  /**
-   *
-   *
-   * <pre>
-   * Values of multiple dimensions in a pivot.
-   * </pre>
-   *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-   */
-  @java.lang.Override
-  public com.google.analytics.data.v1alpha.DimensionValue getDimensionValues(int index) {
-    return dimensionValues_.get(index);
-  }
-  /**
-   *
-   *
-   * <pre>
-   * Values of multiple dimensions in a pivot.
-   * </pre>
-   *
-   * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-   */
-  @java.lang.Override
-  public com.google.analytics.data.v1alpha.DimensionValueOrBuilder getDimensionValuesOrBuilder(
-      int index) {
-    return dimensionValues_.get(index);
+  public com.google.protobuf.ByteString getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -205,8 +177,8 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
 
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-    for (int i = 0; i < dimensionValues_.size(); i++) {
-      output.writeMessage(1, dimensionValues_.get(i));
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     unknownFields.writeTo(output);
   }
@@ -217,8 +189,8 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < dimensionValues_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, dimensionValues_.get(i));
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -236,7 +208,7 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     com.google.analytics.data.v1alpha.DimensionHeader other =
         (com.google.analytics.data.v1alpha.DimensionHeader) obj;
 
-    if (!getDimensionValuesList().equals(other.getDimensionValuesList())) return false;
+    if (!getName().equals(other.getName())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -248,10 +220,8 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getDimensionValuesCount() > 0) {
-      hash = (37 * hash) + DIMENSION_VALUES_FIELD_NUMBER;
-      hash = (53 * hash) + getDimensionValuesList().hashCode();
-    }
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -356,7 +326,10 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
    *
    *
    * <pre>
-   * The header for the dimensions.
+   * Describes a dimension column in the report. Dimensions requested in a report
+   * produce column entries within rows and DimensionHeaders. However, dimensions
+   * used exclusively within filters or expressions do not produce columns in a
+   * report; correspondingly, those dimensions do not produce headers.
    * </pre>
    *
    * Protobuf type {@code google.analytics.data.v1alpha.DimensionHeader}
@@ -391,20 +364,14 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     }
 
     private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
-        getDimensionValuesFieldBuilder();
-      }
+      if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
     }
 
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dimensionValuesBuilder_ == null) {
-        dimensionValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      } else {
-        dimensionValuesBuilder_.clear();
-      }
+      name_ = "";
+
       return this;
     }
 
@@ -432,16 +399,7 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     public com.google.analytics.data.v1alpha.DimensionHeader buildPartial() {
       com.google.analytics.data.v1alpha.DimensionHeader result =
           new com.google.analytics.data.v1alpha.DimensionHeader(this);
-      int from_bitField0_ = bitField0_;
-      if (dimensionValuesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          dimensionValues_ = java.util.Collections.unmodifiableList(dimensionValues_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.dimensionValues_ = dimensionValues_;
-      } else {
-        result.dimensionValues_ = dimensionValuesBuilder_.build();
-      }
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -492,32 +450,9 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
     public Builder mergeFrom(com.google.analytics.data.v1alpha.DimensionHeader other) {
       if (other == com.google.analytics.data.v1alpha.DimensionHeader.getDefaultInstance())
         return this;
-      if (dimensionValuesBuilder_ == null) {
-        if (!other.dimensionValues_.isEmpty()) {
-          if (dimensionValues_.isEmpty()) {
-            dimensionValues_ = other.dimensionValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDimensionValuesIsMutable();
-            dimensionValues_.addAll(other.dimensionValues_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.dimensionValues_.isEmpty()) {
-          if (dimensionValuesBuilder_.isEmpty()) {
-            dimensionValuesBuilder_.dispose();
-            dimensionValuesBuilder_ = null;
-            dimensionValues_ = other.dimensionValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            dimensionValuesBuilder_ =
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
-                    ? getDimensionValuesFieldBuilder()
-                    : null;
-          } else {
-            dimensionValuesBuilder_.addAllMessages(other.dimensionValues_);
-          }
-        }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -549,367 +484,110 @@ public final class DimensionHeader extends com.google.protobuf.GeneratedMessageV
       return this;
     }
 
-    private int bitField0_;
+    private java.lang.Object name_ = "";
+    /**
+     *
+     *
+     * <pre>
+     * The dimension's name.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     *
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The dimension's name.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     *
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The dimension's name.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     *
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setName(java.lang.String value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
 
-    private java.util.List<com.google.analytics.data.v1alpha.DimensionValue> dimensionValues_ =
-        java.util.Collections.emptyList();
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The dimension's name.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     *
+     * @return This builder for chaining.
+     */
+    public Builder clearName() {
 
-    private void ensureDimensionValuesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        dimensionValues_ =
-            new java.util.ArrayList<com.google.analytics.data.v1alpha.DimensionValue>(
-                dimensionValues_);
-        bitField0_ |= 0x00000001;
-      }
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
     }
+    /**
+     *
+     *
+     * <pre>
+     * The dimension's name.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     *
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNameBytes(com.google.protobuf.ByteString value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      checkByteStringIsUtf8(value);
 
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-            com.google.analytics.data.v1alpha.DimensionValue,
-            com.google.analytics.data.v1alpha.DimensionValue.Builder,
-            com.google.analytics.data.v1alpha.DimensionValueOrBuilder>
-        dimensionValuesBuilder_;
-
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public java.util.List<com.google.analytics.data.v1alpha.DimensionValue>
-        getDimensionValuesList() {
-      if (dimensionValuesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(dimensionValues_);
-      } else {
-        return dimensionValuesBuilder_.getMessageList();
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public int getDimensionValuesCount() {
-      if (dimensionValuesBuilder_ == null) {
-        return dimensionValues_.size();
-      } else {
-        return dimensionValuesBuilder_.getCount();
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public com.google.analytics.data.v1alpha.DimensionValue getDimensionValues(int index) {
-      if (dimensionValuesBuilder_ == null) {
-        return dimensionValues_.get(index);
-      } else {
-        return dimensionValuesBuilder_.getMessage(index);
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder setDimensionValues(
-        int index, com.google.analytics.data.v1alpha.DimensionValue value) {
-      if (dimensionValuesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.set(index, value);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.setMessage(index, value);
-      }
+      name_ = value;
+      onChanged();
       return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder setDimensionValues(
-        int index, com.google.analytics.data.v1alpha.DimensionValue.Builder builderForValue) {
-      if (dimensionValuesBuilder_ == null) {
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder addDimensionValues(com.google.analytics.data.v1alpha.DimensionValue value) {
-      if (dimensionValuesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.add(value);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder addDimensionValues(
-        int index, com.google.analytics.data.v1alpha.DimensionValue value) {
-      if (dimensionValuesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.add(index, value);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder addDimensionValues(
-        com.google.analytics.data.v1alpha.DimensionValue.Builder builderForValue) {
-      if (dimensionValuesBuilder_ == null) {
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.add(builderForValue.build());
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder addDimensionValues(
-        int index, com.google.analytics.data.v1alpha.DimensionValue.Builder builderForValue) {
-      if (dimensionValuesBuilder_ == null) {
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder addAllDimensionValues(
-        java.lang.Iterable<? extends com.google.analytics.data.v1alpha.DimensionValue> values) {
-      if (dimensionValuesBuilder_ == null) {
-        ensureDimensionValuesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, dimensionValues_);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder clearDimensionValues() {
-      if (dimensionValuesBuilder_ == null) {
-        dimensionValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public Builder removeDimensionValues(int index) {
-      if (dimensionValuesBuilder_ == null) {
-        ensureDimensionValuesIsMutable();
-        dimensionValues_.remove(index);
-        onChanged();
-      } else {
-        dimensionValuesBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public com.google.analytics.data.v1alpha.DimensionValue.Builder getDimensionValuesBuilder(
-        int index) {
-      return getDimensionValuesFieldBuilder().getBuilder(index);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public com.google.analytics.data.v1alpha.DimensionValueOrBuilder getDimensionValuesOrBuilder(
-        int index) {
-      if (dimensionValuesBuilder_ == null) {
-        return dimensionValues_.get(index);
-      } else {
-        return dimensionValuesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public java.util.List<? extends com.google.analytics.data.v1alpha.DimensionValueOrBuilder>
-        getDimensionValuesOrBuilderList() {
-      if (dimensionValuesBuilder_ != null) {
-        return dimensionValuesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(dimensionValues_);
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public com.google.analytics.data.v1alpha.DimensionValue.Builder addDimensionValuesBuilder() {
-      return getDimensionValuesFieldBuilder()
-          .addBuilder(com.google.analytics.data.v1alpha.DimensionValue.getDefaultInstance());
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public com.google.analytics.data.v1alpha.DimensionValue.Builder addDimensionValuesBuilder(
-        int index) {
-      return getDimensionValuesFieldBuilder()
-          .addBuilder(index, com.google.analytics.data.v1alpha.DimensionValue.getDefaultInstance());
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Values of multiple dimensions in a pivot.
-     * </pre>
-     *
-     * <code>repeated .google.analytics.data.v1alpha.DimensionValue dimension_values = 1;</code>
-     */
-    public java.util.List<com.google.analytics.data.v1alpha.DimensionValue.Builder>
-        getDimensionValuesBuilderList() {
-      return getDimensionValuesFieldBuilder().getBuilderList();
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-            com.google.analytics.data.v1alpha.DimensionValue,
-            com.google.analytics.data.v1alpha.DimensionValue.Builder,
-            com.google.analytics.data.v1alpha.DimensionValueOrBuilder>
-        getDimensionValuesFieldBuilder() {
-      if (dimensionValuesBuilder_ == null) {
-        dimensionValuesBuilder_ =
-            new com.google.protobuf.RepeatedFieldBuilderV3<
-                com.google.analytics.data.v1alpha.DimensionValue,
-                com.google.analytics.data.v1alpha.DimensionValue.Builder,
-                com.google.analytics.data.v1alpha.DimensionValueOrBuilder>(
-                dimensionValues_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        dimensionValues_ = null;
-      }
-      return dimensionValuesBuilder_;
     }
 
     @java.lang.Override

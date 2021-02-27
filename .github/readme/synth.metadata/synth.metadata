@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {
+      "git": {
+        "name": ".",
+        "remote": "https://github.com/googleapis/java-analytics-data.git",
+        "sha": "009ac70ab39adf5b0edad5fe80799dc5a51eb7f8"
+      }
+    },
+    {
+      "git": {
+        "name": "synthtool",
+        "remote": "https://github.com/googleapis/synthtool.git",
+        "sha": "8c5628b86cfa8386de7b8fc1675e6b528b552d57"
+      }
+    }
+  ]
+}
