@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ public class QuickstartSampleTest {
     PrintStream out = new PrintStream(bout);
     System.setOut(out);
 
-    QuickstartSample.sampleRunReport(ga4PropertyId);
+    // Run the test using default system credentials by passing an empty path to the
+    // private key file.
+    QuickstartSample.sampleRunReport(ga4PropertyId, '');
 
     System.setOut(stdOut);
     return bout.toString();
