@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     https://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,26 +15,38 @@
  */
 
 /**
- * A client to Google Analytics Data API.
+ * The interfaces provided are listed below, along with usage samples.
  *
- * <p>The interfaces provided are listed below, along with usage samples.
- *
- * <p>======================== AlphaAnalyticsDataClient ========================
+ * <p>======================= AlphaAnalyticsDataClient =======================
  *
  * <p>Service Description: Google Analytics reporting data service.
  *
  * <p>Sample for AlphaAnalyticsDataClient:
  *
- * <pre>
- * <code>
+ * <pre>{@code
  * try (AlphaAnalyticsDataClient alphaAnalyticsDataClient = AlphaAnalyticsDataClient.create()) {
- *   RunReportRequest request = RunReportRequest.newBuilder().build();
+ *   RunReportRequest request =
+ *       RunReportRequest.newBuilder()
+ *           .setEntity(Entity.newBuilder().build())
+ *           .addAllDimensions(new ArrayList<Dimension>())
+ *           .addAllMetrics(new ArrayList<Metric>())
+ *           .addAllDateRanges(new ArrayList<DateRange>())
+ *           .setOffset(-1019779949)
+ *           .setLimit(102976443)
+ *           .addAllMetricAggregations(new ArrayList<MetricAggregation>())
+ *           .setDimensionFilter(FilterExpression.newBuilder().build())
+ *           .setMetricFilter(FilterExpression.newBuilder().build())
+ *           .addAllOrderBys(new ArrayList<OrderBy>())
+ *           .setCurrencyCode("currencyCode1004773790")
+ *           .setCohortSpec(CohortSpec.newBuilder().build())
+ *           .setKeepEmptyRows(true)
+ *           .setReturnPropertyQuota(true)
+ *           .build();
  *   RunReportResponse response = alphaAnalyticsDataClient.runReport(request);
  * }
- * </code>
- * </pre>
+ * }</pre>
  */
-@Generated("by gapic-generator")
+@Generated("by gapic-generator-java")
 package com.google.analytics.data.v1alpha;
 
 import javax.annotation.Generated;
