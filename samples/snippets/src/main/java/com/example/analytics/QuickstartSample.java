@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,82 +16,104 @@
 
 package com.example.analytics;
 
-/* This application demonstrates the usage of the Analytics Data API using
- service account credentials. For more information on service accounts, see
- https://cloud.google.com/iam/docs/understanding-service-accounts
+/* Google Analytics Data API sample quickstart application.
 
- The following document provides instructions on setting service account
- credentials for your application:
- https://cloud.google.com/docs/authentication/production
+This application demonstrates the usage of the Analytics Data API using service account credentials.
 
- In a nutshell, you need to:
+Before you start the application, please review the comments starting with
+"TODO(developer)" and update the code to use correct values.
 
- 1. Create a service account and download the key JSON file.
- https://cloud.google.com/docs/authentication/production#creating_a_service_account
-
- 2. Provide service account credentials using one of the following options:
- - set the GOOGLE_APPLICATION_CREDENTIALS environment variable, the API
- client will use the value of this variable to find the service account key
- JSON file.
-
- https://cloud.google.com/docs/authentication/production#setting_the_environment_variable
-
- OR
-
- - manually pass the path to the service account key JSON file to the API client
- by specifying the keyFilename parameter in the constructor.
- https://cloud.google.com/docs/authentication/production#passing_the_path_to_the_service_account_key_in_code
-
- To run this sample using Maven:
-   cd java-analytics-data/samples/snippets
-   mvn compile
-   mvn exec:java -Dexec.mainClass="QuickstartSample"
+To run this sample using Maven:
+  cd java-analytics-data/samples/snippets
+  mvn compile
+  mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
  */
 
-// [START analytics_data_quickstart]
+// [START google_analytics_data_quickstart]
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataSettings;
+import com.google.analytics.data.v1beta.DateRange;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.Row;
 
-import com.google.analytics.data.v1alpha.AlphaAnalyticsDataClient;
-import com.google.analytics.data.v1alpha.DateRange;
-import com.google.analytics.data.v1alpha.Dimension;
-import com.google.analytics.data.v1alpha.Entity;
-import com.google.analytics.data.v1alpha.Metric;
-import com.google.analytics.data.v1alpha.Row;
-import com.google.analytics.data.v1alpha.RunReportRequest;
-import com.google.analytics.data.v1alpha.RunReportResponse;
+import com.google.analytics.data.v1beta.RunReportRequest;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.api.gax.core.FixedCredentialsProvider;
+import java.io.FileInputStream;
 
 public class QuickstartSample {
 
   // This is an example snippet that calls the Google Analytics Data API and runs a simple report
   // on the provided GA4 property id.
-  static void sampleRunReport(String ga4PropertyId) throws Exception {
+  static void sampleRunReport(String propertyId, String credentialsJsonPath) throws Exception {
+    /**
+     * TODO(developer): Uncomment this variable and replace with your
+     * Google Analytics 4 property ID before running the sample.
+     */
+    // propertyId = "YOUR-GA4-PROPERTY-ID";
+
+    // [START google_analytics_data_initialize]
+    /** TODO(developer): Uncomment this variable and replace with a valid path to
+     * the credentials.json file for your service account downloaded from the
+     * Cloud Console.
+     * Otherwise, default service account credentials will be derived from
+     * the GOOGLE_APPLICATION_CREDENTIALS environment variable.
+     */
+    // credentialsJsonPath = "/path/to/credentials.json";
+
     // Instantiates a client using default credentials.
     // See https://cloud.google.com/docs/authentication/production for more information
     // about managing credentials.
-    try (AlphaAnalyticsDataClient analyticsData = AlphaAnalyticsDataClient.create()) {
-      RunReportRequest request = RunReportRequest.newBuilder()
-          .setEntity(Entity.newBuilder().setPropertyId(ga4PropertyId))
-          .addDimensions(
-              Dimension.newBuilder().setName("city"))
-          .addMetrics(Metric.newBuilder().setName("activeUsers"))
-          .addDateRanges(
-              DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today")).build();
+    BetaAnalyticsDataClient analyticsData;
+    if (credentialsJsonPath.isEmpty()) {
+      // Using a default constructor instructs the client to use the credentials
+      // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+      analyticsData = BetaAnalyticsDataClient.create();
+    } else {
+      // Explicitly use service account credentials by specifying
+      // the private key file.
+      GoogleCredentials credentials = GoogleCredentials
+          .fromStream(new FileInputStream(credentialsJsonPath));
 
-      // Make the request
-      RunReportResponse response = analyticsData.runReport(request);
+      BetaAnalyticsDataSettings betaAnalyticsDataSettings =
+          BetaAnalyticsDataSettings.newBuilder()
+              .setCredentialsProvider(FixedCredentialsProvider.create(credentials))
+              .build();
+      analyticsData =
+          BetaAnalyticsDataClient.create(betaAnalyticsDataSettings);
+    }
+    // [END google_analytics_data_initialize]
 
-      System.out.println("Report result:");
-      for (Row row : response.getRowsList()) {
+    // [START google_analytics_data_run_report]
+    RunReportRequest request = RunReportRequest.newBuilder()
+        .setProperty("properties/" + propertyId)
+        .addDimensions(
+            Dimension.newBuilder().setName("city"))
+        .addMetrics(Metric.newBuilder().setName("activeUsers"))
+        .addDateRanges(
+            DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today")).build();
+
+    // Make the request.
+    BetaAnalyticsDataClient.RunReportPagedResponse pagedResponse = analyticsData.runReport(request);
+    // [END google_analytics_data_run_report]
+
+    // [START google_analytics_data_print_report]
+    System.out.println("Report result:");
+    // Iterate through every page of the API response.
+    for (BetaAnalyticsDataClient.RunReportPage page : pagedResponse.iteratePages()) {
+      for (Row row : page.getResponse().getRowsList()) {
         System.out.printf("%s, %s%n", row.getDimensionValues(0).getValue(),
             row.getMetricValues(0).getValue());
       }
     }
+    // [END google_analytics_data_print_report]
   }
 
+
   public static void main(String... args) throws Exception {
-    // TODO(developer): Replace this variable with your GA4 property ID before running the sample.
-    String ga4PropertyId = "GA4 PROPERTY ID";
-    sampleRunReport(ga4PropertyId);
+    sampleRunReport("YOUR-GA4-PROPERTY-ID", "");
   }
 }
 
-// [END analytics_data_quickstart]
+// [END google_analytics_data_quickstart]
