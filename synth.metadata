@@ -3,31 +3,31 @@
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/java-analytics-data.git",
-        "sha": "8712e2e42f418591a8dc410f268a867315ec9741"
+        "remote": "https://github.com/googleapis/java-analytics-data.git",
+        "sha": "799d067f64da2b01b30aa7d8dfa7a7aa5143c2da"
       }
     },
     {
       "git": {
         "name": "googleapis-gen",
         "remote": "https://github.com/googleapis/googleapis-gen.git",
-        "sha": "0c7a837ed1c99453da44cea7d8a49c0ccc36beb7",
-        "internalRef": "359594504"
+        "sha": "ebd77e76effb65c4fba8c64f31c15062c250a4c2",
+        "internalRef": "362856902"
       }
     },
     {
       "git": {
         "name": "googleapis-gen",
         "remote": "https://github.com/googleapis/googleapis-gen.git",
-        "sha": "0c7a837ed1c99453da44cea7d8a49c0ccc36beb7",
-        "internalRef": "359594504"
+        "sha": "ebd77e76effb65c4fba8c64f31c15062c250a4c2",
+        "internalRef": "362856902"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "8c5628b86cfa8386de7b8fc1675e6b528b552d57"
+        "sha": "0b064d767537e0675fc053e53fca473c5c701fb8"
       }
     }
   ],

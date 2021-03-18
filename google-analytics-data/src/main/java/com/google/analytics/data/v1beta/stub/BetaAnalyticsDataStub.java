@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  */
 
 package com.google.analytics.data.v1beta.stub;
-
-import static com.google.analytics.data.v1beta.BetaAnalyticsDataClient.RunReportPagedResponse;
 
 import com.google.analytics.data.v1beta.BatchRunPivotReportsRequest;
 import com.google.analytics.data.v1beta.BatchRunPivotReportsResponse;
@@ -44,10 +42,6 @@ import javax.annotation.Generated;
 @BetaApi
 @Generated("by gapic-generator-java")
 public abstract class BetaAnalyticsDataStub implements BackgroundResource {
-
-  public UnaryCallable<RunReportRequest, RunReportPagedResponse> runReportPagedCallable() {
-    throw new UnsupportedOperationException("Not implemented: runReportPagedCallable()");
-  }
 
   public UnaryCallable<RunReportRequest, RunReportResponse> runReportCallable() {
     throw new UnsupportedOperationException("Not implemented: runReportCallable()");
