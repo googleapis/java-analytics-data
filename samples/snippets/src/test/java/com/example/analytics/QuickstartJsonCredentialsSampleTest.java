@@ -28,7 +28,7 @@ import org.junit.runners.JUnit4;
  * Tests for quickstart sample.
  */
 @RunWith(JUnit4.class)
-public class QuickstartSampleTest {
+public class QuickstartJsonCredentialsSampleTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
