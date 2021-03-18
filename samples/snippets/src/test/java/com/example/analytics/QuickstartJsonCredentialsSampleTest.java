@@ -42,8 +42,7 @@ public class QuickstartJsonCredentialsSampleTest {
     PrintStream out = new PrintStream(bout);
     System.setOut(out);
 
-    // Run the test using default system credentials by passing an empty path to the
-    // private key file.
+    // Run the test using default system credentials.
     QuickstartJsonCredentialsSample.sampleRunReport(ga4PropertyId, credentialsJsonPath);
 
     System.setOut(stdOut);
