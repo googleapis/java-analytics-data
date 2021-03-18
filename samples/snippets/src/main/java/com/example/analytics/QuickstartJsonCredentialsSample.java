@@ -39,6 +39,7 @@ import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
+import com.google.analytics.data.v1beta.RunReportResponse;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import java.io.FileInputStream;
@@ -85,18 +86,15 @@ public class QuickstartJsonCredentialsSample {
               DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today")).build();
 
       // Make the request.
-      BetaAnalyticsDataClient.RunReportPagedResponse pagedResponse = analyticsData
-          .runReport(request);
+      RunReportResponse response = analyticsData.runReport(request);
       // [END google_analytics_data_run_report]
 
       // [START google_analytics_data_print_report]
       System.out.println("Report result:");
-      // Iterate through every page of the API response.
-      for (BetaAnalyticsDataClient.RunReportPage page : pagedResponse.iteratePages()) {
-        for (Row row : page.getResponse().getRowsList()) {
-          System.out.printf("%s, %s%n", row.getDimensionValues(0).getValue(),
-              row.getMetricValues(0).getValue());
-        }
+      // Iterate through every row of the API response.
+      for (Row row : response.getRowsList()) {
+        System.out.printf("%s, %s%n", row.getDimensionValues(0).getValue(),
+            row.getMetricValues(0).getValue());
       }
       // [END google_analytics_data_print_report]
     }
