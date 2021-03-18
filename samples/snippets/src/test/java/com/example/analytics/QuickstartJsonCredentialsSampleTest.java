@@ -33,7 +33,7 @@ public class QuickstartJsonCredentialsSampleTest {
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
 
-  private String credentialsJsonPath = System.getProperty("GOOGLE_APPLICATION_CREDENTIALS");
+  private String credentialsJsonPath = System.getenv("GOOGLE_APPLICATION_CREDENTIALS");
 
 
   private String runSample(String ga4PropertyId) throws Exception {
