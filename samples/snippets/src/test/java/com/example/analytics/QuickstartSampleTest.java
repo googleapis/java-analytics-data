@@ -41,7 +41,7 @@ public class QuickstartSampleTest {
 
     // Run the test using default system credentials by passing an empty path to the
     // private key file.
-    QuickstartSample.sampleRunReport(ga4PropertyId, "");
+    QuickstartSample.sampleRunReport(ga4PropertyId);
 
     System.setOut(stdOut);
     return bout.toString();
