@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  */
 
 package com.google.analytics.data.v1beta.stub;
-
-import static com.google.analytics.data.v1beta.BetaAnalyticsDataClient.RunReportPagedResponse;
 
 import com.google.analytics.data.v1beta.BatchRunPivotReportsRequest;
 import com.google.analytics.data.v1beta.BatchRunPivotReportsResponse;
@@ -119,7 +117,6 @@ public class GrpcBetaAnalyticsDataStub extends BetaAnalyticsDataStub {
               .build();
 
   private final UnaryCallable<RunReportRequest, RunReportResponse> runReportCallable;
-  private final UnaryCallable<RunReportRequest, RunReportPagedResponse> runReportPagedCallable;
   private final UnaryCallable<RunPivotReportRequest, RunPivotReportResponse> runPivotReportCallable;
   private final UnaryCallable<BatchRunReportsRequest, BatchRunReportsResponse>
       batchRunReportsCallable;
@@ -259,9 +256,6 @@ public class GrpcBetaAnalyticsDataStub extends BetaAnalyticsDataStub {
     this.runReportCallable =
         callableFactory.createUnaryCallable(
             runReportTransportSettings, settings.runReportSettings(), clientContext);
-    this.runReportPagedCallable =
-        callableFactory.createPagedCallable(
-            runReportTransportSettings, settings.runReportSettings(), clientContext);
     this.runPivotReportCallable =
         callableFactory.createUnaryCallable(
             runPivotReportTransportSettings, settings.runPivotReportSettings(), clientContext);
@@ -293,11 +287,6 @@ public class GrpcBetaAnalyticsDataStub extends BetaAnalyticsDataStub {
   @Override
   public UnaryCallable<RunReportRequest, RunReportResponse> runReportCallable() {
     return runReportCallable;
-  }
-
-  @Override
-  public UnaryCallable<RunReportRequest, RunReportPagedResponse> runReportPagedCallable() {
-    return runReportPagedCallable;
   }
 
   @Override

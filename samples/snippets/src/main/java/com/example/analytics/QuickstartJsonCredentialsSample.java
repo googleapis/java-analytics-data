@@ -64,7 +64,7 @@ public class QuickstartJsonCredentialsSample {
     // Explicitly use service account credentials by specifying
     // the private key file.
     GoogleCredentials credentials = GoogleCredentials
-        .fromStream(new FileInputStream(credentialsJsonPath)));
+        .fromStream(new FileInputStream(credentialsJsonPath));
 
     BetaAnalyticsDataSettings betaAnalyticsDataSettings =
         BetaAnalyticsDataSettings.newBuilder()
@@ -104,7 +104,7 @@ public class QuickstartJsonCredentialsSample {
 
 
   public static void main(String... args) throws Exception {
-    sampleRunReport("YOUR-GA4-PROPERTY-ID", "");
+    sampleRunReport("YOUR-GA4-PROPERTY-ID", "/path/to/credentials.json");
   }
 }
 
