@@ -46,22 +46,25 @@ import java.io.FileInputStream;
 
 public class QuickstartJsonCredentialsSample {
 
-  // This is an example snippet that calls the Google Analytics Data API and runs a simple report
-  // on the provided GA4 property id.
-  static void sampleRunReport(String propertyId, String credentialsJsonPath) throws Exception {
+  public static void main(String... args) throws Exception {
     /**
-     * TODO(developer): Uncomment this variable and replace with your
+     * TODO(developer): Replace this variable and replace with your
      * Google Analytics 4 property ID before running the sample.
      */
-    // propertyId = "YOUR-GA4-PROPERTY-ID";
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
 
-    // [START google_analytics_data_initialize]
-    /** TODO(developer): Uncomment this variable and replace with a valid path to
+    /** TODO(developer): Replace this variable and replace with a valid path to
      * the credentials.json file for your service account downloaded from the
      * Cloud Console.
      */
-    // credentialsJsonPath = "/path/to/credentials.json";
+    String credentialsJsonPath = "/path/to/credentials.json";
+    sampleRunReport(propertyId, credentialsJsonPath);
+  }
 
+  // This is an example snippet that calls the Google Analytics Data API and runs a simple report
+  // on the provided GA4 property id.
+  static void sampleRunReport(String propertyId, String credentialsJsonPath) throws Exception {
+    // [START google_analytics_data_initialize]
     // Explicitly use service account credentials by specifying
     // the private key file.
     GoogleCredentials credentials = GoogleCredentials
@@ -99,11 +102,5 @@ public class QuickstartJsonCredentialsSample {
       // [END google_analytics_data_print_report]
     }
   }
-
-
-  public static void main(String... args) throws Exception {
-    sampleRunReport("YOUR-GA4-PROPERTY-ID", "/path/to/credentials.json");
-  }
 }
-
 // [END google_analytics_data_quickstart]

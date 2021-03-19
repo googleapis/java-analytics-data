@@ -41,6 +41,15 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class QuickstartSample {
 
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable and replace with your
+     * Google Analytics 4 property ID before running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReport(propertyId);
+  }
+
   // This is an example snippet that calls the Google Analytics Data API and runs a simple report
   // on the provided GA4 property id.
   static void sampleRunReport(String propertyId) throws Exception {
@@ -79,11 +88,5 @@ public class QuickstartSample {
       // [END google_analytics_data_print_report]
     }
   }
-
-
-  public static void main(String... args) throws Exception {
-    sampleRunReport("YOUR-GA4-PROPERTY-ID");
-  }
 }
-
 // [END google_analytics_data_quickstart]
