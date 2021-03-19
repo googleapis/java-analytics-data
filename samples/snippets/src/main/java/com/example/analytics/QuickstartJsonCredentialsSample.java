@@ -48,14 +48,13 @@ public class QuickstartJsonCredentialsSample {
 
   public static void main(String... args) throws Exception {
     /**
-     * TODO(developer): Replace this variable and replace with your
-     * Google Analytics 4 property ID before running the sample.
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
 
-    /** TODO(developer): Replace this variable and replace with a valid path to
-     * the credentials.json file for your service account downloaded from the
-     * Cloud Console.
+    /** TODO(developer): Replace this variable with a valid path to the credentials.json file
+     * for your service account downloaded from the Cloud Console.
      */
     String credentialsJsonPath = "/path/to/credentials.json";
     sampleRunReport(propertyId, credentialsJsonPath);

@@ -43,8 +43,8 @@ public class QuickstartSample {
 
   public static void main(String... args) throws Exception {
     /**
-     * TODO(developer): Replace this variable and replace with your
-     * Google Analytics 4 property ID before running the sample.
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
     sampleRunReport(propertyId);
