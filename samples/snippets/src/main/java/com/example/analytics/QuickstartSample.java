@@ -29,8 +29,7 @@ To run this sample using Maven:
   mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
  */
 
-// [START google_analytics_data_quickstart]
-
+// [START analyticsdata_quickstart]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
@@ -59,13 +58,13 @@ public class QuickstartSample {
      */
     // propertyId = "YOUR-GA4-PROPERTY-ID";
 
-    // [START google_analytics_data_initialize]
+    // [START analyticsdata_initialize]
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-      // [END google_analytics_data_initialize]
+      // [END analyticsdata_initialize]
 
-      // [START google_analytics_data_run_report]
+      // [START analyticsdata_run_report]
       RunReportRequest request = RunReportRequest.newBuilder()
           .setProperty("properties/" + propertyId)
           .addDimensions(
@@ -76,17 +75,17 @@ public class QuickstartSample {
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
-      // [END google_analytics_data_run_report]
+      // [END analyticsdata_run_report]
 
-      // [START google_analytics_data_print_report]
+      // [START analyticsdata_print_report]
       System.out.println("Report result:");
       // Iterate through every row of the API response.
       for (Row row : response.getRowsList()) {
         System.out.printf("%s, %s%n", row.getDimensionValues(0).getValue(),
             row.getMetricValues(0).getValue());
       }
-      // [END google_analytics_data_print_report]
+      // [END analyticsdata_print_report]
     }
   }
 }
-// [END google_analytics_data_quickstart]
+// [END analyticsdata_quickstart]
