@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ To run this sample using Maven:
   mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartJsonCredentialsSample"
  */
 
-// [START google_analytics_data_quickstart]
+// [START analyticsdata_json_credentials_quickstart]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.BetaAnalyticsDataSettings;
 import com.google.analytics.data.v1beta.DateRange;
@@ -63,7 +63,7 @@ public class QuickstartJsonCredentialsSample {
   // This is an example snippet that calls the Google Analytics Data API and runs a simple report
   // on the provided GA4 property id.
   static void sampleRunReport(String propertyId, String credentialsJsonPath) throws Exception {
-    // [START google_analytics_data_initialize]
+    // [START analyticsdata_json_credentials_initialize]
     // Explicitly use service account credentials by specifying
     // the private key file.
     GoogleCredentials credentials = GoogleCredentials
@@ -76,9 +76,9 @@ public class QuickstartJsonCredentialsSample {
 
     try (BetaAnalyticsDataClient analyticsData =
         BetaAnalyticsDataClient.create(betaAnalyticsDataSettings)) {
-      // [END google_analytics_data_initialize]
+      // [END analyticsdata_json_credentials_initialize]
 
-      // [START google_analytics_data_run_report]
+      // [START analyticsdata_json_credentials_run_report]
       RunReportRequest request = RunReportRequest.newBuilder()
           .setProperty("properties/" + propertyId)
           .addDimensions(
@@ -89,17 +89,17 @@ public class QuickstartJsonCredentialsSample {
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
-      // [END google_analytics_data_run_report]
+      // [END analyticsdata_json_credentials_run_report]
 
-      // [START google_analytics_data_print_report]
+      // [START analyticsdata_json_credentials_print_report]
       System.out.println("Report result:");
       // Iterate through every row of the API response.
       for (Row row : response.getRowsList()) {
         System.out.printf("%s, %s%n", row.getDimensionValues(0).getValue(),
             row.getMetricValues(0).getValue());
       }
-      // [END google_analytics_data_print_report]
+      // [END analyticsdata_json_credentials_print_report]
     }
   }
 }
-// [END google_analytics_data_quickstart]
+// [END analyticsdata_json_credentials_quickstart]
