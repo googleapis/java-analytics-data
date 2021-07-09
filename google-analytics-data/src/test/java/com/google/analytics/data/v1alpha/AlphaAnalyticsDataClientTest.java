@@ -42,6 +42,7 @@ import org.junit.Test;
 public class AlphaAnalyticsDataClientTest {
   private static MockAlphaAnalyticsData mockAlphaAnalyticsData;
   private static MockServiceHelper mockServiceHelper;
+  private AlphaAnalyticsDataClient client;
   private LocalChannelProvider channelProvider;
   private AlphaAnalyticsDataClient client;
 
