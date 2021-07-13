@@ -44,7 +44,6 @@ public class AlphaAnalyticsDataClientTest {
   private static MockServiceHelper mockServiceHelper;
   private AlphaAnalyticsDataClient client;
   private LocalChannelProvider channelProvider;
-  private AlphaAnalyticsDataClient client;
 
   @BeforeClass
   public static void startStaticServer() {
