@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://www.github.com/googleapis/java-analytics-data/compare/v0.8.0...v0.9.0) (2021-08-04)
+
+
+### Features
+
+* configure initial sp version ([#296](https://www.github.com/googleapis/java-analytics-data/issues/296)) ([362713d](https://www.github.com/googleapis/java-analytics-data/commit/362713d74fc948b6050c1fd697046fa3c1718388))
+
 ## [0.8.0](https://www.github.com/googleapis/java-analytics-data/compare/v0.7.1...v0.8.0) (2021-07-15)
 
 
