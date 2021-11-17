@@ -22,20 +22,20 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.analytics</groupId>
   <artifactId>google-analytics-data</artifactId>
-  <version>0.9.2</version>
+  <version>0.10.2</version>
 </dependency>
 ```
 
 If you are using Gradle without BOM, add this to your dependencies
 
 ```Groovy
-implementation 'com.google.analytics:google-analytics-data:0.9.2'
+implementation 'com.google.analytics:google-analytics-data:0.10.2'
 ```
 
 If you are using SBT, add this to your dependencies
 
 ```Scala
-libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.9.2"
+libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.10.2"
 ```
 
 ## Authentication
@@ -75,12 +75,12 @@ use this Analytics Data Client Library.
 
 ## Samples
 
-Samples are in the [`samples/`](https://github.com/googleapis/java-analytics-data/tree/master/samples) directory.
+Samples are in the [`samples/`](https://github.com/googleapis/java-analytics-data/tree/main/samples) directory.
 
 | Sample                      | Source Code                       | Try it |
 | --------------------------- | --------------------------------- | ------ |
-| Quickstart Json Credentials Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/master/samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) |
-| Quickstart Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/master/samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) |
+| Quickstart Json Credentials Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) |
+| Quickstart Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) |
 
 
 
@@ -94,7 +94,7 @@ Analytics Data uses gRPC for the transport layer.
 
 ## Supported Java Versions
 
-Java 7 or above is required for using this client.
+Java 8 or above is required for using this client.
 
 Google's Java client libraries,
 [Google Cloud Client Libraries][cloudlibs]
@@ -166,7 +166,6 @@ Apache 2.0 - See [LICENSE][license] for more information.
 
 Java Version | Status
 ------------ | ------
-Java 7 | [![Kokoro CI][kokoro-badge-image-1]][kokoro-badge-link-1]
 Java 8 | [![Kokoro CI][kokoro-badge-image-2]][kokoro-badge-link-2]
 Java 8 OSX | [![Kokoro CI][kokoro-badge-image-3]][kokoro-badge-link-3]
 Java 8 Windows | [![Kokoro CI][kokoro-badge-image-4]][kokoro-badge-link-4]
@@ -196,10 +195,10 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [developer-console]: https://console.developers.google.com/
 [create-project]: https://cloud.google.com/resource-manager/docs/creating-managing-projects
 [cloud-sdk]: https://cloud.google.com/sdk/
-[troubleshooting]: https://github.com/googleapis/google-cloud-common/blob/master/troubleshooting/readme.md#troubleshooting
-[contributing]: https://github.com/googleapis/java-analytics-data/blob/master/CONTRIBUTING.md
-[code-of-conduct]: https://github.com/googleapis/java-analytics-data/blob/master/CODE_OF_CONDUCT.md#contributor-code-of-conduct
-[license]: https://github.com/googleapis/java-analytics-data/blob/master/LICENSE
+[troubleshooting]: https://github.com/googleapis/google-cloud-common/blob/main/troubleshooting/readme.md#troubleshooting
+[contributing]: https://github.com/googleapis/java-analytics-data/blob/main/CONTRIBUTING.md
+[code-of-conduct]: https://github.com/googleapis/java-analytics-data/blob/main/CODE_OF_CONDUCT.md#contributor-code-of-conduct
+[license]: https://github.com/googleapis/java-analytics-data/blob/main/LICENSE
 [enable-billing]: https://cloud.google.com/apis/docs/getting-started#enabling_billing
 [enable-api]: https://console.cloud.google.com/flows/enableapi?apiid=analytics-data.googleapis.com
 [libraries-bom]: https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
