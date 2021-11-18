@@ -23,14 +23,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <!-- {x-version-update-start:google-analytics-data:current} -->
   <dependencies>
+    <!-- {x-version-update-start:google-analytics-data:current} -->
     <dependency>
       <groupId>com.google.analytics</groupId>
       <artifactId>google-analytics-data</artifactId>
       <version>0.10.3-SNAPSHOT</version>
     </dependency>
-  <!-- {x-version-update-end} -->
+    <!-- {x-version-update-end} -->
 
     <dependency>
       <groupId>junit</groupId>
