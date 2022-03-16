@@ -33,7 +33,9 @@ To run this sample using Maven:
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.DimensionHeader;
 import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.MetricHeader;
 import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
@@ -83,6 +85,16 @@ public class RunReportSample {
   static void printRunResponseResponse(RunReportResponse response){
     // [START analyticsdata_print_run_report_response_header]
     System.out.println(response.getRowsList().size() +"rows received");
+
+    for (DimensionHeader header : response.getDimensionHeadersList()) {
+      System.out.printf(
+          "Dimension header name: %s", header.getName());
+    }
+
+    for (MetricHeader header : response.getMetricHeadersList()) {
+      System.out.printf(
+          "Metric header name: %s", header.getName());
+    }
 
     System.out.println("Report result:");
     for (Row row : response.getRowsList()) {
