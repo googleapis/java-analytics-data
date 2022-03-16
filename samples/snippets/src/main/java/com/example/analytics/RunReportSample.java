@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportSample"
  */
 
-// [START analyticsdata_quickstart]
+// [START analyticsdata_run_report]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
@@ -38,7 +38,7 @@ import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
-public class QuickstartSample {
+public class RunReportSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -68,24 +68,28 @@ public class QuickstartSample {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("city"))
+              .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("2020-09-01").setEndDate("2020-09-15"))
               .build();
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
-      // [END analyticsdata_run_report]
-
-      // [START analyticsdata_print_report]
-      System.out.println("Report result:");
-      // Iterate through every row of the API response.
-      for (Row row : response.getRowsList()) {
-        System.out.printf(
-            "%s, %s%n", row.getDimensionValues(0).getValue(), row.getMetricValues(0).getValue());
-      }
-      // [END analyticsdata_print_report]
+      printRunResponseResponse(response);
     }
   }
+
+  // Prints results of a runReport call
+  static void printRunResponseResponse(RunReportResponse response){
+    // [START analyticsdata_print_run_report_response_header]
+    System.out.println(response.getRowsList().size() +"rows received");
+
+    System.out.println("Report result:");
+    for (Row row : response.getRowsList()) {
+      System.out.printf(
+          "%s, %s%n", row.getDimensionValues(0).getValue(), row.getMetricValues(0).getValue());
+    }
+    // [END analyticsdata_print_report]
+  }
 }
-// [END analyticsdata_quickstart]
+// [END analyticsdata_run_report]
