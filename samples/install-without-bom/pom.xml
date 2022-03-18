@@ -35,7 +35,8 @@
     <dependency>
       <groupId>com.google.auth</groupId>
       <artifactId>google-auth-library-oauth2-http</artifactId>
-      <version>1.6.0</version>
+      <!-- Choose a proper version from https://search.maven.org/artifact/com.google.analytics/google-analytics-data/0.11.4/jar -->
+      <version>1.4.0</version>
     </dependency>
 
     <dependency>
