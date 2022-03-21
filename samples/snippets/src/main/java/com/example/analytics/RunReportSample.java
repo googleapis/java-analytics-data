@@ -16,7 +16,12 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample quickstart application.
+/* Google Analytics Data API sample application demonstrating the creation
+of a basic report.
+
+See 
+https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
+for more information.
 
 This application demonstrates the usage of the Analytics Data API using service account credentials.
 
@@ -51,8 +56,7 @@ public class RunReportSample {
     sampleRunReport(propertyId);
   }
 
-  // This is an example snippet that calls the Google Analytics Data API and runs a simple report
-  // on the provided GA4 property id.
+  // Runs a report of active users grouped by country.
   static void sampleRunReport(String propertyId) throws Exception {
     /**
      * TODO(developer): Uncomment this variable and replace with your Google Analytics 4 property ID
@@ -60,19 +64,18 @@ public class RunReportSample {
      */
     // propertyId = "YOUR-GA4-PROPERTY-ID";
 
-    // [START analyticsdata_initialize]
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-      // [END analyticsdata_initialize]
 
-      // [START analyticsdata_run_report]
+
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-09-01").setEndDate("2020-09-15"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("2020-09-01")
+                  .setEndDate("2020-09-15"))
               .build();
 
       // Make the request.
@@ -81,27 +84,29 @@ public class RunReportSample {
     }
   }
 
-  // Prints results of a runReport call
-  static void printRunResponseResponse(RunReportResponse response){
+  // Prints results of a runReport call.
+  static void printRunResponseResponse(RunReportResponse response) {
     // [START analyticsdata_print_run_report_response_header]
-    System.out.println(response.getRowsList().size() +"rows received");
+    System.out.println(response.getRowsList().size() + "rows received");
 
     for (DimensionHeader header : response.getDimensionHeadersList()) {
       System.out.printf(
-          "Dimension header name: %s", header.getName());
+          "Dimension header name: %s%n", header.getName());
     }
 
     for (MetricHeader header : response.getMetricHeadersList()) {
       System.out.printf(
-          "Metric header name: %s", header.getName());
+          "Metric header name: %s%n", header.getName());
     }
+    // [END analyticsdata_print_run_report_response_header]
 
+    //START analyticsdata_print_run_report_response_rows]
     System.out.println("Report result:");
     for (Row row : response.getRowsList()) {
       System.out.printf(
           "%s, %s%n", row.getDimensionValues(0).getValue(), row.getMetricValues(0).getValue());
     }
-    // [END analyticsdata_print_report]
+    // [END analyticsdata_print_run_report_response_rows]
   }
 }
 // [END analyticsdata_run_report]
