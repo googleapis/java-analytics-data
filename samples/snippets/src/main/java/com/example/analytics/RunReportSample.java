@@ -87,7 +87,7 @@ public class RunReportSample {
   // Prints results of a runReport call.
   static void printRunResponseResponse(RunReportResponse response) {
     // [START analyticsdata_print_run_report_response_header]
-    System.out.println(response.getRowsList().size() + "rows received");
+    System.out.printf("%s rows received%n", response.getRowsList().size());
 
     for (DimensionHeader header : response.getDimensionHeadersList()) {
       System.out.printf(
