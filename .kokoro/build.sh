@@ -76,11 +76,6 @@ graalvm)
     ;;
 samples)
     SAMPLES_DIR=samples
-    # only run ITs in snapshot/ on presubmit PRs. run ITs in all 3 samples/ subdirectories otherwise.
-    if [[ ! -z ${KOKORO_GITHUB_PULL_REQUEST_NUMBER} ]]
-    then
-      SAMPLES_DIR=samples/snapshot
-    fi
 
     if [[ -f ${SAMPLES_DIR}/pom.xml ]]
     then
