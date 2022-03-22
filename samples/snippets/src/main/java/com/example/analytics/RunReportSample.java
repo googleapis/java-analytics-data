@@ -19,7 +19,7 @@ package com.example.analytics;
 /* Google Analytics Data API sample application demonstrating the creation
 of a basic report.
 
-See 
+See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
 for more information.
 
@@ -72,8 +72,8 @@ public class RunReportSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-09-01")
-                  .setEndDate("2020-09-15"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("2020-09-01").setEndDate("2020-09-15"))
               .build();
 
       // Make the request.
@@ -88,13 +88,11 @@ public class RunReportSample {
     System.out.printf("%s rows received%n", response.getRowsList().size());
 
     for (DimensionHeader header : response.getDimensionHeadersList()) {
-      System.out.printf(
-          "Dimension header name: %s%n", header.getName());
+      System.out.printf("Dimension header name: %s%n", header.getName());
     }
 
     for (MetricHeader header : response.getMetricHeadersList()) {
-      System.out.printf(
-          "Metric header name: %s%n", header.getName());
+      System.out.printf("Metric header name: %s%n", header.getName());
     }
     // [END analyticsdata_print_run_report_response_header]
 
