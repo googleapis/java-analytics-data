@@ -100,7 +100,7 @@ public class RunReportSample {
     }
     // [END analyticsdata_print_run_report_response_header]
 
-    //START analyticsdata_print_run_report_response_rows]
+    // [START analyticsdata_print_run_report_response_rows]
     System.out.println("Report result:");
     for (Row row : response.getRowsList()) {
       System.out.printf(
