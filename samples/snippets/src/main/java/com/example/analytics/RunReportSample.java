@@ -58,12 +58,6 @@ public class RunReportSample {
 
   // Runs a report of active users grouped by country.
   static void sampleRunReport(String propertyId) throws Exception {
-    /**
-     * TODO(developer): Uncomment this variable and replace with your Google Analytics 4 property ID
-     * before running the sample.
-     */
-    // propertyId = "YOUR-GA4-PROPERTY-ID";
-
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {

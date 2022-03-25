@@ -16,10 +16,11 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample application demonstrating the usage of
-metric aggregations in a report.
+/* Google Analytics Data API sample application demonstrating the creation
+of a basic report.
 
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.metric_aggregations
+See 
+https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
 for more information.
 
 This application demonstrates the usage of the Analytics Data API using service account credentials.
@@ -30,24 +31,22 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithAggregationsSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithCohortsSample"
  */
 
-// [START analyticsdata_run_report_with_aggregations]
+// [START analyticsdata_run_report_with_cohorts]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.DimensionHeader;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.MetricHeader;
-import com.google.analytics.data.v1beta.MetricAggregation;
 import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 import com.example.analytics.RunReportSample;
-import java.util.ArrayList;
 
-public class RunReportWithAggregationsSample {
+public class RunReportWithCohortsSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -55,26 +54,22 @@ public class RunReportWithAggregationsSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithAggregations(propertyId);
+    sampleRunReportWithCohorts(propertyId);
   }
 
   // Runs a report of active users grouped by country.
-  static void sampleRunReportWithAggregations(String propertyId) throws Exception {
+  static void sampleRunReportWithCohorts(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("country"))
-              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addDimensions(Dimension.newBuilder().setName("cohort"))
+              .addMetrics(Metric.newBuilder().setName("cohortRetentionRate").setExpression("cohortActiveUsers/cohortTotalUsers"))
+              .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
               .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("today"))
-              .addAllMetricAggregations(new ArrayList<MetricAggregation>(){
-                {
-                  add(MetricAggregation.TOTAL);
-                  add(MetricAggregation.MAXIMUM);
-                  add(MetricAggregation.MINIMUM);
-                }})
+//TODO ANWESHA - Add cohort information and metrics
               .build();
 
       // Make the request.
@@ -82,5 +77,6 @@ public class RunReportWithAggregationsSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
+
 }
-// [END analyticsdata_run_report_with_aggregations]
+// [END analyticsdata_run_report_with_cohorts]
