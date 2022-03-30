@@ -36,6 +36,9 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_report_with_cohorts]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.Cohort;
+import com.google.analytics.data.v1beta.CohortSpec;
+import com.google.analytics.data.v1beta.CohortsRange;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.DimensionHeader;
@@ -66,10 +69,22 @@ public class RunReportWithCohortsSample {
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("cohort"))
-              .addMetrics(Metric.newBuilder().setName("cohortRetentionRate").setExpression("cohortActiveUsers/cohortTotalUsers"))
+              .addDimensions(Dimension.newBuilder().setName("cohortNthWeek"))
               .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("today"))
-//TODO ANWESHA - Add cohort information and metrics
+              .addMetrics(Metric.newBuilder()
+                .setName("cohortRetentionRate")
+                .setExpression("cohortActiveUsers/cohortTotalUsers"))
+              .setCohortSpec(CohortSpec.newBuilder()
+                .addCohorts(Cohort.newBuilder()
+                  .setDimension("firstSessionDate")
+                  .setName("cohort")
+                  .setDateRange(DateRange.newBuilder()
+                    .setStartDate("2021-01-03")
+                    .setEndDate("2021-01-09")))
+                .setCohortsRange(CohortsRange.newBuilder()
+                  .setStartOffset(0)
+                  .setEndOffset(4)
+                  .setGranularity(CohortsRange.Granularity.WEEKLY)))
               .build();
 
       // Make the request.
