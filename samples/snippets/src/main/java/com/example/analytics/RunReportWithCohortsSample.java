@@ -41,13 +41,9 @@ import com.google.analytics.data.v1beta.CohortSpec;
 import com.google.analytics.data.v1beta.CohortsRange;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
-import com.google.analytics.data.v1beta.DimensionHeader;
 import com.google.analytics.data.v1beta.Metric;
-import com.google.analytics.data.v1beta.MetricHeader;
-import com.google.analytics.data.v1beta.Row;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
-import com.example.analytics.RunReportSample;
 
 public class RunReportWithCohortsSample {
 
@@ -71,6 +67,7 @@ public class RunReportWithCohortsSample {
               .addDimensions(Dimension.newBuilder().setName("cohort"))
               .addDimensions(Dimension.newBuilder().setName("cohortNthWeek"))
               .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
+
               .addMetrics(Metric.newBuilder()
                 .setName("cohortRetentionRate")
                 .setExpression("cohortActiveUsers/cohortTotalUsers"))

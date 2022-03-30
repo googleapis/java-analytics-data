@@ -37,12 +37,10 @@ To run this sample using Maven:
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
-import com.google.analytics.data.v1beta.DimensionHeader;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.MetricAggregation;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
-import com.example.analytics.RunReportSample;
 import java.util.ArrayList;
 
 public class RunReportWithAggregationsSample {
@@ -67,7 +65,7 @@ public class RunReportWithAggregationsSample {
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
               .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("today"))
-              .addAllMetricAggregations(new ArrayList<MetricAggregation>(){
+              .addAllMetricAggregations(new ArrayList<MetricAggregation>() {
                 {
                   add(MetricAggregation.TOTAL);
                   add(MetricAggregation.MAXIMUM);

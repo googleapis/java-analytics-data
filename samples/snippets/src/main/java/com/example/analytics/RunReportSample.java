@@ -88,7 +88,7 @@ public class RunReportSample {
 
     for (MetricHeader header : response.getMetricHeadersList()) {
       System.out.printf(
-          "Metric header name: %s%n", header.getName());
+          "Metric header name: %s (%s)%n", header.getName(), header.getType());
     }
     // [END analyticsdata_print_run_report_response_header]
 
