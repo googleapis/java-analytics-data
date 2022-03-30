@@ -58,6 +58,7 @@ public class RunReportSample {
 
   // Runs a report of active users grouped by country.
   static void sampleRunReport(String propertyId) throws Exception {
+
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
@@ -66,8 +67,8 @@ public class RunReportSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-09-01")
-                  .setEndDate("2020-09-15"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("2020-09-01").setEndDate("2020-09-15"))
               .build();
 
       // Make the request.
