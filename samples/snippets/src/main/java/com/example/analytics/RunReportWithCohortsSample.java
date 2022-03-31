@@ -16,11 +16,11 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample application demonstrating the creation
-of a basic report.
+/* Google Analytics Data API sample application demonstrating the usage of
+cohort specification in a report.
 
 See 
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
+https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.cohort_spec
 for more information.
 
 This application demonstrates the usage of the Analytics Data API using service account credentials.
