@@ -16,14 +16,13 @@
 
 package com.example.analytics;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import static com.google.common.truth.Truth.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 /** Tests for the RunReportWithDateRanges sample. */
 @RunWith(JUnit4.class)
@@ -39,7 +38,8 @@ public class RunReportWithDimensionAndMetricFiltersSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionAndMetricFiltersSample.sampleRunReportWithDimensionAndMetricFilters(ga4PropertyId);
+    RunReportWithDimensionAndMetricFiltersSample
+        .sampleRunReportWithDimensionAndMetricFilters(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }

@@ -16,11 +16,11 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample application demonstrating the creation
-of a basic report.
+/* Google Analytics Data API sample application demonstrating the usage of
+date ranges in a report.
 
 See 
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
+https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.date_ranges
 for more information.
 
 This application demonstrates the usage of the Analytics Data API using service account credentials.
@@ -31,10 +31,10 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithCustomParametersSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDateRangesSample"
  */
 
-// [START analyticsdata_run_report_with_custom_parameters]
+// [START analyticsdata_run_report_with_date_ranges]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -62,8 +62,10 @@ public class RunReportWithDateRangesSample {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("2019-08-01").setEndDate("2019-08-14"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-08-01").setEndDate("2020-08-14"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("2019-08-01")
+                  .setEndDate("2019-08-14"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("2020-08-01")
+                  .setEndDate("2020-08-14"))
               .addDimensions(Dimension.newBuilder().setName("platform"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
               .build();
@@ -75,4 +77,4 @@ public class RunReportWithDateRangesSample {
   }
 
 }
-// [END analyticsdata_run_report_with_custom_parameters]
+// [END analyticsdata_run_report_with_date_ranges]
