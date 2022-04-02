@@ -19,7 +19,7 @@ package com.example.analytics;
 /* Google Analytics Data API sample application demonstrating the usage of
 cohort specification in a report.
 
-See 
+See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.cohort_spec
 for more information.
 
@@ -67,21 +67,25 @@ public class RunReportWithCohortsSample {
               .addDimensions(Dimension.newBuilder().setName("cohort"))
               .addDimensions(Dimension.newBuilder().setName("cohortNthWeek"))
               .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
-
-              .addMetrics(Metric.newBuilder()
-                .setName("cohortRetentionRate")
-                .setExpression("cohortActiveUsers/cohortTotalUsers"))
-              .setCohortSpec(CohortSpec.newBuilder()
-                .addCohorts(Cohort.newBuilder()
-                  .setDimension("firstSessionDate")
-                  .setName("cohort")
-                  .setDateRange(DateRange.newBuilder()
-                    .setStartDate("2021-01-03")
-                    .setEndDate("2021-01-09")))
-                .setCohortsRange(CohortsRange.newBuilder()
-                  .setStartOffset(0)
-                  .setEndOffset(4)
-                  .setGranularity(CohortsRange.Granularity.WEEKLY)))
+              .addMetrics(
+                  Metric.newBuilder()
+                      .setName("cohortRetentionRate")
+                      .setExpression("cohortActiveUsers/cohortTotalUsers"))
+              .setCohortSpec(
+                  CohortSpec.newBuilder()
+                      .addCohorts(
+                          Cohort.newBuilder()
+                              .setDimension("firstSessionDate")
+                              .setName("cohort")
+                              .setDateRange(
+                                  DateRange.newBuilder()
+                                      .setStartDate("2021-01-03")
+                                      .setEndDate("2021-01-09")))
+                      .setCohortsRange(
+                          CohortsRange.newBuilder()
+                              .setStartOffset(0)
+                              .setEndOffset(4)
+                              .setGranularity(CohortsRange.Granularity.WEEKLY)))
               .build();
 
       // Make the request.
@@ -89,6 +93,5 @@ public class RunReportWithCohortsSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_cohorts]
