@@ -22,8 +22,6 @@ metric aggregations in a report.
 See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.metric_aggregations
 for more information.
 
-This application demonstrates the usage of the Analytics Data API using service account credentials.
-
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
@@ -54,7 +52,7 @@ public class RunReportWithAggregationsSample {
     sampleRunReportWithAggregations(propertyId);
   }
 
-  // Runs a report of active users grouped by country.
+  // Runs a report which includes total, maximum and minimum values for each metric.
   static void sampleRunReportWithAggregations(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.

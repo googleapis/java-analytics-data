@@ -23,8 +23,6 @@ See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.cohort_spec
 for more information.
 
-This application demonstrates the usage of the Analytics Data API using service account credentials.
-
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
@@ -56,7 +54,9 @@ public class RunReportWithCohortsSample {
     sampleRunReportWithCohorts(propertyId);
   }
 
-  // Runs a report of active users grouped by country.
+  // Runs a report on a cohort of users whose first session happened on the
+  // same week. The number of active users and user retention rate is calculated
+  // for the cohort using WEEKLY granularity.
   static void sampleRunReportWithCohorts(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
