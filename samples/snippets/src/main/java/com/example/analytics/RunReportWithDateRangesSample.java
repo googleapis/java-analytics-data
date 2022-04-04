@@ -23,8 +23,6 @@ See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.date_ranges
 for more information.
 
-This application demonstrates the usage of the Analytics Data API using service account credentials.
-
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
@@ -54,7 +52,7 @@ public class RunReportWithDateRangesSample {
     sampleRunReportWithDateRanges(propertyId);
   }
 
-  // Runs a report of active users grouped by country.
+  // Runs a report using two date ranges.
   static void sampleRunReportWithDateRanges(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
