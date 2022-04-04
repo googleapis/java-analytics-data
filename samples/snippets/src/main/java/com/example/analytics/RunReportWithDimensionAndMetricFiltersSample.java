@@ -29,7 +29,7 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionAndMetricFiltersSample"
+ mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionAndMetricFiltersSample"
  */
 
 // [START analyticsdata_run_report_with_dimension_and_metric_filters]
