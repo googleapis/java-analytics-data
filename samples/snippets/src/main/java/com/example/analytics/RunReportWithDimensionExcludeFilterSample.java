@@ -69,7 +69,6 @@ public class RunReportWithDimensionExcludeFilterSample {
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("pageTitle"))
-              .addD
               .addMetrics(Metric.newBuilder().setName("sessions"))
               .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
                   .setEndDate("yesterday"))

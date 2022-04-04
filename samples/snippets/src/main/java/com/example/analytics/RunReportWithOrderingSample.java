@@ -16,11 +16,10 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample application demonstrating the usage of
-dimension and metric filters in a report.
+/* Google Analytics Data API sample application demonstrating the ordering of report rows.
 
 See
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.dimension_filter
+https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.order_bys
 for more information.
 
 Before you start the application, please review the comments starting with
@@ -29,21 +28,20 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionFilterSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithOrderingSample"
  */
 
-// [START analyticsdata_run_report_with_dimension_filter]
+// [START analyticsdata_run_report_with_ordering]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
-import com.google.analytics.data.v1beta.Filter;
-import com.google.analytics.data.v1beta.FilterExpression;
 import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.OrderBy;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
-public class RunReportWithDimensionFilterSample {
+public class RunReportWithOrderingSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -51,15 +49,12 @@ public class RunReportWithDimensionFilterSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithDimensionFilter(propertyId);
+    sampleRunReportWithOrdering(propertyId);
   }
 
-  // Runs a report using a dimension filter. The call returns a time series report of `eventCount`
-  // when `eventName` is `first_open` for each date.
-  // This sample uses relative date range values.
-  // See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/DateRange
-  // for more information.
-  static void sampleRunReportWithDimensionFilter(String propertyId) throws Exception {
+  // Runs a report of active users grouped by three dimensions, ordered by the total revenue in
+  // descending order.
+  static void sampleRunReportWithOrdering(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
@@ -67,13 +62,13 @@ public class RunReportWithDimensionFilterSample {
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("date"))
-              .addMetrics(Metric.newBuilder().setName("eventCount"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setFilter(Filter.newBuilder()
-                      .setFieldName("eventName")
-                      .setStringFilter(Filter.StringFilter.newBuilder()
-                          .setValue("first_open"))))
+              .addMetrics(Metric.newBuilder().setName("activeUsers"))
+              .addMetrics(Metric.newBuilder().setName("newUsers"))
+              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
+              .addOrderBys(OrderBy.newBuilder()
+                  .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
+                  .setDesc(true))
               .build();
 
       // Make the request.
@@ -83,4 +78,4 @@ public class RunReportWithDimensionFilterSample {
   }
 
 }
-// [END analyticsdata_run_report_with_dimension_filter]
+// [END analyticsdata_run_report_with_ordering]
