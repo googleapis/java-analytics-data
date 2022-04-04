@@ -39,14 +39,14 @@ public class RunReportWithDimensionExcludeFilterSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionAndMetricFiltersSample
-        .sampleRunReportWithDimensionAndMetricFilters(ga4PropertyId);
+    RunReportWithDimensionExcludeFilterSample
+        .sampleRunReportWithDimensionExcludeFilter(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunReportDimensionAndMetricFilters() throws Exception {
+  public void testRunReportWithDimensionExcludeFilter() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 

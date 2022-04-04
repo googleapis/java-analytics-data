@@ -32,7 +32,7 @@ To run this sample using Maven:
   mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionAndMetricFiltersSample"
  */
 
-// [START analyticsdata_run_report_with_dimension_and_metric_filters]
+// [START analyticsdata_run_report_with_dimension_exclude_filter]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -45,7 +45,7 @@ import com.google.analytics.data.v1beta.NumericValue;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
-public class RunReportWithDimensionAndMetricFiltersSample {
+public class RunReportWithDimensionExcludeFilterSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -53,43 +53,31 @@ public class RunReportWithDimensionAndMetricFiltersSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithDimensionAndMetricFilters(propertyId);
+    sampleRunReportWithDimensionExcludeFilter(propertyId);
   }
 
-  // Runs a report using both metric and dimension filters. A dimension filter limits the report to
-  // include only users who made an in-app purchase using Android platform. A metric filter
-  // specifies that only users with session counts larger than 1,000 should be included.
-  static void sampleRunReportWithDimensionAndMetricFilters(String propertyId) throws Exception {
+  // Runs a report using a filter with `not_expression`. The dimension filter selects for when
+  // `pageTitle` is not `My Homepage`.
+  // This sample uses relative date range values.
+  // See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/DateRange
+  // for more information.
+  static void sampleRunReportWithDimensionExcludeFilter(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("city"))
-              .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today"))
+              .addDimensions(Dimension.newBuilder().setName("pageTitle"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
+                  .setEndDate("yesterday"))
               .setDimensionFilter(FilterExpression.newBuilder()
-                  .setAndGroup(FilterExpressionList.newBuilder()
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("platform")
-                                  .setStringFilter(Filter.StringFilter.newBuilder()
-                                      .setMatchType(Filter.StringFilter.MatchType.EXACT)
-                                      .setValue("Android"))))
-                              .addExpressions(FilterExpression.newBuilder()
-                                  .setFilter(Filter.newBuilder()
-                                      .setFieldName("eventName")
-                                      .setStringFilter(Filter.StringFilter.newBuilder()
-                                          .setMatchType(Filter.StringFilter.MatchType.EXACT)
-                                          .setValue("in_app_purchase"))))))
-              .setMetricFilter(FilterExpression.newBuilder()
-                  .setFilter(Filter.newBuilder()
-                      .setFieldName("sessions")
-                      .setNumericFilter(Filter.NumericFilter.newBuilder()
-                          .setOperation(Filter.NumericFilter.Operation.GREATER_THAN)
-                          .setValue(NumericValue.newBuilder()
-                              .setInt64Value(1000)))))
+                  .setNotExpression(FilterExpression.newBuilder()
+                      .setFilter(Filter.newBuilder()
+                          .setFieldName("pageTitle")
+                          .setStringFilter(Filter.StringFilter.newBuilder()
+                              .setValue("My Homepage")))))
               .build();
 
       // Make the request.
@@ -99,4 +87,4 @@ public class RunReportWithDimensionAndMetricFiltersSample {
   }
 
 }
-// [END analyticsdata_run_report_with_dimension_and_metric_filters]
+// [END analyticsdata_run_report_with_dimension_exclude_filter]
