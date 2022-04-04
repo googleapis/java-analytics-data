@@ -29,9 +29,14 @@
     <dependency>
       <groupId>com.google.analytics</groupId>
       <artifactId>google-analytics-data</artifactId>
-      <version>0.11.5</version>
+      <version>0.11.6</version>
     </dependency>
     <!-- [END analytics_data_install_without_bom] -->
+    <dependency>
+      <groupId>com.google.auth</groupId>
+      <artifactId>google-auth-library-oauth2-http</artifactId>
+      <version>1.6.0</version>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
