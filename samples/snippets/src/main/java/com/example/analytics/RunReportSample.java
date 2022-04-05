@@ -81,13 +81,11 @@ public class RunReportSample {
     System.out.printf("%s rows received%n", response.getRowsList().size());
 
     for (DimensionHeader header : response.getDimensionHeadersList()) {
-      System.out.printf(
-          "Dimension header name: %s%n", header.getName());
+      System.out.printf("Dimension header name: %s%n", header.getName());
     }
 
     for (MetricHeader header : response.getMetricHeadersList()) {
-      System.out.printf(
-          "Metric header name: %s (%s)%n", header.getName(), header.getType());
+      System.out.printf("Metric header name: %s (%s)%n", header.getName(), header.getType());
     }
     // [END analyticsdata_print_run_report_response_header]
 

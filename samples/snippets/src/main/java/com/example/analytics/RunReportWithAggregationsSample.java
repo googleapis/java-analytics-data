@@ -68,7 +68,8 @@ public class RunReportWithAggregationsSample {
                   add(MetricAggregation.TOTAL);
                   add(MetricAggregation.MAXIMUM);
                   add(MetricAggregation.MINIMUM);
-                }})
+                }
+              })
               .build();
 
       // Make the request.
@@ -78,4 +79,3 @@ public class RunReportWithAggregationsSample {
   }
 }
 // [END analyticsdata_run_report_with_aggregations]
-
