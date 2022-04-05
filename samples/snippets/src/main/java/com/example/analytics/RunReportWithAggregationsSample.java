@@ -78,3 +78,4 @@ public class RunReportWithAggregationsSample {
   }
 }
 // [END analyticsdata_run_report_with_aggregations]
+

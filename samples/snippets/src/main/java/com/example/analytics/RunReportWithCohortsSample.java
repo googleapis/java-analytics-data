@@ -67,7 +67,6 @@ public class RunReportWithCohortsSample {
               .addDimensions(Dimension.newBuilder().setName("cohort"))
               .addDimensions(Dimension.newBuilder().setName("cohortNthWeek"))
               .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
-
               .addMetrics(Metric.newBuilder()
                 .setName("cohortRetentionRate")
                 .setExpression("cohortActiveUsers/cohortTotalUsers"))
@@ -89,6 +88,5 @@ public class RunReportWithCohortsSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_cohorts]
