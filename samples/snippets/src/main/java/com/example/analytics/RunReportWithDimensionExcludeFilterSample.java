@@ -29,7 +29,7 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionAndMetricFiltersSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionExcludeFilterSample"
  */
 
 // [START analyticsdata_run_report_with_dimension_exclude_filter]
@@ -39,9 +39,7 @@ import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.Filter;
 import com.google.analytics.data.v1beta.FilterExpression;
-import com.google.analytics.data.v1beta.FilterExpressionList;
 import com.google.analytics.data.v1beta.Metric;
-import com.google.analytics.data.v1beta.NumericValue;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 

@@ -34,7 +34,15 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_report_with_multiple_dimension_filters]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.DateRange;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.Filter;
+import com.google.analytics.data.v1beta.FilterExpression;
+import com.google.analytics.data.v1beta.FilterExpressionList;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.RunReportRequest;
+import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithMultipleDimensionFiltersSample {
 
@@ -61,7 +69,8 @@ public class RunReportWithMultipleDimensionFiltersSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("browser"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
+                  .setEndDate("yesterday"))
               .setDimensionFilter(FilterExpression.newBuilder()
                   .setAndGroup(FilterExpressionList.newBuilder()
                       .addExpressions(FilterExpression.newBuilder()

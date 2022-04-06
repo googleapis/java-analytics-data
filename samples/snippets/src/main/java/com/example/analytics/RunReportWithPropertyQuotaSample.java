@@ -33,7 +33,12 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_report_with_property_quota]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.DateRange;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.RunReportRequest;
+import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithPropertyQuotaSample {
 
@@ -64,12 +69,23 @@ public class RunReportWithPropertyQuotaSample {
       RunReportResponse response = analyticsData.runReport(request);
 
       // [START analyticsdata_run_report_with_property_quota_print_response]
-      if (response.hasPropertyQuota()){
-        System.out.printf("Tokens per day quota consumed: %d, remaining: %d.%n", response.getPropertyQuota().getTokensPerDay().getConsumed(), response.getPropertyQuota().getTokensPerDay().getRemaining());
-        System.out.printf("Tokens per hour quota consumed: %d, remaining: %d.%n", response.getPropertyQuota().getTokensPerHour().getConsumed(), response.getPropertyQuota().getTokensPerHour().getRemaining());
-        System.out.printf("Concurrent requests quota consumed: %d, remaining: %d.%n", response.getPropertyQuota().getConcurrentRequests().getConsumed(), response.getPropertyQuota().getConcurrentRequests().getRemaining());
-        System.out.printf("Server errors per project per hour quota consumed: %d, remaining: %d.%n", response.getPropertyQuota().getServerErrorsPerProjectPerHour().getConsumed(), response.getPropertyQuota().getServerErrorsPerProjectPerHour().getRemaining());
-        System.out.printf("Potentially thresholded requests per hour quota consumed: %d, remaining: %d.%n", response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getConsumed(), response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getRemaining());
+      if (response.hasPropertyQuota()) {
+        System.out.printf("Tokens per day quota consumed: %d, remaining: %d.%n",
+            response.getPropertyQuota().getTokensPerDay().getConsumed(),
+            response.getPropertyQuota().getTokensPerDay().getRemaining());
+        System.out.printf("Tokens per hour quota consumed: %d, remaining: %d.%n",
+            response.getPropertyQuota().getTokensPerHour().getConsumed(),
+            response.getPropertyQuota().getTokensPerHour().getRemaining());
+        System.out.printf("Concurrent requests quota consumed: %d, remaining: %d.%n",
+            response.getPropertyQuota().getConcurrentRequests().getConsumed(),
+            response.getPropertyQuota().getConcurrentRequests().getRemaining());
+        System.out.printf("Server errors per project per hour quota consumed: %d, remaining: %d.%n",
+            response.getPropertyQuota().getServerErrorsPerProjectPerHour().getConsumed(),
+            response.getPropertyQuota().getServerErrorsPerProjectPerHour().getRemaining());
+        System.out.printf(
+            "Potentially thresholded requests per hour quota consumed: %d, remaining: %d.%n",
+            response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getConsumed(),
+            response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getRemaining());
       }
       // [END analyticsdata_run_report_with_property_quota_print_response]
     }

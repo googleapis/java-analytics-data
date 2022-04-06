@@ -42,7 +42,6 @@ import com.google.analytics.data.v1beta.FilterExpression;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
-
 import java.util.ArrayList;
 
 public class RunReportWithDimensionInListFilterSample {
@@ -70,7 +69,8 @@ public class RunReportWithDimensionInListFilterSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("eventName"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
+                  .setEndDate("yesterday"))
               .setDimensionFilter(FilterExpression.newBuilder()
                   .setFilter(Filter.newBuilder()
                       .setFieldName("eventName")
