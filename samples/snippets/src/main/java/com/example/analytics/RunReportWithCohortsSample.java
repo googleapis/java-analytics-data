@@ -88,6 +88,5 @@ public class RunReportWithCohortsSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_cohorts]

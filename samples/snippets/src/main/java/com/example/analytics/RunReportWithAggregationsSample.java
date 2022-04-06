@@ -63,12 +63,14 @@ public class RunReportWithAggregationsSample {
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
               .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("today"))
-              .addAllMetricAggregations(new ArrayList<MetricAggregation>() {
-                {
-                  add(MetricAggregation.TOTAL);
-                  add(MetricAggregation.MAXIMUM);
-                  add(MetricAggregation.MINIMUM);
-                }})
+              .addAllMetricAggregations(
+                  new ArrayList<MetricAggregation>() {
+                    {
+                      add(MetricAggregation.TOTAL);
+                      add(MetricAggregation.MAXIMUM);
+                      add(MetricAggregation.MINIMUM);
+                    }
+                  })
               .build();
 
       // Make the request.
