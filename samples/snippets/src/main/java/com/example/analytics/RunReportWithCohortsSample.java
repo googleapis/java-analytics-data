@@ -67,7 +67,6 @@ public class RunReportWithCohortsSample {
               .addDimensions(Dimension.newBuilder().setName("cohort"))
               .addDimensions(Dimension.newBuilder().setName("cohortNthWeek"))
               .addMetrics(Metric.newBuilder().setName("cohortActiveUsers"))
-
               .addMetrics(Metric.newBuilder()
                 .setName("cohortRetentionRate")
                 .setExpression("cohortActiveUsers/cohortTotalUsers"))
