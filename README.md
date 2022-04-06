@@ -22,20 +22,24 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.analytics</groupId>
   <artifactId>google-analytics-data</artifactId>
-  <version>0.11.8</version>
+  <version>0.11.9</version>
 </dependency>
 ```
 
 If you are using Gradle without BOM, add this to your dependencies
 
 ```Groovy
-implementation 'com.google.analytics:google-analytics-data:0.11.8'
+implementation 'com.google.analytics:google-analytics-data:0.11.9'
 ```
 
 If you are using SBT, add this to your dependencies
 
 ```Scala
+<<<<<<< HEAD
 libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.11.8"
+=======
+libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.11.9"
+>>>>>>> 7984fd8f49d9107603d10587294a1bfdb6564083
 ```
 
 ## Authentication
@@ -82,7 +86,8 @@ Samples are in the [`samples/`](https://github.com/googleapis/java-analytics-dat
 | Quickstart Json Credentials Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartJsonCredentialsSample.java) |
 | Quickstart Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/QuickstartSample.java) |
 | Run Report Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportSample.java) |
-
+| Run Report With Aggregations Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportWithAggregationsSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportWithAggregationsSample.java) |
+| Run Report With Cohorts Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportWithCohortsSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportWithCohortsSample.java) |
 
 
 ## Troubleshooting

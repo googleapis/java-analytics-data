@@ -23,8 +23,11 @@ See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
 for more information.
 
+<<<<<<< HEAD
 This application demonstrates the usage of the Analytics Data API using service account credentials.
 
+=======
+>>>>>>> 7984fd8f49d9107603d10587294a1bfdb6564083
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
@@ -58,12 +61,6 @@ public class RunReportSample {
 
   // Runs a report of active users grouped by country.
   static void sampleRunReport(String propertyId) throws Exception {
-    /**
-     * TODO(developer): Uncomment this variable and replace with your Google Analytics 4 property ID
-     * before running the sample.
-     */
-    // propertyId = "YOUR-GA4-PROPERTY-ID";
-
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
@@ -92,7 +89,7 @@ public class RunReportSample {
     }
 
     for (MetricHeader header : response.getMetricHeadersList()) {
-      System.out.printf("Metric header name: %s%n", header.getName());
+      System.out.printf("Metric header name: %s (%s)%n", header.getName(), header.getType());
     }
     // [END analyticsdata_print_run_report_response_header]
 

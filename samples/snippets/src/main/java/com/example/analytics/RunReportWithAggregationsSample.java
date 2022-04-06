@@ -16,9 +16,11 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample quickstart application.
+/* Google Analytics Data API sample application demonstrating the usage of
+metric aggregations in a report.
 
-This application demonstrates the usage of the Analytics Data API using service account credentials.
+See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport#body.request_body.FIELDS.metric_aggregations
+for more information.
 
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
@@ -26,19 +28,20 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.QuickstartSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithAggregationsSample"
  */
 
-// [START analyticsdata_quickstart]
+// [START analyticsdata_run_report_with_aggregations]
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.Metric;
-import com.google.analytics.data.v1beta.Row;
+import com.google.analytics.data.v1beta.MetricAggregation;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
+import java.util.ArrayList;
 
-public class QuickstartSample {
+public class RunReportWithAggregationsSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -46,40 +49,34 @@ public class QuickstartSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReport(propertyId);
+    sampleRunReportWithAggregations(propertyId);
   }
 
-  // This is an example snippet that calls the Google Analytics Data API and runs a simple report
-  // on the provided GA4 property id.
-  static void sampleRunReport(String propertyId) throws Exception {
-    // [START analyticsdata_initialize]
+  // Runs a report which includes total, maximum and minimum values for each metric.
+  static void sampleRunReportWithAggregations(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-      // [END analyticsdata_initialize]
-
-      // [START analyticsdata_run_report]
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("city"))
-              .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today"))
+              .addDimensions(Dimension.newBuilder().setName("country"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("today"))
+              .addAllMetricAggregations(
+                  new ArrayList<MetricAggregation>() {
+                    {
+                      add(MetricAggregation.TOTAL);
+                      add(MetricAggregation.MAXIMUM);
+                      add(MetricAggregation.MINIMUM);
+                    }
+                  })
               .build();
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
-      // [END analyticsdata_run_report]
-
-      // [START analyticsdata_print_report]
-      System.out.println("Report result:");
-      // Iterate through every row of the API response.
-      for (Row row : response.getRowsList()) {
-        System.out.printf(
-            "%s, %s%n", row.getDimensionValues(0).getValue(), row.getMetricValues(0).getValue());
-      }
-      // [END analyticsdata_print_report]
+      RunReportSample.printRunResponseResponse(response);
     }
   }
 }
-// [END analyticsdata_quickstart]
+// [END analyticsdata_run_report_with_aggregations]
