@@ -97,7 +97,8 @@ public class RunReportSample {
     System.out.println("Report result:");
     for (Row row : response.getRowsList()) {
       System.out.printf(
-          "%s, %s%n", row.getDimensionValues(0).getValue(), row.getMetricValues(0).getValue());
+          "%s, %s%n", row.getDimensionValues(0).getValue(),
+          row.getMetricValues(0).getValue());
     }
     // [END analyticsdata_print_run_report_response_rows]
   }
