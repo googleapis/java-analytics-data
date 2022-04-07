@@ -16,11 +16,10 @@
 
 package com.example.analytics;
 
-/* Google Analytics Data API sample application demonstrating the creation
-of a basic report.
+/* Google Analytics Data API sample application retrieving dimension and metrics
+metadata.
 
-See
-https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
+See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
 for more information.
 
 Before you start the application, please review the comments starting with
@@ -29,21 +28,14 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.GetCommonMetadataSample"
  */
 
-// [START analyticsdata_run_report]
-import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
-import com.google.analytics.data.v1beta.DateRange;
-import com.google.analytics.data.v1beta.Dimension;
-import com.google.analytics.data.v1beta.DimensionHeader;
-import com.google.analytics.data.v1beta.Metric;
-import com.google.analytics.data.v1beta.MetricHeader;
-import com.google.analytics.data.v1beta.Row;
-import com.google.analytics.data.v1beta.RunReportRequest;
-import com.google.analytics.data.v1beta.RunReportResponse;
+// [START analyticsdata_get_common_metadata]
 
-public class RunReportSample {
+import com.google.analytics.data.v1beta.*;
+
+public class GetCommonMetadataSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -51,32 +43,31 @@ public class RunReportSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReport(propertyId);
+    sampleGetCommonMetadata(propertyId);
   }
 
-  // Runs a report of active users grouped by country.
-  static void sampleRunReport(String propertyId) throws Exception {
+  // Retrieves dimensions and metrics available for all Google Analytics 4 properties.
+  static void sampleGetCommonMetadata(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-      RunReportRequest request =
-          RunReportRequest.newBuilder()
-              .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("country"))
-              .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(
-                  DateRange.newBuilder().setStartDate("2020-09-01").setEndDate("2020-09-15"))
+      GetMetadataRequest request =
+          GetMetadataRequest.newBuilder()
+              .setName("properties/" + propertyId)
               .build();
 
       // Make the request.
-      RunReportResponse response = analyticsData.runReport(request);
+      Metadata response = analyticsData.getMetadata(request);
       printRunResponseResponse(response);
     }
   }
 
-  // Prints results of a runReport call.
-  static void printRunResponseResponse(RunReportResponse response) {
-    // [START analyticsdata_print_run_report_response_header]
+  // Prints results of the getMetadata call.
+  static void printGetMetadataResponse(Metadata response) {
+    // [START analyticsdata_print_get_metadata_response]
+    for (Dimension dimension : response.getDimensions()) {
+      System.out.println("DIMENSION");
+    }
     System.out.printf("%s rows received%n", response.getRowsList().size());
 
     for (DimensionHeader header : response.getDimensionHeadersList()) {
@@ -95,7 +86,7 @@ public class RunReportSample {
           "%s, %s%n", row.getDimensionValues(0).getValue(),
           row.getMetricValues(0).getValue());
     }
-    // [END analyticsdata_print_run_report_response_rows]
+    // [END analyticsdata_print_get_metadata_response]
   }
 }
-// [END analyticsdata_run_report]
+// [END analyticsdata_get_common_metadata]
