@@ -33,7 +33,11 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_realtime_report_with_multiple_metrics]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.RunRealtimeReportRequest;
+import com.google.analytics.data.v1beta.RunRealtimeReportResponse;
 
 public class RunRealtimeReportWithMultipleMetricsSample {
 

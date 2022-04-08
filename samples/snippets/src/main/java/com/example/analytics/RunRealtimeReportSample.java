@@ -33,9 +33,14 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_realtime_report]
 
-import com.google.analytics.data.v1beta.*;
-
-import java.util.ArrayList;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.DimensionHeader;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.MetricHeader;
+import com.google.analytics.data.v1beta.Row;
+import com.google.analytics.data.v1beta.RunRealtimeReportRequest;
+import com.google.analytics.data.v1beta.RunRealtimeReportResponse;
 
 public class RunRealtimeReportSample {
 

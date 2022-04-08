@@ -34,7 +34,17 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_pivot_report]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.DateRange;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.DimensionValue;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.MetricValue;
+import com.google.analytics.data.v1beta.OrderBy;
+import com.google.analytics.data.v1beta.Pivot;
+import com.google.analytics.data.v1beta.Row;
+import com.google.analytics.data.v1beta.RunPivotReportRequest;
+import com.google.analytics.data.v1beta.RunPivotReportResponse;
 
 public class RunPivotReportSample {
 

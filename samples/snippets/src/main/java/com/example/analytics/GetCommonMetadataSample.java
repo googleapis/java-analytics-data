@@ -30,7 +30,11 @@ To run this sample using Maven:
 
 // [START analyticsdata_get_common_metadata]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.DimensionMetadata;
+import com.google.analytics.data.v1beta.GetMetadataRequest;
+import com.google.analytics.data.v1beta.Metadata;
+import com.google.analytics.data.v1beta.MetricMetadata;
 
 public class GetCommonMetadataSample {
 
@@ -66,8 +70,8 @@ public class GetCommonMetadataSample {
       System.out.printf("%s (%s): %s%n", dimension.getApiName(), dimension.getUiName(),
           dimension.getDescription());
       System.out.printf("custom definition: %s%n", dimension.getCustomDefinition());
-      if (dimension.getDeprecatedApiNamesList() != null &&
-          !dimension.getDeprecatedApiNamesList().isEmpty()) {
+      if (dimension.getDeprecatedApiNamesList() != null
+          && !dimension.getDeprecatedApiNamesList().isEmpty()) {
         System.out.printf("Deprecated API names: %s%n", dimension.getDeprecatedApiNamesList());
       }
       System.out.println();
@@ -78,8 +82,8 @@ public class GetCommonMetadataSample {
           metric.getDescription());
       System.out.printf("custom definition: %s%n", metric.getCustomDefinition());
       System.out.printf("Type: %s%n", metric.getType());
-      if (metric.getDeprecatedApiNamesList() != null &&
-          !metric.getDeprecatedApiNamesList().isEmpty()) {
+      if (metric.getDeprecatedApiNamesList() != null
+          && !metric.getDeprecatedApiNamesList().isEmpty()) {
         System.out.printf("Deprecated API names: %s%n", metric.getDeprecatedApiNamesList());
       }
       System.out.println();

@@ -30,7 +30,9 @@ To run this sample using Maven:
 
 // [START analyticsdata_get_metadata_by_property_id]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.GetMetadataRequest;
+import com.google.analytics.data.v1beta.Metadata;
 
 public class GetMetadataByPropertyIdSample {
 
@@ -57,8 +59,8 @@ public class GetMetadataByPropertyIdSample {
       // Make the request.
       Metadata response = analyticsData.getMetadata(request);
 
-      System.out.printf("Dimensions and metrics available for Google Analytics 4 property %s " +
-          "(including custom fields):", propertyId);
+      System.out.printf("Dimensions and metrics available for Google Analytics 4 property %s "
+          + "(including custom fields):", propertyId);
       GetCommonMetadataSample.printGetMetadataResponse(response);
     }
   }

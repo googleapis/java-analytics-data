@@ -34,7 +34,14 @@ To run this sample using Maven:
 
 // [START analyticsdata_run_batch_report]
 
-import com.google.analytics.data.v1beta.*;
+import com.google.analytics.data.v1beta.BatchRunReportsRequest;
+import com.google.analytics.data.v1beta.BatchRunReportsResponse;
+import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
+import com.google.analytics.data.v1beta.DateRange;
+import com.google.analytics.data.v1beta.Dimension;
+import com.google.analytics.data.v1beta.Metric;
+import com.google.analytics.data.v1beta.RunReportRequest;
+import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunBatchReportSample {
 
@@ -74,7 +81,7 @@ public class RunBatchReportSample {
       BatchRunReportsResponse response = analyticsData.batchRunReports(request);
 
       System.out.println("Batch report results:");
-      for (RunReportResponse report: response.getReportsList()) {
+      for (RunReportResponse report : response.getReportsList()) {
         RunReportSample.printRunResponseResponse(report);
       }
     }
