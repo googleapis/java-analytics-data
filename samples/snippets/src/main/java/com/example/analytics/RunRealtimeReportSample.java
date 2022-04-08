@@ -92,7 +92,7 @@ public class RunRealtimeReportSample {
           "%s, %s%n", row.getDimensionValues(0).getValue(),
           row.getMetricValues(0).getValue());
     }
-    // [END analyticsdata_print_run_report_response_rows]
+    // [END analyticsdata_print_run_realtime_report_response_rows]
   }
 }
 // [END analyticsdata_run_realtime_report]
