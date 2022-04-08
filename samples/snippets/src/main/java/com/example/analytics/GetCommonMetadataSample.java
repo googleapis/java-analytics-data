@@ -22,9 +22,6 @@ metadata.
 See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
 for more information.
 
-Before you start the application, please review the comments starting with
-"TODO(developer)" and update the code to use correct values.
-
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
@@ -38,53 +35,54 @@ import com.google.analytics.data.v1beta.*;
 public class GetCommonMetadataSample {
 
   public static void main(String... args) throws Exception {
-    /**
-     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-     * running the sample.
-     */
-    String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleGetCommonMetadata(propertyId);
+    // Runs the sample.
+    sampleGetCommonMetadata();
   }
 
   // Retrieves dimensions and metrics available for all Google Analytics 4 properties.
-  static void sampleGetCommonMetadata(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+  static void sampleGetCommonMetadata() throws Exception {
+    // Set the Property ID to 0 for dimensions and metrics common to all properties. In this special
+    // mode, this method will not return custom dimensions and metrics.
+    String propertyId = "0";
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       GetMetadataRequest request =
           GetMetadataRequest.newBuilder()
-              .setName("properties/" + propertyId)
+              .setName("properties/" + propertyId + "/metadata")
               .build();
 
       // Make the request.
       Metadata response = analyticsData.getMetadata(request);
-      printRunResponseResponse(response);
+
+      System.out.println("Dimensions and metrics available for all Google Analytics 4 properties:");
+      printGetMetadataResponse(response);
     }
   }
 
   // Prints results of the getMetadata call.
   static void printGetMetadataResponse(Metadata response) {
     // [START analyticsdata_print_get_metadata_response]
-    for (Dimension dimension : response.getDimensions()) {
+    for (DimensionMetadata dimension : response.getDimensionsList()) {
       System.out.println("DIMENSION");
+      System.out.printf("%s (%s): %s%n", dimension.getApiName(), dimension.getUiName(),
+          dimension.getDescription());
+      System.out.printf("custom definition: %s%n", dimension.getCustomDefinition());
+      if (dimension.getDeprecatedApiNamesList() != null &&
+          !dimension.getDeprecatedApiNamesList().isEmpty()) {
+        System.out.printf("Deprecated API names: %s%n", dimension.getDeprecatedApiNamesList());
+      }
+      System.out.println();
     }
-    System.out.printf("%s rows received%n", response.getRowsList().size());
-
-    for (DimensionHeader header : response.getDimensionHeadersList()) {
-      System.out.printf("Dimension header name: %s%n", header.getName());
-    }
-
-    for (MetricHeader header : response.getMetricHeadersList()) {
-      System.out.printf("Metric header name: %s (%s)%n", header.getName(), header.getType());
-    }
-    // [END analyticsdata_print_run_report_response_header]
-
-    // [START analyticsdata_print_run_report_response_rows]
-    System.out.println("Report result:");
-    for (Row row : response.getRowsList()) {
-      System.out.printf(
-          "%s, %s%n", row.getDimensionValues(0).getValue(),
-          row.getMetricValues(0).getValue());
+    for (MetricMetadata metric : response.getMetricsList()) {
+      System.out.println("METRIC");
+      System.out.printf("%s (%s): %s%n", metric.getApiName(), metric.getUiName(),
+          metric.getDescription());
+      System.out.printf("custom definition: %s%n", metric.getCustomDefinition());
+      System.out.printf("Type: %s%n", metric.getType());
+      if (metric.getDeprecatedApiNamesList() != null &&
+          !metric.getDeprecatedApiNamesList().isEmpty()) {
+        System.out.printf("Deprecated API names: %s%n", metric.getDeprecatedApiNamesList());
+      }
+      System.out.println();
     }
     // [END analyticsdata_print_get_metadata_response]
   }

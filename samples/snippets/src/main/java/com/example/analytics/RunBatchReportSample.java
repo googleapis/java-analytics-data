@@ -72,11 +72,11 @@ public class RunBatchReportSample {
 
       // Make the request.
       BatchRunReportsResponse response = analyticsData.batchRunReports(request);
-      System.out.println("Batch report results:");
-      for (RunReportResponse report: response.getReportsList()){
-        RunReportResponse.printRunResponseResponse(response);
-      }
 
+      System.out.println("Batch report results:");
+      for (RunReportResponse report: response.getReportsList()) {
+        RunReportSample.printRunResponseResponse(report);
+      }
     }
   }
 }
