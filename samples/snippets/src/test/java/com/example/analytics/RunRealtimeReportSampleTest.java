@@ -24,9 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithDimensionExcludeFilter sample. */
+/** Tests for the RunRealtimeReport sample. */
 @RunWith(JUnit4.class)
-public class RunReportWithDimensionExcludeFilterSampleTest {
+public class RunRealtimeReportSampleTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -38,14 +38,13 @@ public class RunReportWithDimensionExcludeFilterSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionExcludeFilterSample
-        .sampleRunReportWithDimensionExcludeFilter(ga4PropertyId);
+    RunRealtimeReportSample.sampleRunRealtimeReport(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunReportWithDimensionExcludeFilter() throws Exception {
+  public void testRunRealtimeReport() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 
