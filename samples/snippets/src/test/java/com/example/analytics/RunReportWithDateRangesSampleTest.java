@@ -16,9 +16,10 @@
 
 package com.example.analytics;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -30,7 +31,7 @@ import org.junit.runners.JUnit4;
 public class RunReportWithDateRangesSampleTest {
 
   private String ga4PropertyId =
-    System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
+      System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
 
   private String runSample(String ga4PropertyId) throws Exception {
     PrintStream stdOut = System.out;

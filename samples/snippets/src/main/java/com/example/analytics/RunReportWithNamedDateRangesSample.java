@@ -58,15 +58,15 @@ public class RunReportWithNamedDateRangesSample {
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
-        RunReportRequest.newBuilder()
-          .setProperty("properties/" + propertyId)
-          .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
-            .setEndDate("2020-01-31").setName("year_ago"))
-          .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-            .setEndDate("2021-01-31").setName("current_year"))
-          .addDimensions(Dimension.newBuilder().setName("country"))
-          .addMetrics(Metric.newBuilder().setName("sessions"))
-          .build();
+          RunReportRequest.newBuilder()
+              .setProperty("properties/" + propertyId)
+              .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
+                  .setEndDate("2020-01-31").setName("year_ago"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
+                  .setEndDate("2021-01-31").setName("current_year"))
+              .addDimensions(Dimension.newBuilder().setName("country"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .build();
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);

@@ -20,7 +20,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -32,7 +31,7 @@ import org.junit.runners.JUnit4;
 public class RunReportWithNamedDateRangesTest {
 
   private String ga4PropertyId =
-    System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
+      System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
 
   private String runSample(String ga4PropertyId) throws Exception {
     PrintStream stdOut = System.out;
@@ -42,7 +41,7 @@ public class RunReportWithNamedDateRangesTest {
 
     // Run the test using default system credentials.
     RunReportWithNamedDateRangesSample
-      .sampleRunReportWithNamedDateRanges(ga4PropertyId);
+        .sampleRunReportWithNamedDateRanges(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
