@@ -59,19 +59,19 @@ public class RunReportWithPaginationSample {
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       // [START analyticsdata_run_report_with_pagination_page1]
       RunReportRequest request =
-        RunReportRequest.newBuilder()
-          .setProperty("properties/" + propertyId)
-          .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-            .setEndDate("yesterday"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-          .addMetrics(Metric.newBuilder().setName("sessions"))
-          .addMetrics(Metric.newBuilder().setName("conversions"))
-          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-          .setLimit(100000)
-          .setOffset(0)
-          .build();
+          RunReportRequest.newBuilder()
+              .setProperty("properties/" + propertyId)
+              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
+                  .setEndDate("yesterday"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addMetrics(Metric.newBuilder().setName("conversions"))
+              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+              .setLimit(100000)
+              .setOffset(0)
+              .build();
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
@@ -82,19 +82,19 @@ public class RunReportWithPaginationSample {
       // response.
       // [START analyticsdata_run_report_with_pagination_page2]
       request =
-        RunReportRequest.newBuilder()
-          .setProperty("properties/" + propertyId)
-          .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-            .setEndDate("yesterday"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-          .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-          .addMetrics(Metric.newBuilder().setName("sessions"))
-          .addMetrics(Metric.newBuilder().setName("conversions"))
-          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-          .setLimit(100000)
-          .setOffset(100000)
-          .build();
+          RunReportRequest.newBuilder()
+              .setProperty("properties/" + propertyId)
+              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
+                  .setEndDate("yesterday"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
+              .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addMetrics(Metric.newBuilder().setName("conversions"))
+              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+              .setLimit(100000)
+              .setOffset(100000)
+              .build();
 
       // Make the request.
       response = analyticsData.runReport(request);

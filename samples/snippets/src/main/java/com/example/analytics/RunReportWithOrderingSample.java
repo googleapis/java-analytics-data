@@ -59,17 +59,17 @@ public class RunReportWithOrderingSample {
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
-        RunReportRequest.newBuilder()
-          .setProperty("properties/" + propertyId)
-          .addDimensions(Dimension.newBuilder().setName("date"))
-          .addMetrics(Metric.newBuilder().setName("activeUsers"))
-          .addMetrics(Metric.newBuilder().setName("newUsers"))
-          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-          .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
-          .addOrderBys(OrderBy.newBuilder()
-            .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
-            .setDesc(true))
-          .build();
+          RunReportRequest.newBuilder()
+              .setProperty("properties/" + propertyId)
+              .addDimensions(Dimension.newBuilder().setName("date"))
+              .addMetrics(Metric.newBuilder().setName("activeUsers"))
+              .addMetrics(Metric.newBuilder().setName("newUsers"))
+              .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
+              .addOrderBys(OrderBy.newBuilder()
+                  .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
+                  .setDesc(true))
+              .build();
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
