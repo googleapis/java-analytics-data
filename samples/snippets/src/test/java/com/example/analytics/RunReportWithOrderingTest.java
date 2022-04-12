@@ -20,36 +20,39 @@ import static com.google.common.truth.Truth.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithOrdering sample. */
+/**
+ * Tests for the RunReportWithOrdering sample.
+ */
 @RunWith(JUnit4.class)
 public class RunReportWithOrderingTest {
 
-    private String ga4PropertyId =
-        System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
+  private String ga4PropertyId =
+    System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
 
-    private String runSample(String ga4PropertyId) throws Exception {
-        PrintStream stdOut = System.out;
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        PrintStream out = new PrintStream(bout);
-        System.setOut(out);
+  private String runSample(String ga4PropertyId) throws Exception {
+    PrintStream stdOut = System.out;
+    ByteArrayOutputStream bout = new ByteArrayOutputStream();
+    PrintStream out = new PrintStream(bout);
+    System.setOut(out);
 
-        // Run the test using default system credentials.
-        RunReportWithOrderingSample
-            .sampleRunReportWithOrdering(ga4PropertyId);
-        System.setOut(stdOut);
-        return bout.toString();
-    }
+    // Run the test using default system credentials.
+    RunReportWithOrderingSample
+      .sampleRunReportWithOrdering(ga4PropertyId);
+    System.setOut(stdOut);
+    return bout.toString();
+  }
 
-    @Test
-    public void testRunReportWithOrdering() throws Exception {
-        // Act
-        String out = runSample(ga4PropertyId);
+  @Test
+  public void testRunReportWithOrdering() throws Exception {
+    // Act
+    String out = runSample(ga4PropertyId);
 
-        // Assert
-        assertThat(out).contains("Report result:");
-    }
+    // Assert
+    assertThat(out).contains("Report result:");
+  }
 }

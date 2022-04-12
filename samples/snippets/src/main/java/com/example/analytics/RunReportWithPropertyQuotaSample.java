@@ -42,54 +42,54 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithPropertyQuotaSample {
 
-    public static void main(String... args) throws Exception {
-        /**
-         * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-         * running the sample.
-         */
-        String propertyId = "YOUR-GA4-PROPERTY-ID";
-        sampleRunReportWithPropertyQuota(propertyId);
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReportWithPropertyQuota(propertyId);
+  }
+
+  // Runs a report and prints property quota information.
+  static void sampleRunReportWithPropertyQuota(String propertyId) throws Exception {
+    // Using a default constructor instructs the client to use the credentials
+    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+      RunReportRequest request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .setReturnPropertyQuota(true)
+          .addDimensions(Dimension.newBuilder().setName("country"))
+          .addMetrics(Metric.newBuilder().setName("activeUsers"))
+          .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
+          .build();
+
+      // Make the request.
+      RunReportResponse response = analyticsData.runReport(request);
+
+      // [START analyticsdata_run_report_with_property_quota_print_response]
+      if (response.hasPropertyQuota()) {
+        System.out.printf("Tokens per day quota consumed: %d, remaining: %d.%n",
+          response.getPropertyQuota().getTokensPerDay().getConsumed(),
+          response.getPropertyQuota().getTokensPerDay().getRemaining());
+        System.out.printf("Tokens per hour quota consumed: %d, remaining: %d.%n",
+          response.getPropertyQuota().getTokensPerHour().getConsumed(),
+          response.getPropertyQuota().getTokensPerHour().getRemaining());
+        System.out.printf("Concurrent requests quota consumed: %d, remaining: %d.%n",
+          response.getPropertyQuota().getConcurrentRequests().getConsumed(),
+          response.getPropertyQuota().getConcurrentRequests().getRemaining());
+        System.out.printf("Server errors per project per hour quota consumed: %d, remaining: %d.%n",
+          response.getPropertyQuota().getServerErrorsPerProjectPerHour().getConsumed(),
+          response.getPropertyQuota().getServerErrorsPerProjectPerHour().getRemaining());
+        System.out.printf(
+          "Potentially thresholded requests per hour quota consumed: %d, remaining: %d.%n",
+          response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getConsumed(),
+          response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getRemaining());
+      }
+      // [END analyticsdata_run_report_with_property_quota_print_response]
     }
-
-    // Runs a report and prints property quota information.
-    static void sampleRunReportWithPropertyQuota(String propertyId) throws Exception {
-        // Using a default constructor instructs the client to use the credentials
-        // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-        try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-            RunReportRequest request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .setReturnPropertyQuota(true)
-                    .addDimensions(Dimension.newBuilder().setName("country"))
-                    .addMetrics(Metric.newBuilder().setName("activeUsers"))
-                    .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
-                    .build();
-
-            // Make the request.
-            RunReportResponse response = analyticsData.runReport(request);
-
-            // [START analyticsdata_run_report_with_property_quota_print_response]
-            if (response.hasPropertyQuota()) {
-                System.out.printf("Tokens per day quota consumed: %d, remaining: %d.%n",
-                    response.getPropertyQuota().getTokensPerDay().getConsumed(),
-                    response.getPropertyQuota().getTokensPerDay().getRemaining());
-                System.out.printf("Tokens per hour quota consumed: %d, remaining: %d.%n",
-                    response.getPropertyQuota().getTokensPerHour().getConsumed(),
-                    response.getPropertyQuota().getTokensPerHour().getRemaining());
-                System.out.printf("Concurrent requests quota consumed: %d, remaining: %d.%n",
-                    response.getPropertyQuota().getConcurrentRequests().getConsumed(),
-                    response.getPropertyQuota().getConcurrentRequests().getRemaining());
-                System.out.printf("Server errors per project per hour quota consumed: %d, remaining: %d.%n",
-                    response.getPropertyQuota().getServerErrorsPerProjectPerHour().getConsumed(),
-                    response.getPropertyQuota().getServerErrorsPerProjectPerHour().getRemaining());
-                System.out.printf(
-                    "Potentially thresholded requests per hour quota consumed: %d, remaining: %d.%n",
-                    response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getConsumed(),
-                    response.getPropertyQuota().getPotentiallyThresholdedRequestsPerHour().getRemaining());
-            }
-            // [END analyticsdata_run_report_with_property_quota_print_response]
-        }
-    }
+  }
 
 }
 // [END analyticsdata_run_report_with_property_quota]

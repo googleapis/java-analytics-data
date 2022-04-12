@@ -43,39 +43,39 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithOrderingSample {
 
-    public static void main(String... args) throws Exception {
-        /**
-         * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-         * running the sample.
-         */
-        String propertyId = "YOUR-GA4-PROPERTY-ID";
-        sampleRunReportWithOrdering(propertyId);
-    }
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReportWithOrdering(propertyId);
+  }
 
-    // Runs a report of active users grouped by three dimensions, ordered by the total revenue in
-    // descending order.
-    static void sampleRunReportWithOrdering(String propertyId) throws Exception {
-        // Using a default constructor instructs the client to use the credentials
-        // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-        try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-            RunReportRequest request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .addDimensions(Dimension.newBuilder().setName("date"))
-                    .addMetrics(Metric.newBuilder().setName("activeUsers"))
-                    .addMetrics(Metric.newBuilder().setName("newUsers"))
-                    .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-                    .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
-                    .addOrderBys(OrderBy.newBuilder()
-                        .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
-                        .setDesc(true))
-                    .build();
+  // Runs a report of active users grouped by three dimensions, ordered by the total revenue in
+  // descending order.
+  static void sampleRunReportWithOrdering(String propertyId) throws Exception {
+    // Using a default constructor instructs the client to use the credentials
+    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+      RunReportRequest request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .addDimensions(Dimension.newBuilder().setName("date"))
+          .addMetrics(Metric.newBuilder().setName("activeUsers"))
+          .addMetrics(Metric.newBuilder().setName("newUsers"))
+          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+          .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
+          .addOrderBys(OrderBy.newBuilder()
+            .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
+            .setDesc(true))
+          .build();
 
-            // Make the request.
-            RunReportResponse response = analyticsData.runReport(request);
-            RunReportSample.printRunResponseResponse(response);
-        }
+      // Make the request.
+      RunReportResponse response = analyticsData.runReport(request);
+      RunReportSample.printRunResponseResponse(response);
     }
+  }
 
 }
 // [END analyticsdata_run_report_with_ordering]

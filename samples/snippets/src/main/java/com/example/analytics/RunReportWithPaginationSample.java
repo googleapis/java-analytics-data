@@ -43,64 +43,64 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithPaginationSample {
 
-    public static void main(String... args) throws Exception {
-        /**
-         * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-         * running the sample.
-         */
-        String propertyId = "YOUR-GA4-PROPERTY-ID";
-        sampleRunReportWithPagination(propertyId);
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReportWithPagination(propertyId);
+  }
+
+  // Runs a report several times, each time retrieving a portion of result using pagination.
+  static void sampleRunReportWithPagination(String propertyId) throws Exception {
+    // Using a default constructor instructs the client to use the credentials
+    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+      // [START analyticsdata_run_report_with_pagination_page1]
+      RunReportRequest request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
+            .setEndDate("yesterday"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
+          .addMetrics(Metric.newBuilder().setName("sessions"))
+          .addMetrics(Metric.newBuilder().setName("conversions"))
+          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+          .setLimit(100000)
+          .setOffset(0)
+          .build();
+
+      // Make the request.
+      RunReportResponse response = analyticsData.runReport(request);
+      RunReportSample.printRunResponseResponse(response);
+      // [END analyticsdata_run_report_with_pagination_page1]
+
+      // Run the same report with a different offset value to retrieve the second page of a
+      // response.
+      // [START analyticsdata_run_report_with_pagination_page2]
+      request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
+            .setEndDate("yesterday"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
+          .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
+          .addMetrics(Metric.newBuilder().setName("sessions"))
+          .addMetrics(Metric.newBuilder().setName("conversions"))
+          .addMetrics(Metric.newBuilder().setName("totalRevenue"))
+          .setLimit(100000)
+          .setOffset(100000)
+          .build();
+
+      // Make the request.
+      response = analyticsData.runReport(request);
+      RunReportSample.printRunResponseResponse(response);
+      // [END analyticsdata_run_report_with_pagination_page2]
     }
-
-    // Runs a report several times, each time retrieving a portion of result using pagination.
-    static void sampleRunReportWithPagination(String propertyId) throws Exception {
-        // Using a default constructor instructs the client to use the credentials
-        // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-        try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-            // [START analyticsdata_run_report_with_pagination_page1]
-            RunReportRequest request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-                        .setEndDate("yesterday"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-                    .addMetrics(Metric.newBuilder().setName("sessions"))
-                    .addMetrics(Metric.newBuilder().setName("conversions"))
-                    .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-                    .setLimit(100000)
-                    .setOffset(0)
-                    .build();
-
-            // Make the request.
-            RunReportResponse response = analyticsData.runReport(request);
-            RunReportSample.printRunResponseResponse(response);
-            // [END analyticsdata_run_report_with_pagination_page1]
-
-            // Run the same report with a different offset value to retrieve the second page of a
-            // response.
-            // [START analyticsdata_run_report_with_pagination_page2]
-            request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-                        .setEndDate("yesterday"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
-                    .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
-                    .addMetrics(Metric.newBuilder().setName("sessions"))
-                    .addMetrics(Metric.newBuilder().setName("conversions"))
-                    .addMetrics(Metric.newBuilder().setName("totalRevenue"))
-                    .setLimit(100000)
-                    .setOffset(100000)
-                    .build();
-
-            // Make the request.
-            response = analyticsData.runReport(request);
-            RunReportSample.printRunResponseResponse(response);
-            // [END analyticsdata_run_report_with_pagination_page2]
-        }
-    }
+  }
 }
 // [END analyticsdata_run_report_with_pagination]
