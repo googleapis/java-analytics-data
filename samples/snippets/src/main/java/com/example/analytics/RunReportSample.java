@@ -23,8 +23,6 @@ See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
 for more information.
 
-This application demonstrates the usage of the Analytics Data API using service account credentials.
-
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
