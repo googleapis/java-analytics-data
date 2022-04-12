@@ -24,9 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithMultipleMetrics sample. */
+/** Tests for the RunReportWithMultipleDimensionFilters sample. */
 @RunWith(JUnit4.class)
-public class RunReportWithMultipleMetricsTest {
+public class RunReportWithMultipleDimensionFiltersTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -38,14 +38,14 @@ public class RunReportWithMultipleMetricsTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithMultipleMetricsSample
-        .sampleRunReportWithMultipleMetrics(ga4PropertyId);
+    RunReportWithMultipleDimensionFiltersSample
+        .sampleRunReportWithMultipleDimensionFilters(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunReportWithMultipleMetrics() throws Exception {
+  public void testRunReportWithMultipleDimensionFilters() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 
