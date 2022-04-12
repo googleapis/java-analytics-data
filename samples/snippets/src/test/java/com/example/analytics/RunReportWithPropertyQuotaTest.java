@@ -16,15 +16,17 @@
 
 package com.example.analytics;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithDateRanges sample. */
+/** Tests for the RunReportWithPropertyQuota sample. */
 @RunWith(JUnit4.class)
-public class RunReportWithDateRangesSampleTest {
+public class RunReportWithPropertyQuotaTest {
 
     private String ga4PropertyId =
         System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -36,17 +38,18 @@ public class RunReportWithDateRangesSampleTest {
         System.setOut(out);
 
         // Run the test using default system credentials.
-        RunReportWithDateRangesSample.sampleRunReportWithDateRanges(ga4PropertyId);
+        RunReportWithPropertyQuotaSample
+            .sampleRunReportWithPropertyQuota(ga4PropertyId);
         System.setOut(stdOut);
         return bout.toString();
     }
 
     @Test
-    public void testRunReportWithDateRanges() throws Exception {
+    public void testRunReportWithPropertyQuota() throws Exception {
         // Act
         String out = runSample(ga4PropertyId);
 
         // Assert
-        assertThat(out).contains("Report result:");
+        assertThat(out).contains("Tokens per day quota consumed");
     }
 }
