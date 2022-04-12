@@ -29,10 +29,10 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionInListFilterSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionFilterSample"
  */
 
-// [START analyticsdata_run_report_with_dimension_in_list_filter]
+// [START analyticsdata_run_report_with_dimension_filter]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -42,9 +42,8 @@ import com.google.analytics.data.v1beta.FilterExpression;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
-import java.util.ArrayList;
 
-public class RunReportWithDimensionInListFilterSample {
+public class RunReportWithDimensionFilterSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -52,37 +51,30 @@ public class RunReportWithDimensionInListFilterSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithDimensionInListFilter(propertyId);
+    sampleRunReportWithDimensionFilter(propertyId);
   }
 
-  // Runs a report using a dimension filter with `in_list_filter` expression. The filter selects for
-  // when `eventName` is set to one of three event names specified in the query.
+  // Runs a report using a dimension filter. The call returns a time series report of `eventCount`
+  // when `eventName` is `first_open` for each date.
   // This sample uses relative date range values.
   // See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/DateRange
   // for more information.
-  static void sampleRunReportWithDimensionInListFilter(String propertyId) throws Exception {
+  static void sampleRunReportWithDimensionFilter(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("eventName"))
-              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addDimensions(Dimension.newBuilder().setName("date"))
+              .addMetrics(Metric.newBuilder().setName("eventCount"))
               .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
                   .setEndDate("yesterday"))
               .setDimensionFilter(FilterExpression.newBuilder()
                   .setFilter(Filter.newBuilder()
                       .setFieldName("eventName")
-                      .setInListFilter(Filter.InListFilter.newBuilder()
-                          .addAllValues(new ArrayList<String>() {
-                            {
-                              add("purchase");
-                              add("in_app_purchase");
-                              add("app_store_subscription_renew");
-                            }}
-                          ).build())
-                  ))
+                      .setStringFilter(Filter.StringFilter.newBuilder()
+                          .setValue("first_open"))))
               .build();
 
       // Make the request.
@@ -92,4 +84,4 @@ public class RunReportWithDimensionInListFilterSample {
   }
 
 }
-// [END analyticsdata_run_report_with_dimension_in_list_filter]
+// [END analyticsdata_run_report_with_dimension_filter]

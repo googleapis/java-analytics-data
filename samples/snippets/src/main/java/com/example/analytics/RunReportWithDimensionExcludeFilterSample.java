@@ -29,22 +29,21 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithMultipleDimensionFiltersSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithDimensionExcludeFilterSample"
  */
 
-// [START analyticsdata_run_report_with_multiple_dimension_filters]
+// [START analyticsdata_run_report_with_dimension_exclude_filter]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
 import com.google.analytics.data.v1beta.Dimension;
 import com.google.analytics.data.v1beta.Filter;
 import com.google.analytics.data.v1beta.FilterExpression;
-import com.google.analytics.data.v1beta.FilterExpressionList;
 import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
-public class RunReportWithMultipleDimensionFiltersSample {
+public class RunReportWithDimensionExcludeFilterSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -52,37 +51,31 @@ public class RunReportWithMultipleDimensionFiltersSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithMultipleDimensionFilters(propertyId);
+    sampleRunReportWithDimensionExcludeFilter(propertyId);
   }
 
-  // Runs a report using multiple dimension filters joined as `and_group` expression. The filter
-  // selects for when both `browser` is `Chrome` and `countryId` is `US`.
+  // Runs a report using a filter with `not_expression`. The dimension filter selects for when
+  // `pageTitle` is not `My Homepage`.
   // This sample uses relative date range values.
   // See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/DateRange
   // for more information.
-  static void sampleRunReportWithMultipleDimensionFilters(String propertyId) throws Exception {
+  static void sampleRunReportWithDimensionExcludeFilter(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDimensions(Dimension.newBuilder().setName("browser"))
-              .addMetrics(Metric.newBuilder().setName("activeUsers"))
+              .addDimensions(Dimension.newBuilder().setName("pageTitle"))
+              .addMetrics(Metric.newBuilder().setName("sessions"))
               .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
                   .setEndDate("yesterday"))
               .setDimensionFilter(FilterExpression.newBuilder()
-                  .setAndGroup(FilterExpressionList.newBuilder()
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("browser")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setValue("Chrome"))))
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("countryId")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setValue("US"))))))
+                  .setNotExpression(FilterExpression.newBuilder()
+                      .setFilter(Filter.newBuilder()
+                          .setFieldName("pageTitle")
+                          .setStringFilter(Filter.StringFilter.newBuilder()
+                              .setValue("My Homepage")))))
               .build();
 
       // Make the request.
@@ -92,4 +85,4 @@ public class RunReportWithMultipleDimensionFiltersSample {
   }
 
 }
-// [END analyticsdata_run_report_with_multiple_dimension_filters]
+// [END analyticsdata_run_report_with_dimension_exclude_filter]

@@ -24,9 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithDimensionInListFilter sample. */
+/** Tests for the RunReportWithDimensionAndMetricFilters sample. */
 @RunWith(JUnit4.class)
-public class RunReportWithDimensionInListFilterTest {
+public class RunReportWithDimensionAndMetricFiltersSampleTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -38,14 +38,14 @@ public class RunReportWithDimensionInListFilterTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionInListFilterSample
-        .sampleRunReportWithDimensionInListFilter(ga4PropertyId);
+    RunReportWithDimensionAndMetricFiltersSample
+        .sampleRunReportWithDimensionAndMetricFilters(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunReportWithDimensionInListFilter() throws Exception {
+  public void testRunReportDimensionAndMetricFilters() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 
