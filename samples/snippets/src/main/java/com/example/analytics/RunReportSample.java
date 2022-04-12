@@ -23,11 +23,8 @@ See
 https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport
 for more information.
 
-<<<<<<< HEAD
 This application demonstrates the usage of the Analytics Data API using service account credentials.
 
-=======
->>>>>>> 7984fd8f49d9107603d10587294a1bfdb6564083
 Before you start the application, please review the comments starting with
 "TODO(developer)" and update the code to use correct values.
 
@@ -61,6 +58,7 @@ public class RunReportSample {
 
   // Runs a report of active users grouped by country.
   static void sampleRunReport(String propertyId) throws Exception {
+
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
