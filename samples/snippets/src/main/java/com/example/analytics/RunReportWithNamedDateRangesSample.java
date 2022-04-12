@@ -43,36 +43,36 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithNamedDateRangesSample {
 
-    public static void main(String... args) throws Exception {
-        /**
-         * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-         * running the sample.
-         */
-        String propertyId = "YOUR-GA4-PROPERTY-ID";
-        sampleRunReportWithNamedDateRanges(propertyId);
-    }
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReportWithNamedDateRanges(propertyId);
+  }
 
-    // Runs a report using named date ranges.
-    static void sampleRunReportWithNamedDateRanges(String propertyId) throws Exception {
-        // Using a default constructor instructs the client to use the credentials
-        // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-        try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-            RunReportRequest request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
-                        .setEndDate("2020-01-31").setName("year_ago"))
-                    .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-                        .setEndDate("2021-01-31").setName("current_year"))
-                    .addDimensions(Dimension.newBuilder().setName("country"))
-                    .addMetrics(Metric.newBuilder().setName("sessions"))
-                    .build();
+  // Runs a report using named date ranges.
+  static void sampleRunReportWithNamedDateRanges(String propertyId) throws Exception {
+    // Using a default constructor instructs the client to use the credentials
+    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+      RunReportRequest request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
+            .setEndDate("2020-01-31").setName("year_ago"))
+          .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
+            .setEndDate("2021-01-31").setName("current_year"))
+          .addDimensions(Dimension.newBuilder().setName("country"))
+          .addMetrics(Metric.newBuilder().setName("sessions"))
+          .build();
 
-            // Make the request.
-            RunReportResponse response = analyticsData.runReport(request);
-            RunReportSample.printRunResponseResponse(response);
-        }
+      // Make the request.
+      RunReportResponse response = analyticsData.runReport(request);
+      RunReportSample.printRunResponseResponse(response);
     }
+  }
 
 }
 // [END analyticsdata_run_report_with_named_date_ranges]

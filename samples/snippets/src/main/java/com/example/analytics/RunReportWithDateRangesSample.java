@@ -43,36 +43,36 @@ import com.google.analytics.data.v1beta.RunReportResponse;
 
 public class RunReportWithDateRangesSample {
 
-    public static void main(String... args) throws Exception {
-        /**
-         * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-         * running the sample.
-         */
-        String propertyId = "YOUR-GA4-PROPERTY-ID";
-        sampleRunReportWithDateRanges(propertyId);
-    }
+  public static void main(String... args) throws Exception {
+    /**
+     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
+     * running the sample.
+     */
+    String propertyId = "YOUR-GA4-PROPERTY-ID";
+    sampleRunReportWithDateRanges(propertyId);
+  }
 
-    // Runs a report using two date ranges.
-    static void sampleRunReportWithDateRanges(String propertyId) throws Exception {
-        // Using a default constructor instructs the client to use the credentials
-        // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-        try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
-            RunReportRequest request =
-                RunReportRequest.newBuilder()
-                    .setProperty("properties/" + propertyId)
-                    .addDateRanges(DateRange.newBuilder().setStartDate("2019-08-01")
-                        .setEndDate("2019-08-14"))
-                    .addDateRanges(DateRange.newBuilder().setStartDate("2020-08-01")
-                        .setEndDate("2020-08-14"))
-                    .addDimensions(Dimension.newBuilder().setName("platform"))
-                    .addMetrics(Metric.newBuilder().setName("activeUsers"))
-                    .build();
+  // Runs a report using two date ranges.
+  static void sampleRunReportWithDateRanges(String propertyId) throws Exception {
+    // Using a default constructor instructs the client to use the credentials
+    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+      RunReportRequest request =
+        RunReportRequest.newBuilder()
+          .setProperty("properties/" + propertyId)
+          .addDateRanges(DateRange.newBuilder().setStartDate("2019-08-01")
+            .setEndDate("2019-08-14"))
+          .addDateRanges(DateRange.newBuilder().setStartDate("2020-08-01")
+            .setEndDate("2020-08-14"))
+          .addDimensions(Dimension.newBuilder().setName("platform"))
+          .addMetrics(Metric.newBuilder().setName("activeUsers"))
+          .build();
 
-            // Make the request.
-            RunReportResponse response = analyticsData.runReport(request);
-            RunReportSample.printRunResponseResponse(response);
-        }
+      // Make the request.
+      RunReportResponse response = analyticsData.runReport(request);
+      RunReportSample.printRunResponseResponse(response);
     }
+  }
 
 }
 // [END analyticsdata_run_report_with_date_ranges]

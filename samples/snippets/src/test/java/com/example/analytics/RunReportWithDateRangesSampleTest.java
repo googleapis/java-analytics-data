@@ -18,35 +18,38 @@ package com.example.analytics;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunReportWithDateRanges sample. */
+/**
+ * Tests for the RunReportWithDateRanges sample.
+ */
 @RunWith(JUnit4.class)
 public class RunReportWithDateRangesSampleTest {
 
-    private String ga4PropertyId =
-        System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
+  private String ga4PropertyId =
+    System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
 
-    private String runSample(String ga4PropertyId) throws Exception {
-        PrintStream stdOut = System.out;
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        PrintStream out = new PrintStream(bout);
-        System.setOut(out);
+  private String runSample(String ga4PropertyId) throws Exception {
+    PrintStream stdOut = System.out;
+    ByteArrayOutputStream bout = new ByteArrayOutputStream();
+    PrintStream out = new PrintStream(bout);
+    System.setOut(out);
 
-        // Run the test using default system credentials.
-        RunReportWithDateRangesSample.sampleRunReportWithDateRanges(ga4PropertyId);
-        System.setOut(stdOut);
-        return bout.toString();
-    }
+    // Run the test using default system credentials.
+    RunReportWithDateRangesSample.sampleRunReportWithDateRanges(ga4PropertyId);
+    System.setOut(stdOut);
+    return bout.toString();
+  }
 
-    @Test
-    public void testRunReportWithDateRanges() throws Exception {
-        // Act
-        String out = runSample(ga4PropertyId);
+  @Test
+  public void testRunReportWithDateRanges() throws Exception {
+    // Act
+    String out = runSample(ga4PropertyId);
 
-        // Assert
-        assertThat(out).contains("Report result:");
-    }
+    // Assert
+    assertThat(out).contains("Report result:");
+  }
 }
