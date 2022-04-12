@@ -29,10 +29,10 @@ Before you start the application, please review the comments starting with
 To run this sample using Maven:
   cd java-analytics-data/samples/snippets
   mvn compile
-  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithNamedDateRangesSample"
+  mvn exec:java -Dexec.mainClass="com.example.analytics.RunReportWithMultipleDimensionsSample"
  */
 
-// [START analyticsdata_run_report_with_named_date_ranges]
+// [START analyticsdata_run_report_with_multiple_dimensions]
 
 import com.google.analytics.data.v1beta.BetaAnalyticsDataClient;
 import com.google.analytics.data.v1beta.DateRange;
@@ -41,7 +41,7 @@ import com.google.analytics.data.v1beta.Metric;
 import com.google.analytics.data.v1beta.RunReportRequest;
 import com.google.analytics.data.v1beta.RunReportResponse;
 
-public class RunReportWithNamedDateRangesSample {
+public class RunReportWithMultipleDimensionsSample {
 
   public static void main(String... args) throws Exception {
     /**
@@ -49,23 +49,22 @@ public class RunReportWithNamedDateRangesSample {
      * running the sample.
      */
     String propertyId = "YOUR-GA4-PROPERTY-ID";
-    sampleRunReportWithNamedDateRanges(propertyId);
+    sampleRunReportWithMultipleDimensions(propertyId);
   }
 
-  // Runs a report using named date ranges.
-  static void sampleRunReportWithNamedDateRanges(String propertyId) throws Exception {
+  // Runs a report of active users grouped by three dimensions.
+  static void sampleRunReportWithMultipleDimensions(String propertyId) throws Exception {
     // Using a default constructor instructs the client to use the credentials
     // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
-                  .setEndDate("2020-01-31").setName("year_ago"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-                  .setEndDate("2021-01-31").setName("current_year"))
               .addDimensions(Dimension.newBuilder().setName("country"))
-              .addMetrics(Metric.newBuilder().setName("sessions"))
+              .addDimensions(Dimension.newBuilder().setName("region"))
+              .addDimensions(Dimension.newBuilder().setName("city"))
+              .addMetrics(Metric.newBuilder().setName("activeUsers"))
+              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
               .build();
 
       // Make the request.
@@ -75,4 +74,4 @@ public class RunReportWithNamedDateRangesSample {
   }
 
 }
-// [END analyticsdata_run_report_with_named_date_ranges]
+// [END analyticsdata_run_report_with_multiple_dimensions]

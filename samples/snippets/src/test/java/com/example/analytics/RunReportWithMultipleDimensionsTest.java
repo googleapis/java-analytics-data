@@ -24,11 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Tests for the RunReportWithDateRanges sample.
- */
+/** Tests for the RunReportWithMultipleDimensions sample. */
 @RunWith(JUnit4.class)
-public class RunReportWithDateRangesSampleTest {
+public class RunReportWithMultipleDimensionsTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -40,13 +38,14 @@ public class RunReportWithDateRangesSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDateRangesSample.sampleRunReportWithDateRanges(ga4PropertyId);
+    RunReportWithMultipleDimensionsSample
+        .sampleRunReportWithMultipleDimensions(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunReportWithDateRanges() throws Exception {
+  public void testRunReportWithMultipleDimensions() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 
