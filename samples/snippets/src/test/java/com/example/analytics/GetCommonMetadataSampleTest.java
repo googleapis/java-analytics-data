@@ -24,32 +24,28 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunRealtimeReportWithMultipleDimensions sample. */
+/** Tests for the GetCommonMetadata sample. */
 @RunWith(JUnit4.class)
-public class RunRealtimeReportWithMultipleDimensionsSampleTest {
+public class GetCommonMetadataSampleTest {
 
-  private String ga4PropertyId =
-      System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
-
-  private String runSample(String ga4PropertyId) throws Exception {
+  private String runSample() throws Exception {
     PrintStream stdOut = System.out;
     ByteArrayOutputStream bout = new ByteArrayOutputStream();
     PrintStream out = new PrintStream(bout);
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunRealtimeReportWithMultipleDimensionsSample
-        .sampleRunRealtimeReportWithMultipleDimensions(ga4PropertyId);
+    GetCommonMetadataSample.sampleGetCommonMetadata();
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunRealtimeReportWithMultipleDimensions() throws Exception {
+  public void testGetCommonMetadata() throws Exception {
     // Act
-    String out = runSample(ga4PropertyId);
+    String out = runSample();
 
     // Assert
-    assertThat(out).contains("Report result:");
+    assertThat(out).contains("Dimensions and metrics");
   }
 }

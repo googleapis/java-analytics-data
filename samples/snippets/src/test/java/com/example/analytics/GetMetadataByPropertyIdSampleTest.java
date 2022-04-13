@@ -24,9 +24,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for the RunRealtimeReport sample. */
+/** Tests for the GetMetadataByPropertyId sample. */
 @RunWith(JUnit4.class)
-public class RunRealtimeReportSampleTest {
+public class GetMetadataByPropertyIdSampleTest {
 
   private String ga4PropertyId =
       System.getProperty("analyticsdata.quickstart.ga4PropertyId", "222596558");
@@ -38,17 +38,17 @@ public class RunRealtimeReportSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunRealtimeReportSample.sampleRunRealtimeReport(ga4PropertyId);
+    GetMetadataByPropertyIdSample.sampleGetMetadataByPropertyId(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
 
   @Test
-  public void testRunRealtimeReport() throws Exception {
+  public void testGetMetadataByPropertyId() throws Exception {
     // Act
     String out = runSample(ga4PropertyId);
 
     // Assert
-    assertThat(out).contains("Report result:");
+    assertThat(out).contains("Dimensions and metrics");
   }
 }
