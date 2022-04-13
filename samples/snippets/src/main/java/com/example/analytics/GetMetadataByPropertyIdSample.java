@@ -37,10 +37,7 @@ import com.google.analytics.data.v1beta.Metadata;
 public class GetMetadataByPropertyIdSample {
 
   public static void main(String... args) throws Exception {
-    /**
-     * TODO(developer): Replace this variable with your Google Analytics 4 property ID before
-     * running the sample.
-     */
+    // TODO(developer): Replace with your Google Analytics 4 property ID before running the sample.
     String propertyId = "YOUR-GA4-PROPERTY-ID";
     sampleGetMetadataByPropertyId(propertyId);
   }
