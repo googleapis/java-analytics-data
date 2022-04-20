@@ -51,16 +51,21 @@ public class RunReportWithNamedDateRangesSample {
 
   // Runs a report using named date ranges.
   static void sampleRunReportWithNamedDateRanges(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
+
+      DateRange yearAgo = DateRange.newBuilder().setStartDate("2020-01-01")
+          .setEndDate("2020-01-31").setName("year_ago").build();
+      DateRange currentYear = DateRange.newBuilder().setStartDate("2021-01-01")
+          .setEndDate("2021-01-31").setName("current_year").build();
+
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-01-01")
-                  .setEndDate("2020-01-31").setName("year_ago"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-                  .setEndDate("2021-01-31").setName("current_year"))
+              .addDateRanges(yearAgo)
+              .addDateRanges(currentYear)
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
               .build();

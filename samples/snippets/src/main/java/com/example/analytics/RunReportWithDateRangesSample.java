@@ -51,8 +51,9 @@ public class RunReportWithDateRangesSample {
 
   // Runs a report using two date ranges.
   static void sampleRunReportWithDateRanges(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
