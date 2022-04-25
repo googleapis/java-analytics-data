@@ -51,12 +51,9 @@ public class RunReportWithPaginationSample {
 
   // Runs a report several times, each time retrieving a portion of result using pagination.
   static void sampleRunReportWithPagination(String propertyId) throws Exception {
-    // Initializes the client that will be used to send requests. This client only needs to be
-    // created once, and can be reused for multiple requests. After completing all requests, the
-    // "close" method needs to be called to safely clean up any remaining background resources, as
-    // is demonstrated automatically with the try-with statement below. Using a default constructor
-    // when creating the client instructs the client to use the credentials specified in
-    // GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       // [START analyticsdata_run_report_with_pagination_page1]
       RunReportRequest request =
@@ -99,6 +96,7 @@ public class RunReportWithPaginationSample {
 
       // Make the request.
       response = analyticsData.runReport(request);
+      // Prints the response using a method in RunReportSample.java
       RunReportSample.printRunResponseResponse(response);
       // [END analyticsdata_run_report_with_pagination_page2]
     }
