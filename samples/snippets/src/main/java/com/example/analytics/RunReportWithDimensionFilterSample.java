@@ -57,8 +57,9 @@ public class RunReportWithDimensionFilterSample {
   // See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/DateRange
   // for more information.
   static void sampleRunReportWithDimensionFilter(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
@@ -76,6 +77,7 @@ public class RunReportWithDimensionFilterSample {
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
+      // Prints the response using a method in RunReportSample.java
       RunReportSample.printRunResponseResponse(response);
     }
   }

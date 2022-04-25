@@ -57,8 +57,9 @@ public class RunReportWithDimensionAndMetricFiltersSample {
   // include only users who made an in-app purchase using Android platform. A metric filter
   // specifies that only users with session counts larger than 1,000 should be included.
   static void sampleRunReportWithDimensionAndMetricFilters(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunReportRequest request =
           RunReportRequest.newBuilder()
@@ -91,6 +92,7 @@ public class RunReportWithDimensionAndMetricFiltersSample {
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
+      // Prints the response using a method in RunReportSample.java
       RunReportSample.printRunResponseResponse(response);
     }
   }
