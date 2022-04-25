@@ -68,6 +68,7 @@ public class RunReportWithDateRangesSample {
 
       // Make the request.
       RunReportResponse response = analyticsData.runReport(request);
+      // Prints the response using a method in RunReportSample.java
       RunReportSample.printRunResponseResponse(response);
     }
   }
