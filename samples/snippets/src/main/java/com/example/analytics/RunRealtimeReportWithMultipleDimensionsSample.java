@@ -49,8 +49,9 @@ public class RunRealtimeReportWithMultipleDimensionsSample {
 
   // Runs a realtime report on a Google Analytics 4 property.
   static void sampleRunRealtimeReportWithMultipleDimensions(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       RunRealtimeReportRequest request =
           RunRealtimeReportRequest.newBuilder()
@@ -62,6 +63,7 @@ public class RunRealtimeReportWithMultipleDimensionsSample {
 
       // Make the request.
       RunRealtimeReportResponse response = analyticsData.runRealtimeReport(request);
+      // Prints the response using a method in RunRealtimeReportSample.java
       RunRealtimeReportSample.printRunRealtimeReportResponse(response);
     }
   }
