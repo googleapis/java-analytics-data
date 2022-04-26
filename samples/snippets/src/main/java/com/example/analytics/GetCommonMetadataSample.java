@@ -48,6 +48,9 @@ public class GetCommonMetadataSample {
     // Set the Property ID to 0 for dimensions and metrics common to all properties. In this special
     // mode, this method will not return custom dimensions and metrics.
     String propertyId = "0";
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       GetMetadataRequest request =
           GetMetadataRequest.newBuilder()
