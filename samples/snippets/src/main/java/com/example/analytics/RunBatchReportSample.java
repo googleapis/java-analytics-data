@@ -53,8 +53,9 @@ public class RunBatchReportSample {
 
   // Runs a batch report on a Google Analytics 4 property.
   static void sampleRunBatchReport(String propertyId) throws Exception {
-    // Using a default constructor instructs the client to use the credentials
-    // specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    // Initialize client that will be used to send requests. This client only needs to be created
+    // once, and can be reused for multiple requests. After completing all of your requests, call
+    // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
 
       BatchRunReportsRequest request =
@@ -77,6 +78,7 @@ public class RunBatchReportSample {
       // Make the request.
       BatchRunReportsResponse response = analyticsData.batchRunReports(request);
 
+      // Prints the response using a method in RunReportSample.java
       System.out.println("Batch report results:");
       for (RunReportResponse report : response.getReportsList()) {
         RunReportSample.printRunResponseResponse(report);
