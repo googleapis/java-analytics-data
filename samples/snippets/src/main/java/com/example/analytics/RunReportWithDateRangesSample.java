@@ -58,10 +58,10 @@ public class RunReportWithDateRangesSample {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("2019-08-01")
-                  .setEndDate("2019-08-14"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("2020-08-01")
-                  .setEndDate("2020-08-14"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("2019-08-01").setEndDate("2019-08-14"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("2020-08-01").setEndDate("2020-08-14"))
               .addDimensions(Dimension.newBuilder().setName("platform"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
               .build();
@@ -72,6 +72,5 @@ public class RunReportWithDateRangesSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_date_ranges]

@@ -56,10 +56,18 @@ public class RunReportWithNamedDateRangesSample {
     // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
 
-      DateRange yearAgo = DateRange.newBuilder().setStartDate("2020-01-01")
-          .setEndDate("2020-01-31").setName("year_ago").build();
-      DateRange currentYear = DateRange.newBuilder().setStartDate("2021-01-01")
-          .setEndDate("2021-01-31").setName("current_year").build();
+      DateRange yearAgo =
+          DateRange.newBuilder()
+              .setStartDate("2020-01-01")
+              .setEndDate("2020-01-31")
+              .setName("year_ago")
+              .build();
+      DateRange currentYear =
+          DateRange.newBuilder()
+              .setStartDate("2021-01-01")
+              .setEndDate("2021-01-31")
+              .setName("current_year")
+              .build();
 
       RunReportRequest request =
           RunReportRequest.newBuilder()
@@ -76,6 +84,5 @@ public class RunReportWithNamedDateRangesSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_named_date_ranges]

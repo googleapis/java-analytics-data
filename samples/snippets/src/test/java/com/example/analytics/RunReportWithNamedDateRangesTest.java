@@ -24,9 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Tests for the RunReportWithNamedDateRanges sample.
- */
+/** Tests for the RunReportWithNamedDateRanges sample. */
 @RunWith(JUnit4.class)
 public class RunReportWithNamedDateRangesTest {
 
@@ -40,8 +38,7 @@ public class RunReportWithNamedDateRangesTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithNamedDateRangesSample
-        .sampleRunReportWithNamedDateRanges(ga4PropertyId);
+    RunReportWithNamedDateRangesSample.sampleRunReportWithNamedDateRanges(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
