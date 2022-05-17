@@ -24,9 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Tests for the RunReportWithOrdering sample.
- */
+/** Tests for the RunReportWithOrdering sample. */
 @RunWith(JUnit4.class)
 public class RunReportWithOrderingTest {
 
@@ -40,8 +38,7 @@ public class RunReportWithOrderingTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithOrderingSample
-        .sampleRunReportWithOrdering(ga4PropertyId);
+    RunReportWithOrderingSample.sampleRunReportWithOrdering(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }

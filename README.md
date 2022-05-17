@@ -22,20 +22,20 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.analytics</groupId>
   <artifactId>google-analytics-data</artifactId>
-  <version>0.11.9</version>
+  <version>0.11.10</version>
 </dependency>
 ```
 
 If you are using Gradle without BOM, add this to your dependencies
 
 ```Groovy
-implementation 'com.google.analytics:google-analytics-data:0.11.9'
+implementation 'com.google.analytics:google-analytics-data:0.11.10'
 ```
 
 If you are using SBT, add this to your dependencies
 
 ```Scala
-libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.11.9"
+libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.11.10"
 ```
 
 ## Authentication
@@ -87,6 +87,8 @@ Samples are in the [`samples/`](https://github.com/googleapis/java-analytics-dat
 | Run Report With Ordering Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportWithOrderingSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportWithOrderingSample.java) |
 | Run Report With Pagination Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportWithPaginationSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportWithPaginationSample.java) |
 | Run Report With Property Quota Sample | [source code](https://github.com/googleapis/java-analytics-data/blob/main/samples/snippets/src/main/java/com/example/analytics/RunReportWithPropertyQuotaSample.java) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/java-analytics-data&page=editor&open_in_editor=samples/snippets/src/main/java/com/example/analytics/RunReportWithPropertyQuotaSample.java) |
+
+
 
 ## Troubleshooting
 

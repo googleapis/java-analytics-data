@@ -68,16 +68,20 @@ public class RunReportWithPropertyQuotaSample {
 
       // [START analyticsdata_run_report_with_property_quota_print_response]
       if (response.hasPropertyQuota()) {
-        System.out.printf("Tokens per day quota consumed: %d, remaining: %d.%n",
+        System.out.printf(
+            "Tokens per day quota consumed: %d, remaining: %d.%n",
             response.getPropertyQuota().getTokensPerDay().getConsumed(),
             response.getPropertyQuota().getTokensPerDay().getRemaining());
-        System.out.printf("Tokens per hour quota consumed: %d, remaining: %d.%n",
+        System.out.printf(
+            "Tokens per hour quota consumed: %d, remaining: %d.%n",
             response.getPropertyQuota().getTokensPerHour().getConsumed(),
             response.getPropertyQuota().getTokensPerHour().getRemaining());
-        System.out.printf("Concurrent requests quota consumed: %d, remaining: %d.%n",
+        System.out.printf(
+            "Concurrent requests quota consumed: %d, remaining: %d.%n",
             response.getPropertyQuota().getConcurrentRequests().getConsumed(),
             response.getPropertyQuota().getConcurrentRequests().getRemaining());
-        System.out.printf("Server errors per project per hour quota consumed: %d, remaining: %d.%n",
+        System.out.printf(
+            "Server errors per project per hour quota consumed: %d, remaining: %d.%n",
             response.getPropertyQuota().getServerErrorsPerProjectPerHour().getConsumed(),
             response.getPropertyQuota().getServerErrorsPerProjectPerHour().getRemaining());
         System.out.printf(
@@ -88,6 +92,5 @@ public class RunReportWithPropertyQuotaSample {
       // [END analyticsdata_run_report_with_property_quota_print_response]
     }
   }
-
 }
 // [END analyticsdata_run_report_with_property_quota]

@@ -24,9 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Tests for the RunReportWithPropertyQuota sample.
- */
+/** Tests for the RunReportWithPropertyQuota sample. */
 @RunWith(JUnit4.class)
 public class RunReportWithPropertyQuotaTest {
 
@@ -40,8 +38,7 @@ public class RunReportWithPropertyQuotaTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithPropertyQuotaSample
-        .sampleRunReportWithPropertyQuota(ga4PropertyId);
+    RunReportWithPropertyQuotaSample.sampleRunReportWithPropertyQuota(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }

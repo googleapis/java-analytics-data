@@ -59,8 +59,8 @@ public class RunReportWithPaginationSample {
       RunReportRequest request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-                  .setEndDate("yesterday"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("yesterday"))
               .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
               .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
               .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))
@@ -82,8 +82,8 @@ public class RunReportWithPaginationSample {
       request =
           RunReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("365daysAgo")
-                  .setEndDate("yesterday"))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("365daysAgo").setEndDate("yesterday"))
               .addDimensions(Dimension.newBuilder().setName("firstUserSource"))
               .addDimensions(Dimension.newBuilder().setName("firstUserMedium"))
               .addDimensions(Dimension.newBuilder().setName("firstUserCampaignName"))

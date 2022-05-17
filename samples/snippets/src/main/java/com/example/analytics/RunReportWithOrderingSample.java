@@ -64,9 +64,10 @@ public class RunReportWithOrderingSample {
               .addMetrics(Metric.newBuilder().setName("newUsers"))
               .addMetrics(Metric.newBuilder().setName("totalRevenue"))
               .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("today"))
-              .addOrderBys(OrderBy.newBuilder()
-                  .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
-                  .setDesc(true))
+              .addOrderBys(
+                  OrderBy.newBuilder()
+                      .setMetric(OrderBy.MetricOrderBy.newBuilder().setMetricName("totalRevenue"))
+                      .setDesc(true))
               .build();
 
       // Make the request.
@@ -75,6 +76,5 @@ public class RunReportWithOrderingSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_ordering]

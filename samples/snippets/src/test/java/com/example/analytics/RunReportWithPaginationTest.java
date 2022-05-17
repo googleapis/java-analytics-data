@@ -24,9 +24,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/**
- * Tests for the RunReportWithPagination sample.
- */
+/** Tests for the RunReportWithPagination sample. */
 @RunWith(JUnit4.class)
 public class RunReportWithPaginationTest {
 
@@ -40,8 +38,7 @@ public class RunReportWithPaginationTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithPaginationSample
-        .sampleRunReportWithPagination(ga4PropertyId);
+    RunReportWithPaginationSample.sampleRunReportWithPagination(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
