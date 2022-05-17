@@ -67,27 +67,39 @@ public class RunReportWithDimensionAndMetricFiltersSample {
               .addDimensions(Dimension.newBuilder().setName("city"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
               .addDateRanges(DateRange.newBuilder().setStartDate("2020-03-31").setEndDate("today"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setAndGroup(FilterExpressionList.newBuilder()
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("platform")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setMatchType(Filter.StringFilter.MatchType.EXACT)
-                                  .setValue("Android"))))
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("eventName")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setMatchType(Filter.StringFilter.MatchType.EXACT)
-                                  .setValue("in_app_purchase"))))))
-              .setMetricFilter(FilterExpression.newBuilder()
-                  .setFilter(Filter.newBuilder()
-                      .setFieldName("sessions")
-                      .setNumericFilter(Filter.NumericFilter.newBuilder()
-                          .setOperation(Filter.NumericFilter.Operation.GREATER_THAN)
-                          .setValue(NumericValue.newBuilder()
-                              .setInt64Value(1000)))))
+              .setDimensionFilter(
+                  FilterExpression.newBuilder()
+                      .setAndGroup(
+                          FilterExpressionList.newBuilder()
+                              .addExpressions(
+                                  FilterExpression.newBuilder()
+                                      .setFilter(
+                                          Filter.newBuilder()
+                                              .setFieldName("platform")
+                                              .setStringFilter(
+                                                  Filter.StringFilter.newBuilder()
+                                                      .setMatchType(
+                                                          Filter.StringFilter.MatchType.EXACT)
+                                                      .setValue("Android"))))
+                              .addExpressions(
+                                  FilterExpression.newBuilder()
+                                      .setFilter(
+                                          Filter.newBuilder()
+                                              .setFieldName("eventName")
+                                              .setStringFilter(
+                                                  Filter.StringFilter.newBuilder()
+                                                      .setMatchType(
+                                                          Filter.StringFilter.MatchType.EXACT)
+                                                      .setValue("in_app_purchase"))))))
+              .setMetricFilter(
+                  FilterExpression.newBuilder()
+                      .setFilter(
+                          Filter.newBuilder()
+                              .setFieldName("sessions")
+                              .setNumericFilter(
+                                  Filter.NumericFilter.newBuilder()
+                                      .setOperation(Filter.NumericFilter.Operation.GREATER_THAN)
+                                      .setValue(NumericValue.newBuilder().setInt64Value(1000)))))
               .build();
 
       // Make the request.
@@ -96,6 +108,5 @@ public class RunReportWithDimensionAndMetricFiltersSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_dimension_and_metric_filters]

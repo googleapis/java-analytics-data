@@ -38,8 +38,8 @@ public class RunReportWithDimensionAndMetricFiltersSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionAndMetricFiltersSample
-        .sampleRunReportWithDimensionAndMetricFilters(ga4PropertyId);
+    RunReportWithDimensionAndMetricFiltersSample.sampleRunReportWithDimensionAndMetricFilters(
+        ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }

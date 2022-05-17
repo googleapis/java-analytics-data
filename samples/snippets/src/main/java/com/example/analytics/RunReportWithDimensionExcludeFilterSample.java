@@ -66,14 +66,18 @@ public class RunReportWithDimensionExcludeFilterSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("pageTitle"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
-                  .setEndDate("yesterday"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setNotExpression(FilterExpression.newBuilder()
-                      .setFilter(Filter.newBuilder()
-                          .setFieldName("pageTitle")
-                          .setStringFilter(Filter.StringFilter.newBuilder()
-                              .setValue("My Homepage")))))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .setDimensionFilter(
+                  FilterExpression.newBuilder()
+                      .setNotExpression(
+                          FilterExpression.newBuilder()
+                              .setFilter(
+                                  Filter.newBuilder()
+                                      .setFieldName("pageTitle")
+                                      .setStringFilter(
+                                          Filter.StringFilter.newBuilder()
+                                              .setValue("My Homepage")))))
               .build();
 
       // Make the request.
@@ -82,6 +86,5 @@ public class RunReportWithDimensionExcludeFilterSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_dimension_exclude_filter]

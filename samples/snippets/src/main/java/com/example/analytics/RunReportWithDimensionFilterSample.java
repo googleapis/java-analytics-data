@@ -66,13 +66,15 @@ public class RunReportWithDimensionFilterSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("date"))
               .addMetrics(Metric.newBuilder().setName("eventCount"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
-                  .setEndDate("yesterday"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setFilter(Filter.newBuilder()
-                      .setFieldName("eventName")
-                      .setStringFilter(Filter.StringFilter.newBuilder()
-                          .setValue("first_open"))))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .setDimensionFilter(
+                  FilterExpression.newBuilder()
+                      .setFilter(
+                          Filter.newBuilder()
+                              .setFieldName("eventName")
+                              .setStringFilter(
+                                  Filter.StringFilter.newBuilder().setValue("first_open"))))
               .build();
 
       // Make the request.
@@ -81,6 +83,5 @@ public class RunReportWithDimensionFilterSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_dimension_filter]

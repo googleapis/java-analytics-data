@@ -38,8 +38,8 @@ public class RunReportWithDimensionExcludeFilterSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionExcludeFilterSample
-        .sampleRunReportWithDimensionExcludeFilter(ga4PropertyId);
+    RunReportWithDimensionExcludeFilterSample.sampleRunReportWithDimensionExcludeFilter(
+        ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
