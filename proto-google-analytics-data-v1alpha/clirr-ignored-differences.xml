@@ -23,7 +23,7 @@
   <difference>
     <differenceType>6011</differenceType>
     <className>com/google/analytics/data/v1alpha/**</className>
-    <method>*</method>
+    <field>*</field>
   </difference>
   <difference>
     <differenceType>6003</differenceType>
