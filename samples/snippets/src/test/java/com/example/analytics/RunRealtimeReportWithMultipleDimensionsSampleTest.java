@@ -38,8 +38,8 @@ public class RunRealtimeReportWithMultipleDimensionsSampleTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunRealtimeReportWithMultipleDimensionsSample
-        .sampleRunRealtimeReportWithMultipleDimensions(ga4PropertyId);
+    RunRealtimeReportWithMultipleDimensionsSample.sampleRunRealtimeReportWithMultipleDimensions(
+        ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
