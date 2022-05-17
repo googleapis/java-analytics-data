@@ -50,15 +50,15 @@ public class GetMetadataByPropertyIdSample {
     // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       GetMetadataRequest request =
-          GetMetadataRequest.newBuilder()
-              .setName("properties/" + propertyId + "/metadata")
-              .build();
+          GetMetadataRequest.newBuilder().setName("properties/" + propertyId + "/metadata").build();
 
       // Make the request.
       Metadata response = analyticsData.getMetadata(request);
 
-      System.out.printf("Dimensions and metrics available for Google Analytics 4 property %s "
-          + "(including custom fields):", propertyId);
+      System.out.printf(
+          "Dimensions and metrics available for Google Analytics 4 property %s "
+              + "(including custom fields):",
+          propertyId);
       // Prints the response using a method in GetCommonMetadataSample.java
       GetCommonMetadataSample.printGetMetadataResponse(response);
     }

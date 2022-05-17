@@ -53,9 +53,7 @@ public class GetCommonMetadataSample {
     // the "close" method on the client to safely clean up any remaining background resources.
     try (BetaAnalyticsDataClient analyticsData = BetaAnalyticsDataClient.create()) {
       GetMetadataRequest request =
-          GetMetadataRequest.newBuilder()
-              .setName("properties/" + propertyId + "/metadata")
-              .build();
+          GetMetadataRequest.newBuilder().setName("properties/" + propertyId + "/metadata").build();
 
       // Make the request.
       Metadata response = analyticsData.getMetadata(request);
@@ -70,8 +68,9 @@ public class GetCommonMetadataSample {
     // [START analyticsdata_print_get_metadata_response]
     for (DimensionMetadata dimension : response.getDimensionsList()) {
       System.out.println("DIMENSION");
-      System.out.printf("%s (%s): %s%n", dimension.getApiName(), dimension.getUiName(),
-          dimension.getDescription());
+      System.out.printf(
+          "%s (%s): %s%n",
+          dimension.getApiName(), dimension.getUiName(), dimension.getDescription());
       System.out.printf("custom definition: %s%n", dimension.getCustomDefinition());
       if (dimension.getDeprecatedApiNamesList() != null
           && !dimension.getDeprecatedApiNamesList().isEmpty()) {
@@ -81,8 +80,8 @@ public class GetCommonMetadataSample {
     }
     for (MetricMetadata metric : response.getMetricsList()) {
       System.out.println("METRIC");
-      System.out.printf("%s (%s): %s%n", metric.getApiName(), metric.getUiName(),
-          metric.getDescription());
+      System.out.printf(
+          "%s (%s): %s%n", metric.getApiName(), metric.getUiName(), metric.getDescription());
       System.out.printf("custom definition: %s%n", metric.getCustomDefinition());
       System.out.printf("Type: %s%n", metric.getType());
       if (metric.getDeprecatedApiNamesList() != null
