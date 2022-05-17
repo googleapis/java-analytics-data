@@ -64,23 +64,27 @@ public class RunPivotReportSample {
       RunPivotReportRequest request =
           RunPivotReportRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-                  .setEndDate("2021-01-30"))
-              .addPivots(Pivot.newBuilder()
-                  .addFieldNames("country")
-                  .setLimit(250)
-                  .addOrderBys(OrderBy.newBuilder()
-                      .setDimension(OrderBy.DimensionOrderBy.newBuilder()
-                          .setDimensionName("country"))))
-              .addPivots(Pivot.newBuilder()
-                  .addFieldNames("browser")
-                  .setOffset(3)
-                  .setLimit(3)
-                  .addOrderBys(OrderBy.newBuilder()
-                      .setMetric(OrderBy.MetricOrderBy.newBuilder()
-                          .setMetricName("sessions"))
-                      .setDesc(true)
-                  ))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("2021-01-01").setEndDate("2021-01-30"))
+              .addPivots(
+                  Pivot.newBuilder()
+                      .addFieldNames("country")
+                      .setLimit(250)
+                      .addOrderBys(
+                          OrderBy.newBuilder()
+                              .setDimension(
+                                  OrderBy.DimensionOrderBy.newBuilder()
+                                      .setDimensionName("country"))))
+              .addPivots(
+                  Pivot.newBuilder()
+                      .addFieldNames("browser")
+                      .setOffset(3)
+                      .setLimit(3)
+                      .addOrderBys(
+                          OrderBy.newBuilder()
+                              .setMetric(
+                                  OrderBy.MetricOrderBy.newBuilder().setMetricName("sessions"))
+                              .setDesc(true)))
               .addMetrics(Metric.newBuilder().setName("sessions"))
               .addDimensions(Dimension.newBuilder().setName("country"))
               .addDimensions(Dimension.newBuilder().setName("browser"))

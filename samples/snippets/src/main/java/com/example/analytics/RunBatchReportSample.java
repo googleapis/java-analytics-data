@@ -61,18 +61,24 @@ public class RunBatchReportSample {
       BatchRunReportsRequest request =
           BatchRunReportsRequest.newBuilder()
               .setProperty("properties/" + propertyId)
-              .addRequests(RunReportRequest.newBuilder()
-                  .addDimensions(Dimension.newBuilder().setName("country"))
-                  .addDimensions(Dimension.newBuilder().setName("region"))
-                  .addDimensions(Dimension.newBuilder().setName("city"))
-                  .addMetrics(Metric.newBuilder().setName("activeUsers"))
-                  .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-03")
-                      .setEndDate("2021-01-09")))
-              .addRequests(RunReportRequest.newBuilder()
-                  .addDimensions(Dimension.newBuilder().setName("browser"))
-                  .addMetrics(Metric.newBuilder().setName("activeUsers"))
-                  .addDateRanges(DateRange.newBuilder().setStartDate("2021-01-01")
-                      .setEndDate("2021-01-31")))
+              .addRequests(
+                  RunReportRequest.newBuilder()
+                      .addDimensions(Dimension.newBuilder().setName("country"))
+                      .addDimensions(Dimension.newBuilder().setName("region"))
+                      .addDimensions(Dimension.newBuilder().setName("city"))
+                      .addMetrics(Metric.newBuilder().setName("activeUsers"))
+                      .addDateRanges(
+                          DateRange.newBuilder()
+                              .setStartDate("2021-01-03")
+                              .setEndDate("2021-01-09")))
+              .addRequests(
+                  RunReportRequest.newBuilder()
+                      .addDimensions(Dimension.newBuilder().setName("browser"))
+                      .addMetrics(Metric.newBuilder().setName("activeUsers"))
+                      .addDateRanges(
+                          DateRange.newBuilder()
+                              .setStartDate("2021-01-01")
+                              .setEndDate("2021-01-31")))
               .build();
 
       // Make the request.
