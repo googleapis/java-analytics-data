@@ -67,20 +67,24 @@ public class RunReportWithDimensionInListFilterSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("eventName"))
               .addMetrics(Metric.newBuilder().setName("sessions"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
-                  .setEndDate("yesterday"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setFilter(Filter.newBuilder()
-                      .setFieldName("eventName")
-                      .setInListFilter(Filter.InListFilter.newBuilder()
-                          .addAllValues(new ArrayList<String>() {
-                            {
-                              add("purchase");
-                              add("in_app_purchase");
-                              add("app_store_subscription_renew");
-                            }}
-                          ).build())
-                  ))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .setDimensionFilter(
+                  FilterExpression.newBuilder()
+                      .setFilter(
+                          Filter.newBuilder()
+                              .setFieldName("eventName")
+                              .setInListFilter(
+                                  Filter.InListFilter.newBuilder()
+                                      .addAllValues(
+                                          new ArrayList<String>() {
+                                            {
+                                              add("purchase");
+                                              add("in_app_purchase");
+                                              add("app_store_subscription_renew");
+                                            }
+                                          })
+                                      .build())))
               .build();
 
       // Make the request.
@@ -89,6 +93,5 @@ public class RunReportWithDimensionInListFilterSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_dimension_in_list_filter]

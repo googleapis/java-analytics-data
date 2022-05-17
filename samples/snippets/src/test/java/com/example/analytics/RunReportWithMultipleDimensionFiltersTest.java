@@ -38,8 +38,8 @@ public class RunReportWithMultipleDimensionFiltersTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithMultipleDimensionFiltersSample
-        .sampleRunReportWithMultipleDimensionFilters(ga4PropertyId);
+    RunReportWithMultipleDimensionFiltersSample.sampleRunReportWithMultipleDimensionFilters(
+        ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }

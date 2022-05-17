@@ -67,20 +67,28 @@ public class RunReportWithMultipleDimensionFiltersSample {
               .setProperty("properties/" + propertyId)
               .addDimensions(Dimension.newBuilder().setName("browser"))
               .addMetrics(Metric.newBuilder().setName("activeUsers"))
-              .addDateRanges(DateRange.newBuilder().setStartDate("7daysAgo")
-                  .setEndDate("yesterday"))
-              .setDimensionFilter(FilterExpression.newBuilder()
-                  .setAndGroup(FilterExpressionList.newBuilder()
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("browser")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setValue("Chrome"))))
-                      .addExpressions(FilterExpression.newBuilder()
-                          .setFilter(Filter.newBuilder()
-                              .setFieldName("countryId")
-                              .setStringFilter(Filter.StringFilter.newBuilder()
-                                  .setValue("US"))))))
+              .addDateRanges(
+                  DateRange.newBuilder().setStartDate("7daysAgo").setEndDate("yesterday"))
+              .setDimensionFilter(
+                  FilterExpression.newBuilder()
+                      .setAndGroup(
+                          FilterExpressionList.newBuilder()
+                              .addExpressions(
+                                  FilterExpression.newBuilder()
+                                      .setFilter(
+                                          Filter.newBuilder()
+                                              .setFieldName("browser")
+                                              .setStringFilter(
+                                                  Filter.StringFilter.newBuilder()
+                                                      .setValue("Chrome"))))
+                              .addExpressions(
+                                  FilterExpression.newBuilder()
+                                      .setFilter(
+                                          Filter.newBuilder()
+                                              .setFieldName("countryId")
+                                              .setStringFilter(
+                                                  Filter.StringFilter.newBuilder()
+                                                      .setValue("US"))))))
               .build();
 
       // Make the request.
@@ -89,6 +97,5 @@ public class RunReportWithMultipleDimensionFiltersSample {
       RunReportSample.printRunResponseResponse(response);
     }
   }
-
 }
 // [END analyticsdata_run_report_with_multiple_dimension_filters]

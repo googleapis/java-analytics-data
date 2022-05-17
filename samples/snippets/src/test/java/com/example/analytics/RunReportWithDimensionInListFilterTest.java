@@ -38,8 +38,8 @@ public class RunReportWithDimensionInListFilterTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithDimensionInListFilterSample
-        .sampleRunReportWithDimensionInListFilter(ga4PropertyId);
+    RunReportWithDimensionInListFilterSample.sampleRunReportWithDimensionInListFilter(
+        ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
