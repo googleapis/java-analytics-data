@@ -32,4 +32,14 @@
     <className>com/google/analytics/data/v1alpha/**</className>
     <field>*</field>
   </difference>
+  <difference>
+    <differenceType>6001</differenceType>
+    <className>com/google/analytics/data/v1alpha/**</className>
+    <field>*</field>
+  </difference>
+  <difference>
+    <differenceType>7012</differenceType>
+    <className>com/google/analytics/data/v1alpha/**</className>
+    <method>*</method>
+  </difference>
 </differences>
