@@ -25,4 +25,9 @@
     <className>com/google/analytics/data/v1alpha/**</className>
     <method>*</method>
   </difference>
+  <difference>
+    <differenceType>6003</differenceType>
+    <className>com/google/analytics/data/v1alpha/**</className>
+    <method>*</method>
+  </difference>
 </differences>
