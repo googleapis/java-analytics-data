@@ -38,8 +38,7 @@ public class RunReportWithMultipleMetricsTest {
     System.setOut(out);
 
     // Run the test using default system credentials.
-    RunReportWithMultipleMetricsSample
-        .sampleRunReportWithMultipleMetrics(ga4PropertyId);
+    RunReportWithMultipleMetricsSample.sampleRunReportWithMultipleMetrics(ga4PropertyId);
     System.setOut(stdOut);
     return bout.toString();
   }
