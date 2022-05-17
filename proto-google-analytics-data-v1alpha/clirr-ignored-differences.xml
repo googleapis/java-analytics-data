@@ -8,6 +8,7 @@
   <difference>
     <differenceType>7006</differenceType>
     <className>com/google/analytics/data/v1alpha/**</className>
+    <to>*</to>
     <method>*</method>
   </difference>
   <difference>
@@ -18,6 +19,7 @@
   <difference>
     <differenceType>7005</differenceType>
     <className>com/google/analytics/data/v1alpha/**</className>
+    <to>*</to>
     <method>*</method>
   </difference>
   <difference>
