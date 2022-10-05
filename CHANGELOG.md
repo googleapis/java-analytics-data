@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.9](https://github.com/googleapis/java-analytics-data/compare/v0.14.8...v0.14.9) (2022-10-05)
+
+
+### Bug Fixes
+
+* update protobuf to v3.21.7 ([b3fb5c5](https://github.com/googleapis/java-analytics-data/commit/b3fb5c5bb57d6c3db8a9ce0a72682fd3411e35e3))
+
 ## [0.14.8](https://github.com/googleapis/java-analytics-data/compare/v0.14.7...v0.14.8) (2022-10-03)
 
 
