@@ -249,7 +249,7 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
        *
        *
        * <pre>
-       * Full regular expression match with the string value.
+       * Full match for the regular expression with the string value.
        * </pre>
        *
        * <code>FULL_REGEXP = 5;</code>
@@ -259,7 +259,7 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
        *
        *
        * <pre>
-       * Partial regular expression match with the string value.
+       * Partial match for the regular expression with the string value.
        * </pre>
        *
        * <code>PARTIAL_REGEXP = 6;</code>
@@ -322,7 +322,7 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
        *
        *
        * <pre>
-       * Full regular expression match with the string value.
+       * Full match for the regular expression with the string value.
        * </pre>
        *
        * <code>FULL_REGEXP = 5;</code>
@@ -332,7 +332,7 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
        *
        *
        * <pre>
-       * Partial regular expression match with the string value.
+       * Partial match for the regular expression with the string value.
        * </pre>
        *
        * <code>PARTIAL_REGEXP = 6;</code>
@@ -4344,8 +4344,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * The dimension name or metric name. Must be a name defined in dimensions
-   * or metrics.
+   * The dimension name or metric name.
+   * In most methods, dimensions &amp; metrics can be used for the first time in
+   * this field. However in a RunPivotReportRequest, this field must be
+   * additionally specified by name in the RunPivotReportRequest's dimensions or
+   * metrics.
    * </pre>
    *
    * <code>string field_name = 1;</code>
@@ -4368,8 +4371,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * The dimension name or metric name. Must be a name defined in dimensions
-   * or metrics.
+   * The dimension name or metric name.
+   * In most methods, dimensions &amp; metrics can be used for the first time in
+   * this field. However in a RunPivotReportRequest, this field must be
+   * additionally specified by name in the RunPivotReportRequest's dimensions or
+   * metrics.
    * </pre>
    *
    * <code>string field_name = 1;</code>
@@ -5104,8 +5110,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * The dimension name or metric name. Must be a name defined in dimensions
-     * or metrics.
+     * The dimension name or metric name.
+     * In most methods, dimensions &amp; metrics can be used for the first time in
+     * this field. However in a RunPivotReportRequest, this field must be
+     * additionally specified by name in the RunPivotReportRequest's dimensions or
+     * metrics.
      * </pre>
      *
      * <code>string field_name = 1;</code>
@@ -5127,8 +5136,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * The dimension name or metric name. Must be a name defined in dimensions
-     * or metrics.
+     * The dimension name or metric name.
+     * In most methods, dimensions &amp; metrics can be used for the first time in
+     * this field. However in a RunPivotReportRequest, this field must be
+     * additionally specified by name in the RunPivotReportRequest's dimensions or
+     * metrics.
      * </pre>
      *
      * <code>string field_name = 1;</code>
@@ -5150,8 +5162,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * The dimension name or metric name. Must be a name defined in dimensions
-     * or metrics.
+     * The dimension name or metric name.
+     * In most methods, dimensions &amp; metrics can be used for the first time in
+     * this field. However in a RunPivotReportRequest, this field must be
+     * additionally specified by name in the RunPivotReportRequest's dimensions or
+     * metrics.
      * </pre>
      *
      * <code>string field_name = 1;</code>
@@ -5172,8 +5187,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * The dimension name or metric name. Must be a name defined in dimensions
-     * or metrics.
+     * The dimension name or metric name.
+     * In most methods, dimensions &amp; metrics can be used for the first time in
+     * this field. However in a RunPivotReportRequest, this field must be
+     * additionally specified by name in the RunPivotReportRequest's dimensions or
+     * metrics.
      * </pre>
      *
      * <code>string field_name = 1;</code>
@@ -5190,8 +5208,11 @@ public final class Filter extends com.google.protobuf.GeneratedMessageV3
      *
      *
      * <pre>
-     * The dimension name or metric name. Must be a name defined in dimensions
-     * or metrics.
+     * The dimension name or metric name.
+     * In most methods, dimensions &amp; metrics can be used for the first time in
+     * this field. However in a RunPivotReportRequest, this field must be
+     * additionally specified by name in the RunPivotReportRequest's dimensions or
+     * metrics.
      * </pre>
      *
      * <code>string field_name = 1;</code>

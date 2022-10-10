@@ -24,7 +24,7 @@ package com.google.analytics.data.v1beta;
  * <pre>
  * Dimensions are attributes of your data. For example, the dimension city
  * indicates the city from which an event originates. Dimension values in report
- * responses are strings; for example, city could be "Paris" or "New York".
+ * responses are strings; for example, the city could be "Paris" or "New York".
  * Requests are allowed up to 9 dimensions.
  * </pre>
  *
@@ -368,7 +368,7 @@ public final class Dimension extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Dimensions are attributes of your data. For example, the dimension city
    * indicates the city from which an event originates. Dimension values in report
-   * responses are strings; for example, city could be "Paris" or "New York".
+   * responses are strings; for example, the city could be "Paris" or "New York".
    * Requests are allowed up to 9 dimensions.
    * </pre>
    *

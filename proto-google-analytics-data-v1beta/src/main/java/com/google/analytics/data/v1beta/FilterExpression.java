@@ -22,9 +22,8 @@ package com.google.analytics.data.v1beta;
  *
  *
  * <pre>
- * To express dimension or metric filters.
- * The fields in the same FilterExpression need to be either all dimensions or
- * all metrics.
+ * To express dimension or metric filters. The fields in the same
+ * FilterExpression need to be either all dimensions or all metrics.
  * </pre>
  *
  * Protobuf type {@code google.analytics.data.v1beta.FilterExpression}
@@ -278,9 +277,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
    *
    *
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -295,9 +293,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
    *
    *
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -315,9 +312,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
    *
    *
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -553,9 +549,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
    *
    *
    * <pre>
-   * To express dimension or metric filters.
-   * The fields in the same FilterExpression need to be either all dimensions or
-   * all metrics.
+   * To express dimension or metric filters. The fields in the same
+   * FilterExpression need to be either all dimensions or all metrics.
    * </pre>
    *
    * Protobuf type {@code google.analytics.data.v1beta.FilterExpression}
@@ -1457,9 +1452,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1474,9 +1468,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1501,9 +1494,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1525,9 +1517,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1546,9 +1537,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1580,9 +1570,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1607,9 +1596,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1621,9 +1609,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1643,9 +1630,8 @@ public final class FilterExpression extends com.google.protobuf.GeneratedMessage
      *
      *
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>

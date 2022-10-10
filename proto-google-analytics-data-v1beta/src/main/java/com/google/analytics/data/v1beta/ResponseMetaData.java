@@ -2872,6 +2872,53 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
     }
   }
 
+  public static final int SUBJECT_TO_THRESHOLDING_FIELD_NUMBER = 8;
+  private boolean subjectToThresholding_;
+  /**
+   *
+   *
+   * <pre>
+   * If `subjectToThresholding` is true, this report is subject to thresholding
+   * and only returns data that meets the minimum aggregation thresholds. It is
+   * possible for a request to be subject to thresholding thresholding and no
+   * data is absent from the report, and this happens when all data is above the
+   * thresholds. To learn more, see [Data
+   * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+   * Demographics and
+   * Interests](https://support.google.com/analytics/answer/2799357).
+   * </pre>
+   *
+   * <code>optional bool subject_to_thresholding = 8;</code>
+   *
+   * @return Whether the subjectToThresholding field is set.
+   */
+  @java.lang.Override
+  public boolean hasSubjectToThresholding() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * If `subjectToThresholding` is true, this report is subject to thresholding
+   * and only returns data that meets the minimum aggregation thresholds. It is
+   * possible for a request to be subject to thresholding thresholding and no
+   * data is absent from the report, and this happens when all data is above the
+   * thresholds. To learn more, see [Data
+   * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+   * Demographics and
+   * Interests](https://support.google.com/analytics/answer/2799357).
+   * </pre>
+   *
+   * <code>optional bool subject_to_thresholding = 8;</code>
+   *
+   * @return The subjectToThresholding.
+   */
+  @java.lang.Override
+  public boolean getSubjectToThresholding() {
+    return subjectToThresholding_;
+  }
+
   private byte memoizedIsInitialized = -1;
 
   @java.lang.Override
@@ -2901,6 +2948,9 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
     if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, emptyReason_);
     }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeBool(8, subjectToThresholding_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -2926,6 +2976,9 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
     }
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, emptyReason_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream.computeBoolSize(8, subjectToThresholding_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -2961,6 +3014,10 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
     if (hasEmptyReason()) {
       if (!getEmptyReason().equals(other.getEmptyReason())) return false;
     }
+    if (hasSubjectToThresholding() != other.hasSubjectToThresholding()) return false;
+    if (hasSubjectToThresholding()) {
+      if (getSubjectToThresholding() != other.getSubjectToThresholding()) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2989,6 +3046,10 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
     if (hasEmptyReason()) {
       hash = (37 * hash) + EMPTY_REASON_FIELD_NUMBER;
       hash = (53 * hash) + getEmptyReason().hashCode();
+    }
+    if (hasSubjectToThresholding()) {
+      hash = (37 * hash) + SUBJECT_TO_THRESHOLDING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getSubjectToThresholding());
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -3151,6 +3212,8 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
       bitField0_ = (bitField0_ & ~0x00000004);
       emptyReason_ = "";
       bitField0_ = (bitField0_ & ~0x00000008);
+      subjectToThresholding_ = false;
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -3201,6 +3264,10 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
         to_bitField0_ |= 0x00000008;
       }
       result.emptyReason_ = emptyReason_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.subjectToThresholding_ = subjectToThresholding_;
+        to_bitField0_ |= 0x00000010;
+      }
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -3273,6 +3340,9 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
         emptyReason_ = other.emptyReason_;
         onChanged();
       }
+      if (other.hasSubjectToThresholding()) {
+        setSubjectToThresholding(other.getSubjectToThresholding());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -3330,6 +3400,12 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
                 bitField0_ |= 0x00000008;
                 break;
               } // case 58
+            case 64:
+              {
+                subjectToThresholding_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 64
             default:
               {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
@@ -4062,6 +4138,101 @@ public final class ResponseMetaData extends com.google.protobuf.GeneratedMessage
       checkByteStringIsUtf8(value);
       bitField0_ |= 0x00000008;
       emptyReason_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean subjectToThresholding_;
+    /**
+     *
+     *
+     * <pre>
+     * If `subjectToThresholding` is true, this report is subject to thresholding
+     * and only returns data that meets the minimum aggregation thresholds. It is
+     * possible for a request to be subject to thresholding thresholding and no
+     * data is absent from the report, and this happens when all data is above the
+     * thresholds. To learn more, see [Data
+     * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+     * Demographics and
+     * Interests](https://support.google.com/analytics/answer/2799357).
+     * </pre>
+     *
+     * <code>optional bool subject_to_thresholding = 8;</code>
+     *
+     * @return Whether the subjectToThresholding field is set.
+     */
+    @java.lang.Override
+    public boolean hasSubjectToThresholding() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If `subjectToThresholding` is true, this report is subject to thresholding
+     * and only returns data that meets the minimum aggregation thresholds. It is
+     * possible for a request to be subject to thresholding thresholding and no
+     * data is absent from the report, and this happens when all data is above the
+     * thresholds. To learn more, see [Data
+     * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+     * Demographics and
+     * Interests](https://support.google.com/analytics/answer/2799357).
+     * </pre>
+     *
+     * <code>optional bool subject_to_thresholding = 8;</code>
+     *
+     * @return The subjectToThresholding.
+     */
+    @java.lang.Override
+    public boolean getSubjectToThresholding() {
+      return subjectToThresholding_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If `subjectToThresholding` is true, this report is subject to thresholding
+     * and only returns data that meets the minimum aggregation thresholds. It is
+     * possible for a request to be subject to thresholding thresholding and no
+     * data is absent from the report, and this happens when all data is above the
+     * thresholds. To learn more, see [Data
+     * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+     * Demographics and
+     * Interests](https://support.google.com/analytics/answer/2799357).
+     * </pre>
+     *
+     * <code>optional bool subject_to_thresholding = 8;</code>
+     *
+     * @param value The subjectToThresholding to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSubjectToThresholding(boolean value) {
+      bitField0_ |= 0x00000010;
+      subjectToThresholding_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If `subjectToThresholding` is true, this report is subject to thresholding
+     * and only returns data that meets the minimum aggregation thresholds. It is
+     * possible for a request to be subject to thresholding thresholding and no
+     * data is absent from the report, and this happens when all data is above the
+     * thresholds. To learn more, see [Data
+     * thresholds](https://support.google.com/analytics/answer/9383630) and [About
+     * Demographics and
+     * Interests](https://support.google.com/analytics/answer/2799357).
+     * </pre>
+     *
+     * <code>optional bool subject_to_thresholding = 8;</code>
+     *
+     * @return This builder for chaining.
+     */
+    public Builder clearSubjectToThresholding() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      subjectToThresholding_ = false;
       onChanged();
       return this;
     }

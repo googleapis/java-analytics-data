@@ -129,8 +129,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Standard Analytics Properties can use up to 5,000 tokens per hour;
    * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-   * consumes a single number of tokens, and that number is deducted from both
-   * the hourly and daily quotas.
+   * consumes a single number of tokens, and that number is deducted from all of
+   * the hourly, daily, and per project hourly quotas.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -147,8 +147,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Standard Analytics Properties can use up to 5,000 tokens per hour;
    * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-   * consumes a single number of tokens, and that number is deducted from both
-   * the hourly and daily quotas.
+   * consumes a single number of tokens, and that number is deducted from all of
+   * the hourly, daily, and per project hourly quotas.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -167,8 +167,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
    * <pre>
    * Standard Analytics Properties can use up to 5,000 tokens per hour;
    * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-   * consumes a single number of tokens, and that number is deducted from both
-   * the hourly and daily quotas.
+   * consumes a single number of tokens, and that number is deducted from all of
+   * the hourly, daily, and per project hourly quotas.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -345,6 +345,70 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
     return getPotentiallyThresholdedRequestsPerHour();
   }
 
+  public static final int TOKENS_PER_PROJECT_PER_HOUR_FIELD_NUMBER = 6;
+  private com.google.analytics.data.v1beta.QuotaStatus tokensPerProjectPerHour_;
+  /**
+   *
+   *
+   * <pre>
+   * Analytics Properties can use up to 25% of their tokens per project per
+   * hour. This amounts to standard Analytics Properties can use up to 1,250
+   * tokens per project per hour, and Analytics 360 Properties can use 12,500
+   * tokens per project per hour. An API request consumes a single number of
+   * tokens, and that number is deducted from all of the hourly, daily, and per
+   * project hourly quotas.
+   * </pre>
+   *
+   * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+   *
+   * @return Whether the tokensPerProjectPerHour field is set.
+   */
+  @java.lang.Override
+  public boolean hasTokensPerProjectPerHour() {
+    return tokensPerProjectPerHour_ != null;
+  }
+  /**
+   *
+   *
+   * <pre>
+   * Analytics Properties can use up to 25% of their tokens per project per
+   * hour. This amounts to standard Analytics Properties can use up to 1,250
+   * tokens per project per hour, and Analytics 360 Properties can use 12,500
+   * tokens per project per hour. An API request consumes a single number of
+   * tokens, and that number is deducted from all of the hourly, daily, and per
+   * project hourly quotas.
+   * </pre>
+   *
+   * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+   *
+   * @return The tokensPerProjectPerHour.
+   */
+  @java.lang.Override
+  public com.google.analytics.data.v1beta.QuotaStatus getTokensPerProjectPerHour() {
+    return tokensPerProjectPerHour_ == null
+        ? com.google.analytics.data.v1beta.QuotaStatus.getDefaultInstance()
+        : tokensPerProjectPerHour_;
+  }
+  /**
+   *
+   *
+   * <pre>
+   * Analytics Properties can use up to 25% of their tokens per project per
+   * hour. This amounts to standard Analytics Properties can use up to 1,250
+   * tokens per project per hour, and Analytics 360 Properties can use 12,500
+   * tokens per project per hour. An API request consumes a single number of
+   * tokens, and that number is deducted from all of the hourly, daily, and per
+   * project hourly quotas.
+   * </pre>
+   *
+   * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.analytics.data.v1beta.QuotaStatusOrBuilder
+      getTokensPerProjectPerHourOrBuilder() {
+    return getTokensPerProjectPerHour();
+  }
+
   private byte memoizedIsInitialized = -1;
 
   @java.lang.Override
@@ -374,6 +438,9 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
     if (potentiallyThresholdedRequestsPerHour_ != null) {
       output.writeMessage(5, getPotentiallyThresholdedRequestsPerHour());
     }
+    if (tokensPerProjectPerHour_ != null) {
+      output.writeMessage(6, getTokensPerProjectPerHour());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -401,6 +468,10 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
       size +=
           com.google.protobuf.CodedOutputStream.computeMessageSize(
               5, getPotentiallyThresholdedRequestsPerHour());
+    }
+    if (tokensPerProjectPerHour_ != null) {
+      size +=
+          com.google.protobuf.CodedOutputStream.computeMessageSize(6, getTokensPerProjectPerHour());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -442,6 +513,10 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
       if (!getPotentiallyThresholdedRequestsPerHour()
           .equals(other.getPotentiallyThresholdedRequestsPerHour())) return false;
     }
+    if (hasTokensPerProjectPerHour() != other.hasTokensPerProjectPerHour()) return false;
+    if (hasTokensPerProjectPerHour()) {
+      if (!getTokensPerProjectPerHour().equals(other.getTokensPerProjectPerHour())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -472,6 +547,10 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
     if (hasPotentiallyThresholdedRequestsPerHour()) {
       hash = (37 * hash) + POTENTIALLY_THRESHOLDED_REQUESTS_PER_HOUR_FIELD_NUMBER;
       hash = (53 * hash) + getPotentiallyThresholdedRequestsPerHour().hashCode();
+    }
+    if (hasTokensPerProjectPerHour()) {
+      hash = (37 * hash) + TOKENS_PER_PROJECT_PER_HOUR_FIELD_NUMBER;
+      hash = (53 * hash) + getTokensPerProjectPerHour().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -643,6 +722,12 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
         potentiallyThresholdedRequestsPerHour_ = null;
         potentiallyThresholdedRequestsPerHourBuilder_ = null;
       }
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        tokensPerProjectPerHour_ = null;
+      } else {
+        tokensPerProjectPerHour_ = null;
+        tokensPerProjectPerHourBuilder_ = null;
+      }
       return this;
     }
 
@@ -695,6 +780,11 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
       } else {
         result.potentiallyThresholdedRequestsPerHour_ =
             potentiallyThresholdedRequestsPerHourBuilder_.build();
+      }
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        result.tokensPerProjectPerHour_ = tokensPerProjectPerHour_;
+      } else {
+        result.tokensPerProjectPerHour_ = tokensPerProjectPerHourBuilder_.build();
       }
       onBuilt();
       return result;
@@ -761,6 +851,9 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
         mergePotentiallyThresholdedRequestsPerHour(
             other.getPotentiallyThresholdedRequestsPerHour());
       }
+      if (other.hasTokensPerProjectPerHour()) {
+        mergeTokensPerProjectPerHour(other.getTokensPerProjectPerHour());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -821,6 +914,13 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
 
                 break;
               } // case 42
+            case 50:
+              {
+                input.readMessage(
+                    getTokensPerProjectPerHourFieldBuilder().getBuilder(), extensionRegistry);
+
+                break;
+              } // case 50
             default:
               {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
@@ -1054,8 +1154,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1071,8 +1171,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1094,8 +1194,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1119,8 +1219,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1142,8 +1242,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1171,8 +1271,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1194,8 +1294,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1211,8 +1311,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1232,8 +1332,8 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
      * <pre>
      * Standard Analytics Properties can use up to 5,000 tokens per hour;
      * Analytics 360 Properties can use 50,000 tokens per hour. An API request
-     * consumes a single number of tokens, and that number is deducted from both
-     * the hourly and daily quotas.
+     * consumes a single number of tokens, and that number is deducted from all of
+     * the hourly, daily, and per project hourly quotas.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_hour = 2;</code>
@@ -1904,6 +2004,240 @@ public final class PropertyQuota extends com.google.protobuf.GeneratedMessageV3
         potentiallyThresholdedRequestsPerHour_ = null;
       }
       return potentiallyThresholdedRequestsPerHourBuilder_;
+    }
+
+    private com.google.analytics.data.v1beta.QuotaStatus tokensPerProjectPerHour_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+            com.google.analytics.data.v1beta.QuotaStatus,
+            com.google.analytics.data.v1beta.QuotaStatus.Builder,
+            com.google.analytics.data.v1beta.QuotaStatusOrBuilder>
+        tokensPerProjectPerHourBuilder_;
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     *
+     * @return Whether the tokensPerProjectPerHour field is set.
+     */
+    public boolean hasTokensPerProjectPerHour() {
+      return tokensPerProjectPerHourBuilder_ != null || tokensPerProjectPerHour_ != null;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     *
+     * @return The tokensPerProjectPerHour.
+     */
+    public com.google.analytics.data.v1beta.QuotaStatus getTokensPerProjectPerHour() {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        return tokensPerProjectPerHour_ == null
+            ? com.google.analytics.data.v1beta.QuotaStatus.getDefaultInstance()
+            : tokensPerProjectPerHour_;
+      } else {
+        return tokensPerProjectPerHourBuilder_.getMessage();
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public Builder setTokensPerProjectPerHour(com.google.analytics.data.v1beta.QuotaStatus value) {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        tokensPerProjectPerHour_ = value;
+        onChanged();
+      } else {
+        tokensPerProjectPerHourBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public Builder setTokensPerProjectPerHour(
+        com.google.analytics.data.v1beta.QuotaStatus.Builder builderForValue) {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        tokensPerProjectPerHour_ = builderForValue.build();
+        onChanged();
+      } else {
+        tokensPerProjectPerHourBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public Builder mergeTokensPerProjectPerHour(
+        com.google.analytics.data.v1beta.QuotaStatus value) {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        if (tokensPerProjectPerHour_ != null) {
+          tokensPerProjectPerHour_ =
+              com.google.analytics.data.v1beta.QuotaStatus.newBuilder(tokensPerProjectPerHour_)
+                  .mergeFrom(value)
+                  .buildPartial();
+        } else {
+          tokensPerProjectPerHour_ = value;
+        }
+        onChanged();
+      } else {
+        tokensPerProjectPerHourBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public Builder clearTokensPerProjectPerHour() {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        tokensPerProjectPerHour_ = null;
+        onChanged();
+      } else {
+        tokensPerProjectPerHour_ = null;
+        tokensPerProjectPerHourBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public com.google.analytics.data.v1beta.QuotaStatus.Builder
+        getTokensPerProjectPerHourBuilder() {
+
+      onChanged();
+      return getTokensPerProjectPerHourFieldBuilder().getBuilder();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    public com.google.analytics.data.v1beta.QuotaStatusOrBuilder
+        getTokensPerProjectPerHourOrBuilder() {
+      if (tokensPerProjectPerHourBuilder_ != null) {
+        return tokensPerProjectPerHourBuilder_.getMessageOrBuilder();
+      } else {
+        return tokensPerProjectPerHour_ == null
+            ? com.google.analytics.data.v1beta.QuotaStatus.getDefaultInstance()
+            : tokensPerProjectPerHour_;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Analytics Properties can use up to 25% of their tokens per project per
+     * hour. This amounts to standard Analytics Properties can use up to 1,250
+     * tokens per project per hour, and Analytics 360 Properties can use 12,500
+     * tokens per project per hour. An API request consumes a single number of
+     * tokens, and that number is deducted from all of the hourly, daily, and per
+     * project hourly quotas.
+     * </pre>
+     *
+     * <code>.google.analytics.data.v1beta.QuotaStatus tokens_per_project_per_hour = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+            com.google.analytics.data.v1beta.QuotaStatus,
+            com.google.analytics.data.v1beta.QuotaStatus.Builder,
+            com.google.analytics.data.v1beta.QuotaStatusOrBuilder>
+        getTokensPerProjectPerHourFieldBuilder() {
+      if (tokensPerProjectPerHourBuilder_ == null) {
+        tokensPerProjectPerHourBuilder_ =
+            new com.google.protobuf.SingleFieldBuilderV3<
+                com.google.analytics.data.v1beta.QuotaStatus,
+                com.google.analytics.data.v1beta.QuotaStatus.Builder,
+                com.google.analytics.data.v1beta.QuotaStatusOrBuilder>(
+                getTokensPerProjectPerHour(), getParentForChildren(), isClean());
+        tokensPerProjectPerHour_ = null;
+      }
+      return tokensPerProjectPerHourBuilder_;
     }
 
     @java.lang.Override

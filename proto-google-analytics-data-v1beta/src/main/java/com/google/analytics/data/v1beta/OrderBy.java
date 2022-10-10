@@ -22,7 +22,9 @@ package com.google.analytics.data.v1beta;
  *
  *
  * <pre>
- * The sort options.
+ * Order bys define how rows will be sorted in the response. For example,
+ * ordering rows by descending event count is one ordering, and ordering rows by
+ * the event name string is a different ordering.
  * </pre>
  *
  * Protobuf type {@code google.analytics.data.v1beta.OrderBy}
@@ -4395,7 +4397,9 @@ public final class OrderBy extends com.google.protobuf.GeneratedMessageV3
    *
    *
    * <pre>
-   * The sort options.
+   * Order bys define how rows will be sorted in the response. For example,
+   * ordering rows by descending event count is one ordering, and ordering rows by
+   * the event name string is a different ordering.
    * </pre>
    *
    * Protobuf type {@code google.analytics.data.v1beta.OrderBy}
