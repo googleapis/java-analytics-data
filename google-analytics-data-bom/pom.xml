@@ -61,7 +61,7 @@
       <dependency>
         <groupId>com.google.api.grpc</groupId>
         <artifactId>grpc-google-analytics-data-v1beta</artifactId>
-        <version>0.15.0</version><!-- {x-version-update:grpc-google-analytics-data-v1beta:current} -->
+        <version>0.14.10-SNAPSHOT</version><!-- {x-version-update:grpc-google-analytics-data-v1beta:current} -->
       </dependency>
       <dependency>
         <groupId>com.google.api.grpc</groupId>
