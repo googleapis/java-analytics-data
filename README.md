@@ -12,6 +12,13 @@ Java idiomatic client for [Analytics Data][product-docs].
 > make backwards-incompatible changes.
 
 
+:bus: In October 2022, this library has moved to
+[google-cloud-java/java-analytics-data](
+https://github.com/googleapis/google-cloud-java/tree/main/java-analytics-data).
+This repository will be archived in the future.
+Future releases will appear in the new repository (https://github.com/googleapis/google-cloud-java/releases).
+The Maven artifact coordinates (`com.google.analytics:google-analytics-data`) remain the same.
+
 ## Quickstart
 
 
@@ -22,20 +29,20 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.analytics</groupId>
   <artifactId>google-analytics-data</artifactId>
-  <version>0.14.9</version>
+  <version>0.16.0</version>
 </dependency>
 ```
 
 If you are using Gradle without BOM, add this to your dependencies:
 
 ```Groovy
-implementation 'com.google.analytics:google-analytics-data:0.14.9'
+implementation 'com.google.analytics:google-analytics-data:0.16.0'
 ```
 
 If you are using SBT, add this to your dependencies:
 
 ```Scala
-libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.14.9"
+libraryDependencies += "com.google.analytics" % "google-analytics-data" % "0.16.0"
 ```
 
 ## Authentication
