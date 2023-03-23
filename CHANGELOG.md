@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.0](https://github.com/googleapis/java-analytics-data/compare/v0.14.9...v0.15.0) (2023-03-23)
+
+
+### Features
+
+* Add `subject_to_thresholding` field to `ResponseMetadata` type ([#594](https://github.com/googleapis/java-analytics-data/issues/594)) ([63c4c17](https://github.com/googleapis/java-analytics-data/commit/63c4c177c33b23db68e0eba33634681592895e44))
+* Add `tokens_per_project_per_hour` field to `PropertyQuota` type ([63c4c17](https://github.com/googleapis/java-analytics-data/commit/63c4c177c33b23db68e0eba33634681592895e44))
+
 ## [0.14.9](https://github.com/googleapis/java-analytics-data/compare/v0.14.8...v0.14.9) (2022-10-05)
 
 
